@@ -34,14 +34,14 @@ export const RecommendedHostels = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex gap-2">
             <Button
-              variant="glass"
+              variant="outline"
               size="icon"
               onClick={() => scroll('left')}
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
             <Button
-              variant="glass"
+              variant="outline"
               size="icon"
               onClick={() => scroll('right')}
             >

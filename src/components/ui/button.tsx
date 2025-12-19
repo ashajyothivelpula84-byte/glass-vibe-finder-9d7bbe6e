@@ -9,16 +9,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-glow hover:-translate-y-0.5",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-0.5",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-input bg-background hover:bg-secondary hover:text-secondary-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-secondary hover:text-secondary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        gradient: "bg-gradient-to-r from-indigo-400 via-fuchsia-500 to-amber-500 text-white hover:shadow-glow hover:-translate-y-0.5 hover:brightness-110",
-        glass: "backdrop-blur-md bg-white/10 dark:bg-white/5 border border-white/20 text-foreground hover:bg-white/20 dark:hover:bg-white/10 hover:-translate-y-0.5",
-        hero: "bg-gradient-to-r from-indigo-400 via-fuchsia-500 to-amber-500 text-white font-bold hover:shadow-glow hover:-translate-y-1 hover:brightness-110 active:translate-y-0",
-        "hero-outline": "backdrop-blur-md bg-white/10 dark:bg-white/5 border-2 border-indigo-400/30 text-foreground font-bold hover:border-indigo-400/60 hover:bg-indigo-400/5 hover:-translate-y-1",
+        hero: "bg-primary text-primary-foreground font-bold hover:-translate-y-1 hover:bg-primary/90 active:translate-y-0",
+        "hero-outline": "bg-transparent border-2 border-primary text-primary font-bold hover:bg-primary hover:text-primary-foreground hover:-translate-y-1",
       },
       size: {
         default: "h-11 px-6 py-2",

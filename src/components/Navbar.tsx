@@ -25,7 +25,7 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'glass shadow-glass-lg border-b border-border/50'
+            ? 'bg-card/95 backdrop-blur-md shadow-lg border-b border-border'
             : 'bg-transparent'
         }`}
       >
@@ -33,17 +33,17 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary via-accent to-amber-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">S</span>
               </div>
-              <span className="font-display font-bold text-xl gradient-text hidden sm:block">
+              <span className="font-display font-bold text-xl text-primary hidden sm:block">
                 sklassics
               </span>
             </div>
 
             {/* Desktop Search Bar */}
-            <div className="hidden lg:flex items-center gap-2 glass-card px-2 py-1.5 max-w-xl flex-1 mx-8">
-              <div className="flex items-center gap-2 px-3 py-2 flex-1 border-r border-border/50">
+            <div className="hidden lg:flex items-center gap-2 bg-card border border-border rounded-2xl px-2 py-1.5 max-w-xl flex-1 mx-8 shadow-md">
+              <div className="flex items-center gap-2 px-3 py-2 flex-1 border-r border-border">
                 <MapPin className="w-4 h-4 text-muted-foreground" />
                 <input
                   type="text"
@@ -59,7 +59,7 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
                   className="bg-transparent border-none outline-none text-sm w-full placeholder:text-muted-foreground"
                 />
               </div>
-              <Button size="sm" variant="gradient" className="rounded-xl">
+              <Button size="sm" className="rounded-xl">
                 Search
               </Button>
             </div>
@@ -84,7 +84,7 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               {/* Wishlist */}
               <Button variant="ghost" size="icon" className="relative hidden sm:flex">
                 <Heart className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center font-semibold">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center font-semibold">
                   2
                 </span>
               </Button>
@@ -92,11 +92,11 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               {/* Notifications */}
               <Button variant="ghost" size="icon" className="relative hidden sm:flex">
                 <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-destructive rounded-full" />
               </Button>
 
               {/* Profile */}
-              <Button variant="glass" size="icon" className="hidden sm:flex">
+              <Button variant="outline" size="icon" className="hidden sm:flex">
                 <User className="w-5 h-5" />
               </Button>
 
@@ -116,12 +116,12 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
 
       {/* Mobile Search Panel */}
       <div
-        className={`fixed top-16 left-0 right-0 z-40 glass-card mx-4 mt-2 p-4 transition-all duration-300 lg:hidden ${
+        className={`fixed top-16 left-0 right-0 z-40 bg-card border border-border rounded-2xl mx-4 mt-2 p-4 shadow-lg transition-all duration-300 lg:hidden ${
           isSearchOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
         }`}
       >
         <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-2 px-4 py-3 bg-secondary/50 rounded-2xl">
+          <div className="flex items-center gap-2 px-4 py-3 bg-secondary rounded-2xl">
             <MapPin className="w-4 h-4 text-muted-foreground" />
             <input
               type="text"
@@ -129,7 +129,7 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               className="bg-transparent border-none outline-none text-sm w-full placeholder:text-muted-foreground"
             />
           </div>
-          <div className="flex items-center gap-2 px-4 py-3 bg-secondary/50 rounded-2xl">
+          <div className="flex items-center gap-2 px-4 py-3 bg-secondary rounded-2xl">
             <Search className="w-4 h-4 text-muted-foreground" />
             <input
               type="text"
@@ -137,7 +137,7 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               className="bg-transparent border-none outline-none text-sm w-full placeholder:text-muted-foreground"
             />
           </div>
-          <Button variant="gradient" className="w-full">
+          <Button className="w-full">
             Search Hostels
           </Button>
         </div>
@@ -151,24 +151,24 @@ export const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
       >
         <div className="absolute inset-0 bg-foreground/20 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
         <div
-          className={`absolute top-16 right-4 left-4 glass-card p-6 transition-all duration-300 ${
+          className={`absolute top-16 right-4 left-4 bg-card border border-border rounded-2xl p-6 shadow-lg transition-all duration-300 ${
             isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
           }`}
         >
           <div className="flex flex-col gap-4">
             <Button variant="ghost" className="justify-start gap-3">
               <Heart className="w-5 h-5" /> Saved Hostels
-              <span className="ml-auto bg-accent text-accent-foreground text-xs px-2 py-1 rounded-full">2</span>
+              <span className="ml-auto bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full">2</span>
             </Button>
             <Button variant="ghost" className="justify-start gap-3">
               <Bell className="w-5 h-5" /> Notifications
-              <span className="ml-auto w-2 h-2 bg-amber-500 rounded-full" />
+              <span className="ml-auto w-2 h-2 bg-destructive rounded-full" />
             </Button>
             <Button variant="ghost" className="justify-start gap-3">
               <User className="w-5 h-5" /> Profile
             </Button>
             <div className="h-px bg-border my-2" />
-            <Button variant="gradient" className="w-full">
+            <Button className="w-full">
               Get Started
             </Button>
           </div>

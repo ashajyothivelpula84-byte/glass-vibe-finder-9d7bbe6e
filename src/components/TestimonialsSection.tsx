@@ -79,7 +79,7 @@ export const TestimonialsSection = () => {
                 className="text-center p-6 glass-card hover-lift"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <p className="font-display text-3xl lg:text-4xl font-bold gradient-text mb-2">
+                <p className="font-display text-3xl lg:text-4xl font-bold text-primary mb-2">
                   {stat.value}
                 </p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
