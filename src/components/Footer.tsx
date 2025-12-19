@@ -37,7 +37,7 @@ export const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary via-accent to-amber-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-2xl bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">S</span>
               </div>
               <span className="font-display font-bold text-xl">sklassics</span>
@@ -51,7 +51,7 @@ export const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 rounded-xl glass flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -127,7 +127,7 @@ export const Footer = () => {
                 placeholder="Enter your email"
                 className="flex-1 lg:w-72 px-4 py-3 rounded-xl bg-background border border-border focus:border-primary outline-none transition-colors"
               />
-              <Button variant="gradient">
+              <Button>
                 Subscribe
               </Button>
             </div>

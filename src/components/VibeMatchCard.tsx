@@ -17,15 +17,15 @@ export const VibeMatchCard = () => {
   return (
     <section className="py-16 lg:py-24 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_100%_50%,hsl(var(--primary)/0.05)_0%,transparent_50%)]" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 via-accent/10 to-amber-500/10 px-4 py-2 rounded-full mb-4">
-              <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm font-semibold gradient-text">Exclusive Feature</span>
+            <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full mb-4">
+              <Sparkles className="w-4 h-4" />
+              <span className="text-sm font-semibold">Exclusive Feature</span>
             </div>
             <h2 className="font-display text-3xl lg:text-5xl font-bold mb-4">
               VibeMatch™
@@ -51,14 +51,14 @@ export const VibeMatchCard = () => {
                         onClick={() => setSelectedVibe(vibe.id)}
                         className={`relative p-4 rounded-2xl border-2 transition-all duration-300 text-center ${
                           selectedVibe === vibe.id
-                            ? 'border-primary bg-primary/10 shadow-glow'
-                            : 'border-border hover:border-primary/50 hover:bg-secondary/50'
+                            ? 'border-primary bg-accent'
+                            : 'border-border hover:border-primary/50 hover:bg-secondary'
                         }`}
                       >
                         <div
                           className={`w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-2 transition-all duration-300 ${
                             selectedVibe === vibe.id
-                              ? 'bg-gradient-to-br from-primary to-accent'
+                              ? 'bg-primary'
                               : 'bg-secondary'
                           }`}
                         >
@@ -71,7 +71,7 @@ export const VibeMatchCard = () => {
                         <p className="font-semibold text-sm">{vibe.label}</p>
                         <p className="text-xs text-muted-foreground">{vibe.description}</p>
                         {selectedVibe === vibe.id && (
-                          <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                          <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
                             <span className="text-primary-foreground text-xs">✓</span>
                           </div>
                         )}
@@ -94,7 +94,7 @@ export const VibeMatchCard = () => {
                           onClick={() => setPeople(num)}
                           className={`w-10 h-10 rounded-xl font-semibold transition-all duration-300 ${
                             people === num
-                              ? 'bg-gradient-to-br from-primary to-accent text-primary-foreground scale-110'
+                              ? 'bg-primary text-primary-foreground scale-110'
                               : 'bg-secondary hover:bg-secondary/80'
                           }`}
                         >
@@ -116,10 +116,10 @@ export const VibeMatchCard = () => {
                   <label className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 block">
                     Monthly Budget
                   </label>
-                  <div className="bg-secondary/50 rounded-2xl p-6">
+                  <div className="bg-secondary rounded-2xl p-6">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-sm text-muted-foreground">₹5,000</span>
-                      <span className="text-2xl font-bold gradient-text">
+                      <span className="text-2xl font-bold text-primary">
                         ₹{budget[0].toLocaleString()}
                       </span>
                       <span className="text-sm text-muted-foreground">₹25,000</span>
@@ -136,10 +136,10 @@ export const VibeMatchCard = () => {
                 </div>
 
                 {/* Match Preview */}
-                <div className="glass rounded-2xl p-4 border-2 border-dashed border-primary/30">
+                <div className="bg-accent rounded-2xl p-4 border-2 border-dashed border-primary/30">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-                      <span className="text-primary-foreground font-bold">98%</span>
+                    <div className="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center">
+                      <span className="text-white font-bold">98%</span>
                     </div>
                     <div>
                       <p className="font-semibold">Perfect matches found!</p>

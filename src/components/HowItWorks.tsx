@@ -25,7 +25,7 @@ export const HowItWorks = () => {
           {/* Steps */}
           <div className="relative">
             {/* Connection Line */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-amber-500 transform -translate-y-1/2 rounded-full opacity-20" />
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-border transform -translate-y-1/2 rounded-full" />
 
             <div className="grid lg:grid-cols-3 gap-8 lg:gap-6">
               {howItWorks.map((step, index) => {
@@ -38,13 +38,13 @@ export const HowItWorks = () => {
                   >
                     <div className="glass-card p-6 lg:p-8 text-center hover-lift h-full">
                       {/* Step Number */}
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm shadow-glow">
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md">
                         {step.step}
                       </div>
 
                       {/* Icon */}
-                      <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-primary/10 via-accent/10 to-amber-500/10 flex items-center justify-center mb-6 mt-4 group-hover:scale-110 transition-transform duration-300">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary via-accent to-amber-500 flex items-center justify-center">
+                      <div className="w-20 h-20 mx-auto rounded-3xl bg-accent flex items-center justify-center mb-6 mt-4 group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center">
                           <IconComponent className="w-6 h-6 text-primary-foreground" />
                         </div>
                       </div>
@@ -61,7 +61,7 @@ export const HowItWorks = () => {
                     {/* Arrow for desktop */}
                     {index < 2 && (
                       <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground">
+                        <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
                           →
                         </div>
                       </div>
