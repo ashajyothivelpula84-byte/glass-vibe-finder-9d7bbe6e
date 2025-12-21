@@ -3,7 +3,25 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+
+// GxPify Pages
+import GxpHome from "./pages/gxpify/GxpHome";
+import AuditsOverview from "./pages/gxpify/AuditsOverview";
+import GlpGcpAudits from "./pages/gxpify/GlpGcpAudits";
+import GmpAudits from "./pages/gxpify/GmpAudits";
+import VendorAudits from "./pages/gxpify/VendorAudits";
+import GdpAudits from "./pages/gxpify/GdpAudits";
+import GpvpAudits from "./pages/gxpify/GpvpAudits";
+import SpecializedAudits from "./pages/gxpify/SpecializedAudits";
+import GlobalCoverage from "./pages/gxpify/GlobalCoverage";
+import IndiaAsean from "./pages/gxpify/IndiaAsean";
+import CatFramework from "./pages/gxpify/CatFramework";
+import FAQs from "./pages/gxpify/FAQs";
+import About from "./pages/gxpify/About";
+import Contact from "./pages/gxpify/Contact";
+import Terms from "./pages/gxpify/legal/Terms";
+import Disclaimer from "./pages/gxpify/legal/Disclaimer";
+import Privacy from "./pages/gxpify/legal/Privacy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,8 +33,34 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<GxpHome />} />
+          
+          {/* Audits */}
+          <Route path="/audits" element={<AuditsOverview />} />
+          <Route path="/audits/glp-gcp" element={<GlpGcpAudits />} />
+          <Route path="/audits/gmp" element={<GmpAudits />} />
+          <Route path="/audits/vendor" element={<VendorAudits />} />
+          <Route path="/audits/gdp" element={<GdpAudits />} />
+          <Route path="/audits/gpvp" element={<GpvpAudits />} />
+          <Route path="/audits/specialized" element={<SpecializedAudits />} />
+          
+          {/* Coverage & Delivery */}
+          <Route path="/global-coverage" element={<GlobalCoverage />} />
+          <Route path="/india-asean" element={<IndiaAsean />} />
+          
+          {/* CAT Framework */}
+          <Route path="/cat-framework" element={<CatFramework />} />
+          
+          {/* Support */}
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          
+          {/* Legal */}
+          <Route path="/legal/terms" element={<Terms />} />
+          <Route path="/legal/disclaimer" element={<Disclaimer />} />
+          <Route path="/legal/privacy" element={<Privacy />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
