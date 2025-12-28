@@ -19,6 +19,8 @@ import CatFramework from "./pages/gxpify/CatFramework";
 import FAQs from "./pages/gxpify/FAQs";
 import About from "./pages/gxpify/About";
 import Contact from "./pages/gxpify/Contact";
+import Blog from "./pages/gxpify/Blog";
+import BlogPost from "./pages/gxpify/BlogPost";
 import Terms from "./pages/gxpify/legal/Terms";
 import Disclaimer from "./pages/gxpify/legal/Disclaimer";
 import Privacy from "./pages/gxpify/legal/Privacy";
@@ -55,6 +57,10 @@ const App = () => (
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          
+          {/* Blog */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           
           {/* Legal */}
           <Route path="/legal/terms" element={<Terms />} />
