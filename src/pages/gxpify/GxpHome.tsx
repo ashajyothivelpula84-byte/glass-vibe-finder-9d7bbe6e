@@ -63,7 +63,7 @@ const GxpHome = () => {
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm" asChild>
+                <Button size="lg" variant="outline" className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
                   <Link to="/cat-framework">Training & QMS (ASEAN)</Link>
                 </Button>
               </div>
