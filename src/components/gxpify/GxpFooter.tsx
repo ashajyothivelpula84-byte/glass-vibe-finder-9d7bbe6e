@@ -1,129 +1,209 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Phone, ArrowUpRight, Shield } from 'lucide-react';
 import { footerLinks } from '@/data/gxpifyData';
 
 const GxpFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container-wide section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-foreground rounded-lg flex items-center justify-center">
-                <span className="text-primary font-display font-bold text-lg">G</span>
+    <footer className="relative bg-primary text-primary-foreground overflow-hidden">
+      {/* Geometric Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/5" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-foreground/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-2 h-2 bg-accent/40 rounded-full" />
+        <div className="absolute top-40 right-1/3 w-3 h-3 bg-primary-foreground/20 rounded-full" />
+        <div className="absolute bottom-32 right-1/4 w-2 h-2 bg-accent/30 rounded-full" />
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
+          backgroundSize: '60px 60px'
+        }} />
+      </div>
+
+      {/* Top Wave Border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+
+      <div className="container-wide relative z-10">
+        {/* Newsletter / CTA Section */}
+        <div className="py-12 border-b border-primary-foreground/10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-accent/20 rounded-xl">
+                <Shield className="w-8 h-8 text-accent" />
               </div>
-              <span className="font-display text-xl font-semibold">GxPify</span>
-            </Link>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-sm mb-6">
-              Independent GxP audit services for global life sciences organizations. 
-              Global mandates. Client-defined scope. Regional execution. Single-point accountability.
-            </p>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:contact@gxpify.com"
-                className="p-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+              <div>
+                <h3 className="font-display text-xl font-semibold">Ready to Elevate Your Compliance?</h3>
+                <p className="text-primary-foreground/70 text-sm">Get in touch for independent, risk-based GxP audits.</p>
+              </div>
             </div>
+            <Link 
+              to="/contact" 
+              className="group inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-medium rounded-lg transition-all duration-300 shadow-lg shadow-accent/25"
+            >
+              Request an Audit
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
           </div>
+        </div>
 
-          {/* GxPify Column */}
-          <div>
-            <h4 className="font-display text-sm font-semibold mb-4 uppercase tracking-wider">
-              GxPify
-            </h4>
-            <ul className="space-y-2.5">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Main Footer Content */}
+        <div className="py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+            {/* Brand Column */}
+            <div className="lg:col-span-4">
+              <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center shadow-lg shadow-accent/25 group-hover:scale-105 transition-transform">
+                  <span className="text-accent-foreground font-display font-bold text-xl">G</span>
+                </div>
+                <div>
+                  <span className="font-display text-2xl font-bold block">GxPify</span>
+                  <span className="text-xs text-primary-foreground/60 tracking-wider uppercase">Audit Excellence</span>
+                </div>
+              </Link>
+              <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-sm mb-8">
+                Independent GxP audit services for global life sciences organizations. 
+                Global mandates. Client-defined scope. Regional execution. Single-point accountability.
+              </p>
+              
+              {/* Contact Info */}
+              <div className="space-y-3 mb-6">
+                <a href="mailto:contact@gxpify.com" className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-accent transition-colors group">
+                  <div className="p-2 bg-primary-foreground/10 rounded-lg group-hover:bg-accent/20 transition-colors">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  contact@gxpify.com
+                </a>
+                <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
+                  <div className="p-2 bg-primary-foreground/10 rounded-lg">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  India & ASEAN
+                </div>
+              </div>
 
-          {/* Services Column */}
-          <div>
-            <h4 className="font-display text-sm font-semibold mb-4 uppercase tracking-wider">
-              Services
-            </h4>
-            <ul className="space-y-2.5">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+              {/* Social Links */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-primary-foreground/10 hover:bg-accent/20 hover:text-accent transition-all duration-300 group"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </a>
+                <a
+                  href="mailto:contact@gxpify.com"
+                  className="p-3 rounded-xl bg-primary-foreground/10 hover:bg-accent/20 hover:text-accent transition-all duration-300 group"
+                  aria-label="Email"
+                >
+                  <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
+            </div>
 
-          {/* Support & Legal Column */}
-          <div>
-            <h4 className="font-display text-sm font-semibold mb-4 uppercase tracking-wider">
-              Support
-            </h4>
-            <ul className="space-y-2.5 mb-6">
-              {footerLinks.support.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* GxPify Column */}
+            <div className="lg:col-span-2">
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                GxPify
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <h4 className="font-display text-sm font-semibold mb-4 uppercase tracking-wider">
-              Legal
-            </h4>
-            <ul className="space-y-2.5">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Services Column */}
+            <div className="lg:col-span-2">
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                Services
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.services.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Support Column */}
+            <div className="lg:col-span-2">
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                Support
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.support.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal Column */}
+            <div className="lg:col-span-2">
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                Legal
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-primary-foreground/60">
-              © {currentYear} GxPify. All rights reserved.
-            </p>
-            <p className="text-sm text-primary-foreground/60">
-              Independent Audit Services
-            </p>
+        <div className="py-6 border-t border-primary-foreground/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-sm text-primary-foreground/50">
+              <span>© {currentYear} GxPify.</span>
+              <span className="hidden sm:inline">•</span>
+              <span className="hidden sm:inline">All rights reserved.</span>
+            </div>
+            <div className="flex items-center gap-6">
+              <span className="text-xs text-primary-foreground/40 uppercase tracking-wider">
+                Independent Audit Services
+              </span>
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-xs text-primary-foreground/50">Accepting Engagements</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
