@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Shield, Globe, Target, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import ServiceCard from '@/components/gxpify/ServiceCard';
@@ -12,46 +12,125 @@ const GxpHome = () => {
 
   return (
     <PageLayout>
-      {/* Hero Section */}
-      <section className="bg-primary text-primary-foreground py-20 md:py-32">
-        <div className="container-wide">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 animate-fade-in">
-              Independent GxP Audit Services for Global Life Sciences Organizations
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-8 max-w-2xl mx-auto animate-fade-in delay-100">
-              Global mandates. Client-defined scope. Regional execution. Single-point audit accountability.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in delay-200">
-              <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">
-                  Request an Audit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <Link to="/cat-framework">Training & QMS (ASEAN)</Link>
-              </Button>
-            </div>
+      {/* Enhanced Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center bg-primary text-primary-foreground overflow-hidden">
+        {/* Geometric Background Pattern */}
+        <div className="absolute inset-0">
+          {/* Gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary-foreground)/0.08)_0%,transparent_50%)]" />
+          
+          {/* Geometric shapes */}
+          <div className="absolute top-20 right-10 w-72 h-72 border border-primary-foreground/10 rounded-full animate-pulse" />
+          <div className="absolute top-40 right-20 w-48 h-48 border border-accent/20 rounded-full" />
+          <div className="absolute bottom-20 left-10 w-64 h-64 border border-primary-foreground/5 rounded-full" />
+          <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-accent/30 rounded-full animate-pulse" />
+          <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary-foreground/20 rounded-full" />
+          <div className="absolute bottom-1/3 right-1/4 w-5 h-5 bg-accent/20 rounded-full animate-pulse" />
+          
+          {/* Grid pattern */}
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
 
-            {/* Trust Indicators */}
-            <div className="mt-12 pt-8 border-t border-primary-foreground/10">
-              <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-primary-foreground/70">
-                <span className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent" />
-                  Independent & Objective
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent" />
-                  Risk-Based Methodology
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-accent" />
-                  Lead Auditor Accountability
-                </span>
+        <div className="container-wide relative z-10 py-20 md:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6 animate-fade-in">
+                <Shield className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-primary-foreground/90">Independent Audit Practice</span>
+              </div>
+
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">
+                Independent GxP Audit Services for{' '}
+                <span className="text-accent">Global Life Sciences</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-8 animate-fade-in max-w-xl">
+                Global mandates. Client-defined scope. Regional execution. Single-point audit accountability.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-start gap-4 mb-10 animate-fade-in">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+                  <Link to="/contact">
+                    Request an Audit
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm" asChild>
+                  <Link to="/cat-framework">Training & QMS (ASEAN)</Link>
+                </Button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap gap-4 animate-fade-in">
+                {[
+                  { icon: CheckCircle, text: 'Independent & Objective' },
+                  { icon: Target, text: 'Risk-Based Methodology' },
+                  { icon: Award, text: 'Lead Auditor Accountability' },
+                ].map((item, index) => (
+                  <span 
+                    key={item.text}
+                    className="flex items-center gap-2 text-sm text-primary-foreground/80"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <item.icon className="w-4 h-4 text-accent" />
+                    {item.text}
+                  </span>
+                ))}
               </div>
             </div>
+
+            {/* Right Content - Stats/Feature Cards */}
+            <div className="relative animate-fade-in hidden lg:block">
+              <div className="grid grid-cols-2 gap-4">
+                {/* Stat Cards */}
+                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <Globe className="w-8 h-8 text-accent mb-3" />
+                  <p className="font-display text-3xl font-bold text-primary-foreground">5+</p>
+                  <p className="text-sm text-primary-foreground/70">Countries Served</p>
+                </div>
+                
+                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
+                  <Shield className="w-8 h-8 text-accent mb-3" />
+                  <p className="font-display text-3xl font-bold text-primary-foreground">6</p>
+                  <p className="text-sm text-primary-foreground/70">GxP Domains</p>
+                </div>
+                
+                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300">
+                  <Target className="w-8 h-8 text-accent mb-3" />
+                  <p className="font-display text-3xl font-bold text-primary-foreground">100%</p>
+                  <p className="text-sm text-primary-foreground/70">Client-Defined Scope</p>
+                </div>
+                
+                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
+                  <Award className="w-8 h-8 text-accent mb-3" />
+                  <p className="font-display text-3xl font-bold text-primary-foreground">1</p>
+                  <p className="text-sm text-primary-foreground/70">Lead Auditor Accountability</p>
+                </div>
+              </div>
+              
+              {/* Decorative element */}
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-accent/30 rounded-xl -z-10" />
+              <div className="absolute -top-4 -left-4 w-24 h-24 border border-primary-foreground/10 rounded-xl -z-10" />
+            </div>
           </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path
+              d="M0 100V40C240 70 480 85 720 70C960 55 1200 20 1440 40V100H0Z"
+              className="fill-background"
+            />
+          </svg>
         </div>
       </section>
 
