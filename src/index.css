@@ -66,8 +66,8 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 222 47% 20%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 222 47% 15%;
     --secondary-foreground: 210 40% 98%;
@@ -76,7 +76,7 @@
     --muted-foreground: 215 20% 65%;
 
     --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 11%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
