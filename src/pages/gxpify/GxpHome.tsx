@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Shield, Globe, Target, Award } from 'lucide-react';
+import { ArrowRight, CheckCircle, Shield, Globe, Target, Award, Quote, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import ServiceCard from '@/components/gxpify/ServiceCard';
@@ -7,6 +7,46 @@ import ValuePropCard from '@/components/gxpify/ValuePropCard';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
 import { auditServices, valueProps, howItWorksSteps, faqs, globalCoverageCountries } from '@/data/gxpifyData';
 import heroPharma from '@/assets/hero-pharma.jpg';
+
+// Testimonials Data
+const testimonials = [
+  {
+    id: 1,
+    name: 'Dr. Sarah Mitchell',
+    role: 'VP Quality Assurance',
+    company: 'PharmaCorp International',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
+    quote: 'GxPify transformed our vendor qualification process. Their risk-based approach and transparent reporting helped us identify critical gaps we had overlooked. The Lead Auditor accountability model gave us confidence throughout the engagement.',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'James Anderson',
+    role: 'Director of Compliance',
+    company: 'BioGen Solutions',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+    quote: 'Working with GxPify on our GMP audits was exceptional. Their team demonstrated deep regulatory knowledge and provided actionable insights that strengthened our quality management system significantly.',
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Dr. Elena Rodriguez',
+    role: 'Head of Pharmacovigilance',
+    company: 'MedLife Sciences',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
+    quote: 'The GPvP audit conducted by GxPify was thorough and insightful. Their independent approach and clear communication made the entire process smooth. Highly recommend for any life sciences organization.',
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: 'Michael Chen',
+    role: 'Supply Chain Director',
+    company: 'Global Pharma Ltd',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    quote: 'GxPify\'s vendor audit services helped us establish a robust supplier qualification framework. Their global coverage and regional execution model perfectly suited our international supply chain needs.',
+    rating: 5,
+  },
+];
 
 const GxpHome = () => {
   const generalFaqs = faqs.filter(f => f.category === 'general').slice(0, 3);
@@ -222,6 +262,93 @@ const GxpHome = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {valueProps.map((prop) => (
               <ValuePropCard key={prop.title} {...prop} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section-padding bg-secondary overflow-hidden">
+        <div className="container-wide">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+              <Star className="w-4 h-4 text-primary fill-primary" />
+              <span className="text-sm font-medium text-primary">Client Success Stories</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Trusted by Industry Leaders
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Hear from quality and compliance professionals who have partnered with GxPify for their audit needs.
+            </p>
+          </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className="group relative bg-card rounded-2xl p-8 border border-border shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Quote Icon */}
+                <div className="absolute -top-4 -left-2 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
+                  <Quote className="w-6 h-6 text-primary-foreground" />
+                </div>
+
+                {/* Stars */}
+                <div className="flex gap-1 mb-4 pt-2">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-accent fill-accent" />
+                  ))}
+                </div>
+
+                {/* Quote Text */}
+                <blockquote className="text-foreground leading-relaxed mb-6 text-lg">
+                  "{testimonial.quote}"
+                </blockquote>
+
+                {/* Author */}
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-card"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-3 h-3 text-accent-foreground" />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-sm text-primary font-medium">{testimonial.company}</p>
+                  </div>
+                </div>
+
+                {/* Decorative Corner */}
+                <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Stats */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {[
+              { value: '100%', label: 'Client Satisfaction' },
+              { value: '50+', label: 'Audits Completed' },
+              { value: '5+', label: 'Countries Served' },
+              { value: '6', label: 'GxP Domains' },
+            ].map((stat, index) => (
+              <div 
+                key={stat.label}
+                className="text-center p-6 bg-card rounded-xl border border-border hover:border-primary/30 transition-colors"
+              >
+                <p className="font-display text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>
