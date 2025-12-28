@@ -220,6 +220,7 @@ export const mainNavLinks = [
   { label: 'Global Coverage', href: '/global-coverage' },
   { label: 'India & ASEAN', href: '/india-asean' },
   { label: 'CAT Framework', href: '/cat-framework' },
+  { label: 'Blog', href: '/blog' },
   { label: 'FAQs', href: '/faqs' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
@@ -238,6 +239,7 @@ export const footerLinks = {
   ],
   support: [
     { label: 'FAQs', href: '/faqs' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
   legal: [
