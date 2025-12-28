@@ -33,6 +33,7 @@ const Contact = () => {
       <PageHero
         title="Contact GxPify"
         subtitle="Get in touch to discuss your audit requirements or training and QMS enquiries."
+        badge="Let's Talk"
       />
 
       <section className="section-padding bg-background">

@@ -42,8 +42,9 @@ const CatFramework = () => {
       <PageHero
         title="CAT Framework"
         subtitle="Consult · Assess · Train — Our integrated framework for training and QMS enablement, available in India and ASEAN only."
+        badge="Training & QMS"
       >
-        <span className="inline-block px-4 py-2 bg-accent/20 text-accent-foreground text-sm font-medium rounded-full">
+        <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 border border-accent/30 text-primary-foreground text-sm font-medium rounded-full">
           India & ASEAN Only
         </span>
       </PageHero>
@@ -138,20 +139,36 @@ const CatFramework = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container-wide text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4">
+      <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
+          <div className="absolute top-10 right-10 w-48 h-48 border border-primary-foreground/10 rounded-full" />
+          <div className="absolute bottom-10 left-10 w-32 h-32 border border-accent/20 rounded-full" />
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        
+        <div className="container-wide text-center relative z-10">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Interested in Training & QMS Support?
           </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
+          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
             Contact us to discuss how the CAT Framework can support your organization's GxP competency and quality system development.
           </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/contact">
-              Training & QMS Enquiry
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+              <Link to="/contact">
+                Training & QMS Enquiry
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <Link to="/faqs">View FAQs</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </PageLayout>

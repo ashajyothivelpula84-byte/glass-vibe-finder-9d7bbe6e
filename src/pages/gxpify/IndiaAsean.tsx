@@ -30,6 +30,7 @@ const IndiaAsean = () => {
       <PageHero
         title="India & ASEAN Audit Delivery"
         subtitle="Our audit teams are based in India and ASEAN, providing efficient, high-quality audit delivery for suppliers and manufacturers in these regions."
+        badge="Regional Excellence"
       />
 
       <section className="section-padding bg-background">
@@ -125,20 +126,36 @@ const IndiaAsean = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container-wide text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4">
+      <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
+          <div className="absolute top-10 right-10 w-48 h-48 border border-primary-foreground/10 rounded-full" />
+          <div className="absolute bottom-10 left-10 w-32 h-32 border border-accent/20 rounded-full" />
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        
+        <div className="container-wide text-center relative z-10">
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Ready to Plan Your Next Audit?
           </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8">
+          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
             Contact us to discuss audit requirements for suppliers in India and ASEAN.
           </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/contact">
-              Request an Audit
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+              <Link to="/contact">
+                Request an Audit
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <Link to="/global-coverage">Global Coverage</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </PageLayout>
