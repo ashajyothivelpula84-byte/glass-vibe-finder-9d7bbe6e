@@ -6,6 +6,7 @@ import ServiceCard from '@/components/gxpify/ServiceCard';
 import ValuePropCard from '@/components/gxpify/ValuePropCard';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
 import { auditServices, valueProps, howItWorksSteps, faqs, globalCoverageCountries } from '@/data/gxpifyData';
+import heroPharma from '@/assets/hero-pharma.jpg';
 
 const GxpHome = () => {
   const generalFaqs = faqs.filter(f => f.category === 'general').slice(0, 3);
@@ -87,36 +88,49 @@ const GxpHome = () => {
               </div>
             </div>
 
-            {/* Right Content - Stats/Feature Cards */}
+            {/* Right Content - Hero Image with Stats Overlay */}
             <div className="relative animate-fade-in hidden lg:block">
-              <div className="grid grid-cols-2 gap-4">
-                {/* Stat Cards */}
-                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300">
-                  <Globe className="w-8 h-8 text-accent mb-3" />
-                  <p className="font-display text-3xl font-bold text-primary-foreground">5+</p>
-                  <p className="text-sm text-primary-foreground/70">Countries Served</p>
-                </div>
+              {/* Main Image Container */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroPharma} 
+                  alt="Pharmaceutical laboratory audit professionals" 
+                  className="w-full h-[500px] object-cover"
+                />
+                {/* Dark overlay for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
                 
-                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
-                  <Shield className="w-8 h-8 text-accent mb-3" />
-                  <p className="font-display text-3xl font-bold text-primary-foreground">6</p>
-                  <p className="text-sm text-primary-foreground/70">GxP Domains</p>
-                </div>
-                
-                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300">
-                  <Target className="w-8 h-8 text-accent mb-3" />
-                  <p className="font-display text-3xl font-bold text-primary-foreground">100%</p>
-                  <p className="text-sm text-primary-foreground/70">Client-Defined Scope</p>
-                </div>
-                
-                <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl p-6 hover:bg-primary-foreground/15 transition-all duration-300 mt-8">
-                  <Award className="w-8 h-8 text-accent mb-3" />
-                  <p className="font-display text-3xl font-bold text-primary-foreground">1</p>
-                  <p className="text-sm text-primary-foreground/70">Lead Auditor Accountability</p>
+                {/* Stats overlay at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
+                      <Globe className="w-6 h-6 text-accent mb-2" />
+                      <p className="font-display text-2xl font-bold text-primary-foreground">5+</p>
+                      <p className="text-xs text-primary-foreground/70">Countries Served</p>
+                    </div>
+                    
+                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
+                      <Shield className="w-6 h-6 text-accent mb-2" />
+                      <p className="font-display text-2xl font-bold text-primary-foreground">6</p>
+                      <p className="text-xs text-primary-foreground/70">GxP Domains</p>
+                    </div>
+                    
+                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
+                      <Target className="w-6 h-6 text-accent mb-2" />
+                      <p className="font-display text-2xl font-bold text-primary-foreground">100%</p>
+                      <p className="text-xs text-primary-foreground/70">Client-Defined Scope</p>
+                    </div>
+                    
+                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
+                      <Award className="w-6 h-6 text-accent mb-2" />
+                      <p className="font-display text-2xl font-bold text-primary-foreground">1</p>
+                      <p className="text-xs text-primary-foreground/70">Lead Auditor Accountability</p>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Decorative element */}
+              {/* Decorative elements */}
               <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-accent/30 rounded-xl -z-10" />
               <div className="absolute -top-4 -left-4 w-24 h-24 border border-primary-foreground/10 rounded-xl -z-10" />
             </div>
