@@ -214,39 +214,53 @@ const GxpHome = () => {
       </section>
 
       {/* Global Coverage */}
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container-wide">
+      <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
+          <div className="absolute top-10 right-10 w-64 h-64 border border-primary-foreground/10 rounded-full" />
+          <div className="absolute bottom-10 left-10 w-40 h-40 border border-accent/20 rounded-full" />
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-accent/30 rounded-full animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-primary-foreground/20 rounded-full" />
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        
+        <div className="container-wide relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
                 Global Coverage & Delivery
               </h2>
-              <p className="text-primary-foreground/80 leading-relaxed mb-6">
+              <p className="text-primary-foreground/80 leading-relaxed mb-6 text-lg">
                 We serve global clients across major pharmaceutical markets. Audits are commissioned by organizations worldwide and executed by our Lead Auditor-led teams in India and ASEAN regions.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {globalCoverageCountries.map((country) => (
                   <span
                     key={country.code}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 rounded-full text-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full text-sm"
                   >
                     <span>{country.flag}</span>
                     {country.name}
                   </span>
                 ))}
               </div>
-              <Button variant="secondary" asChild>
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
                 <Link to="/global-coverage">
                   Learn About Our Coverage
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>
-            <div className="bg-primary-foreground/5 rounded-lg p-8 border border-primary-foreground/10">
-              <h3 className="font-display text-xl font-semibold mb-4">
+            <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20">
+              <h3 className="font-display text-xl font-bold mb-6">
                 Regional Execution Model
               </h3>
-              <ul className="space-y-3 text-primary-foreground/80">
+              <ul className="space-y-4 text-primary-foreground/80">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                   <span>Lead Auditor accountability for every engagement</span>
@@ -339,16 +353,30 @@ const GxpHome = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="section-padding bg-primary text-primary-foreground">
-        <div className="container-wide text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4">
+      <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
+          <div className="absolute top-10 right-10 w-48 h-48 border border-primary-foreground/10 rounded-full" />
+          <div className="absolute bottom-10 left-10 w-32 h-32 border border-accent/20 rounded-full" />
+          <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-accent/30 rounded-full animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-primary-foreground/20 rounded-full" />
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        
+        <div className="container-wide text-center relative z-10">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-10 text-lg md:text-xl">
             Contact us to discuss your audit requirements. We'll work with you to define a scope that meets your specific needs.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
               <Link to="/contact">
                 Request an Audit
                 <ArrowRight className="ml-2 w-5 h-5" />

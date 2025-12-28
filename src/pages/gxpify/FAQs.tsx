@@ -25,6 +25,7 @@ const FAQs = () => {
       <PageHero
         title="Frequently Asked Questions"
         subtitle="Find answers to common questions about our audit services, methodology, and approach."
+        badge="Support & Help"
       />
 
       <section className="section-padding bg-background">
