@@ -64,21 +64,21 @@ export const auditServices: AuditService[] = [
   }
 ];
 
-// Global Coverage Countries
+// Global Coverage Countries - No flags per image rules
 export const globalCoverageCountries = [
-  { name: 'United States', code: 'US', flag: '🇺🇸' },
-  { name: 'Canada', code: 'CA', flag: '🇨🇦' },
-  { name: 'United Kingdom', code: 'UK', flag: '🇬🇧' },
-  { name: 'Germany / EU', code: 'EU', flag: '🇪🇺' },
-  { name: 'Japan', code: 'JP', flag: '🇯🇵' },
+  { name: 'United States', code: 'US', region: 'Americas' },
+  { name: 'Canada', code: 'CA', region: 'Americas' },
+  { name: 'United Kingdom', code: 'UK', region: 'Europe' },
+  { name: 'Germany / EU', code: 'EU', region: 'Europe' },
+  { name: 'Japan', code: 'JP', region: 'Asia-Pacific' },
 ];
 
-// ASEAN Delivery Regions
+// ASEAN Delivery Regions - No flags per image rules
 export const aseanRegions = [
-  { name: 'India', code: 'IN', flag: '🇮🇳' },
-  { name: 'Singapore', code: 'SG', flag: '🇸🇬' },
-  { name: 'Malaysia', code: 'MY', flag: '🇲🇾' },
-  { name: 'Vietnam', code: 'VN', flag: '🇻🇳' },
+  { name: 'India', code: 'IN', region: 'South Asia' },
+  { name: 'Singapore', code: 'SG', region: 'ASEAN' },
+  { name: 'Malaysia', code: 'MY', region: 'ASEAN' },
+  { name: 'Vietnam', code: 'VN', region: 'ASEAN' },
 ];
 
 // FAQs

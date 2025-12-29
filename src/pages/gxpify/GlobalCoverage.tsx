@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Globe, Building2, FileText, Users, Scale } from 'lucide-react';
+import { ArrowRight, Globe, Building2, FileText, Users, Scale, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
 
 const GlobalCoverage = () => {
+  // No country flags per image rules - using regions only
   const commissioningRegions = [
-    { name: 'United States', flag: '🇺🇸' },
-    { name: 'Canada', flag: '🇨🇦' },
-    { name: 'United Kingdom', flag: '🇬🇧' },
-    { name: 'European Union', flag: '🇪🇺', note: 'Ireland, Germany, Netherlands, etc.' },
-    { name: 'Japan', flag: '🇯🇵' },
-    { name: 'APAC', flag: '🌏' },
+    { name: 'United States', region: 'Americas' },
+    { name: 'Canada', region: 'Americas' },
+    { name: 'United Kingdom', region: 'Europe' },
+    { name: 'European Union', region: 'Europe', note: 'Ireland, Germany, Netherlands, etc.' },
+    { name: 'Japan', region: 'Asia-Pacific' },
+    { name: 'APAC', region: 'Asia-Pacific' },
   ];
 
   const commissioningTypes = [
@@ -71,9 +72,12 @@ const GlobalCoverage = () => {
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
               {commissioningRegions.map((region) => (
-                <div key={region.name} className="p-5 bg-card border border-border rounded-lg">
-                  <span className="text-3xl mb-3 block">{region.flag}</span>
+                <div key={region.name} className="p-5 bg-card border border-border rounded-lg group hover:border-accent/50 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 group-hover:bg-accent/20 transition-colors">
+                    <MapPin className="w-5 h-5 text-accent" />
+                  </div>
                   <h3 className="font-display font-semibold text-foreground">{region.name}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">{region.region}</p>
                   {region.note && (
                     <p className="text-sm text-muted-foreground mt-1">{region.note}</p>
                   )}
@@ -166,7 +170,7 @@ const GlobalCoverage = () => {
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
             <Link to="/contact">
-              Get in Touch
+              Request an Audit Discussion
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>

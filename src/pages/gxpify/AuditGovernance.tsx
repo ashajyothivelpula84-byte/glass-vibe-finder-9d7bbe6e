@@ -198,7 +198,7 @@ const AuditGovernance = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
               <Link to="/contact">
-                Contact Us
+                Request an Audit Discussion
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
