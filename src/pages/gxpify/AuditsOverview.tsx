@@ -1,150 +1,206 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Search, Factory, Truck, FlaskConical, ClipboardCheck, HeartPulse, Shield, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
-import ServiceCard from '@/components/gxpify/ServiceCard';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
-import { auditServices, faqs } from '@/data/gxpifyData';
 
 const AuditsOverview = () => {
-  const auditFaqs = faqs.filter(f => f.category === 'general').slice(0, 3);
+  const auditPortfolio = [
+    {
+      title: 'GMP Audit Services',
+      description: 'Manufacturing & contract operations',
+      icon: Factory,
+      href: '/audits/gmp'
+    },
+    {
+      title: 'GDP Audit Services',
+      description: 'Warehousing, logistics & distribution',
+      icon: Truck,
+      href: '/audits/gdp'
+    },
+    {
+      title: 'GLP Audit Services',
+      description: 'Nonclinical research environments',
+      icon: FlaskConical,
+      href: '/audits/glp'
+    },
+    {
+      title: 'GCP Audit Services',
+      description: 'Limited Scope – BA/BE & Phase I only',
+      icon: ClipboardCheck,
+      href: '/audits/gcp',
+      badge: 'Limited Scope'
+    },
+    {
+      title: 'GPvP Audit Services',
+      description: 'Selective – Vendor-focused PV audits',
+      icon: HeartPulse,
+      href: '/audits/gpvp',
+      badge: 'Selective'
+    }
+  ];
 
-  const auditPhases = [
-    { phase: 1, title: 'Scope Definition', description: 'Client-defined objectives and boundaries' },
-    { phase: 2, title: 'Audit Planning', description: 'Risk-based preparation and scheduling' },
-    { phase: 3, title: 'On-site Execution', description: 'Thorough assessment by qualified auditors' },
-    { phase: 4, title: 'Findings & Review', description: 'Comprehensive observation documentation' },
-    { phase: 5, title: 'Reporting', description: 'Clear, actionable audit report delivery' },
-    { phase: 6, title: 'Follow-up', description: 'CAPA verification if contracted' },
+  const pageFaqs = [
+    {
+      question: 'Are these audits conducted globally?',
+      answer: 'Audits are commissioned globally and primarily delivered across India & ASEAN. Our Lead Auditor–driven model ensures consistent quality regardless of audit location.',
+      category: 'overview'
+    },
+    {
+      question: 'Do you bundle audits with consulting or training?',
+      answer: 'No. Audit services are delivered independently of QMS strengthening activities. This separation is maintained to preserve audit independence and objectivity.',
+      category: 'overview'
+    }
   ];
 
   return (
     <PageLayout>
       <PageHero
-        title="Independent GxP Audit Services"
-        subtitle="Comprehensive audit services across the pharmaceutical and life sciences value chain. Client-defined scope. Risk-based methodology. Lead Auditor accountability."
-        badge="All Audit Services"
+        title="Audit Services"
+        subtitle="Sponsor / Audit Firm Commissioned GxP Audits"
+        badge="GxP Audit Services"
       />
 
       {/* Introduction */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
+            <div className="flex items-start gap-4 mb-8">
+              <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
+                <Search className="w-6 h-6 text-accent" />
+              </div>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                GxPify delivers Sponsor / Audit Firm Commissioned GxP audits supporting oversight of outsourced 
+                life sciences activities across the product lifecycle.
+              </p>
+            </div>
+
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Audit Methodology
+              Audit services are designed to support:
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              All GxPify audits follow a risk-based, lifecycle-aligned methodology. Our approach is tailored to each client's specific requirements while maintaining consistent quality and objectivity. Audit scope is always client-defined and contract-governed.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-accent mt-0.5" />
-                <span className="text-foreground">Risk-based prioritization</span>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-secondary rounded-xl p-6 border border-border">
+                <CheckCircle className="w-6 h-6 text-accent mb-4" />
+                <h3 className="font-semibold text-foreground mb-2">Vendor Qualification</h3>
+                <p className="text-sm text-muted-foreground">Vendor qualification and continued reliance</p>
               </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-accent mt-0.5" />
-                <span className="text-foreground">Lifecycle-aligned assessment</span>
+              <div className="bg-secondary rounded-xl p-6 border border-border">
+                <Shield className="w-6 h-6 text-accent mb-4" />
+                <h3 className="font-semibold text-foreground mb-2">Risk-Based Oversight</h3>
+                <p className="text-sm text-muted-foreground">Risk-based oversight of outsourced operations</p>
               </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-accent mt-0.5" />
-                <span className="text-foreground">Client-defined scope</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-accent mt-0.5" />
-                <span className="text-foreground">Contract-governed methodology</span>
+              <div className="bg-secondary rounded-xl p-6 border border-border">
+                <Scale className="w-6 h-6 text-accent mb-4" />
+                <h3 className="font-semibold text-foreground mb-2">Regulatory Readiness</h3>
+                <p className="text-sm text-muted-foreground">Regulatory readiness and inspection defensibility</p>
               </div>
             </div>
+
+            <p className="text-muted-foreground leading-relaxed">
+              All audits are conducted under defined scope, contractual terms, and applicable regulatory expectations, 
+              with clear separation from QMS enablement activities.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Audit Phases */}
+      {/* Audit Portfolio */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-            Standard Audit Phases
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {auditPhases.map((phase) => (
-              <div key={phase.phase} className="bg-card p-6 rounded-lg border border-border">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="inline-flex items-center justify-center w-8 h-8 bg-primary text-primary-foreground rounded-full font-semibold text-sm">
-                    {phase.phase}
-                  </span>
-                  <h3 className="font-display text-lg font-semibold text-foreground">
-                    {phase.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground">{phase.description}</p>
-              </div>
-            ))}
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              Audit Portfolio
+            </h2>
+            <p className="text-muted-foreground">
+              Each audit offering is deliberately scoped to preserve depth, relevance, and governance integrity.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* Audit Categories */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-            Audit Categories
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {auditServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {auditPortfolio.map((service) => (
+              <Link
+                key={service.title}
+                to={service.href}
+                className="group relative bg-card rounded-xl p-6 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300"
+              >
+                {service.badge && (
+                  <span className="absolute top-4 right-4 px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-medium rounded-full">
+                    {service.badge}
+                  </span>
+                )}
+                <div className="p-3 bg-accent/10 rounded-lg w-fit mb-4 group-hover:bg-accent/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{service.description}</p>
+                <div className="mt-4 flex items-center gap-2 text-accent text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  Learn more
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
               Frequently Asked Questions
             </h2>
-            <FAQAccordion faqs={auditFaqs} />
-            <div className="mt-6">
-              <Link to="/faqs" className="text-primary font-medium hover:underline">
-                View all FAQs →
-              </Link>
-            </div>
+            <FAQAccordion faqs={pageFaqs} />
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
           <div className="absolute top-10 right-10 w-48 h-48 border border-primary-foreground/10 rounded-full" />
           <div className="absolute bottom-10 left-10 w-32 h-32 border border-accent/20 rounded-full" />
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
         </div>
         
         <div className="container-wide text-center relative z-10">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Ready to Discuss Your Audit Requirements?
+            Discuss an Audit Requirement
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
             Contact us to define the scope and objectives for your next audit engagement.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
-              <Link to="/contact">
-                Request an Audit
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link to="/faqs">View FAQs</Link>
-            </Button>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+            <Link to="/contact">
+              Contact GxPify
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer Links Section */}
+      <section className="py-8 bg-secondary border-t border-border">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/gdp" className="text-muted-foreground hover:text-accent transition-colors">GDP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/gcp" className="text-muted-foreground hover:text-accent transition-colors">GCP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/gpvp" className="text-muted-foreground hover:text-accent transition-colors">GPvP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audit-governance" className="text-muted-foreground hover:text-accent transition-colors">Audit Governance</Link>
+            <span className="text-border">|</span>
+            <Link to="/contact" className="text-muted-foreground hover:text-accent transition-colors">Contact</Link>
           </div>
         </div>
       </section>
