@@ -23,34 +23,34 @@ export interface Testimonial {
   avatar?: string;
 }
 
-// Audit Services Data
+// Audit Services Data - Icons match checklist: 🏭 GMP, 🚚 GDP, 🧪 GLP, 🧬 GCP, 🧾 GPvP
 export const auditServices: AuditService[] = [
   {
     id: 'gmp',
     title: 'GMP Audits',
     description: 'Comprehensive manufacturing audits for pharmaceuticals, biologics, and medical devices.',
-    icon: 'Factory',
+    icon: 'Factory', // 🏭 Manufacturing icon
     href: '/audits/gmp'
   },
   {
     id: 'gdp',
     title: 'GDP Audits',
     description: 'Distribution and logistics audits ensuring product integrity throughout the supply chain.',
-    icon: 'Package',
+    icon: 'Truck', // 🚚 Truck / Cold chain icon
     href: '/audits/gdp'
   },
   {
     id: 'glp',
     title: 'GLP Audits',
     description: 'Non-clinical laboratory audits ensuring regulatory compliance for preclinical research.',
-    icon: 'FlaskConical',
+    icon: 'FlaskConical', // 🧪 Laboratory icon
     href: '/audits/glp'
   },
   {
     id: 'gcp',
     title: 'GCP Audits (Limited)',
     description: 'Clinical trial audits limited to BA/BE studies and Phase I trials only.',
-    icon: 'Stethoscope',
+    icon: 'Dna', // 🧬 Clinical research icon
     href: '/audits/gcp',
     scopeNote: 'BA/BE & Phase I only'
   },
@@ -58,7 +58,7 @@ export const auditServices: AuditService[] = [
     id: 'gpvp',
     title: 'GPvP Audits (Selective)',
     description: 'Pharmacovigilance audits focused on vendor-related PV system assessments.',
-    icon: 'Shield',
+    icon: 'FileText', // 🧾 Safety / database icon
     href: '/audits/gpvp',
     scopeNote: 'Vendor-focused PV audits only'
   }
@@ -221,10 +221,11 @@ export const howItWorksSteps = [
   }
 ];
 
-// Navigation Links - Updated to match sitemap
+// Navigation Links - Updated to match developer checklist
 export const mainNavLinks = [
+  { label: 'Home', href: '/' },
   {
-    label: 'GxP Audit Services',
+    label: 'Audit Services',
     href: '/audits',
     children: [
       { label: 'GMP Audit Services', href: '/audits/gmp' },
@@ -236,43 +237,30 @@ export const mainNavLinks = [
   },
   { label: 'India & ASEAN Delivery', href: '/india-asean' },
   { label: 'Global Coverage', href: '/global-coverage' },
-  { label: 'Audit Governance', href: '/audit-governance' },
+  { label: 'Audit Governance & Methodology', href: '/audit-governance' },
   { label: 'CAT Framework', href: '/cat-framework' },
   { label: 'Resources', href: '/resources' },
   { label: 'FAQs', href: '/faqs' },
-  { label: 'About', href: '/about' },
+  { label: 'About GxPify', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
+// Footer Links - Updated to match developer checklist
 export const footerLinks = {
   quickLinks: [
-    { label: 'GxP Audit Services', href: '/audits' },
+    { label: 'Audit Services', href: '/audits' },
     { label: 'India & ASEAN Delivery', href: '/india-asean' },
-    { label: 'Audit Governance', href: '/audit-governance' },
+    { label: 'Global Coverage', href: '/global-coverage' },
+    { label: 'Audit Governance & Methodology', href: '/audit-governance' },
     { label: 'CAT Framework', href: '/cat-framework' },
     { label: 'Resources', href: '/resources' },
     { label: 'FAQs', href: '/faqs' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'About GxPify', href: '/about' },
   ],
   legal: [
     { label: 'Privacy Policy', href: '/legal/privacy' },
     { label: 'Terms of Use', href: '/legal/terms' },
     { label: 'Disclaimer', href: '/legal/disclaimer' },
-  ],
-  // Keep these for backward compatibility but they won't be used in footer
-  company: [
-    { label: 'About GxPify', href: '/about' },
-    { label: 'Global Coverage', href: '/global-coverage' },
-    { label: 'India & ASEAN Delivery', href: '/india-asean' },
-  ],
-  services: [
-    { label: 'Audits Overview', href: '/audits' },
-    { label: 'Audit Governance', href: '/audit-governance' },
-    { label: 'CAT Framework', href: '/cat-framework' },
-  ],
-  support: [
-    { label: 'FAQs', href: '/faqs' },
-    { label: 'Resources', href: '/resources' },
     { label: 'Contact', href: '/contact' },
-  ]
+  ],
 };
