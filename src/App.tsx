@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // GxPify Pages
 import GxpHome from "./pages/gxpify/GxpHome";
 import AuditsOverview from "./pages/gxpify/AuditsOverview";
-import GlpGcpAudits from "./pages/gxpify/GlpGcpAudits";
+import GlpAudits from "./pages/gxpify/GlpAudits";
+import GcpAudits from "./pages/gxpify/GcpAudits";
 import GmpAudits from "./pages/gxpify/GmpAudits";
 import VendorAudits from "./pages/gxpify/VendorAudits";
 import GdpAudits from "./pages/gxpify/GdpAudits";
@@ -15,6 +16,8 @@ import GpvpAudits from "./pages/gxpify/GpvpAudits";
 import SpecializedAudits from "./pages/gxpify/SpecializedAudits";
 import GlobalCoverage from "./pages/gxpify/GlobalCoverage";
 import IndiaAsean from "./pages/gxpify/IndiaAsean";
+import AuditGovernance from "./pages/gxpify/AuditGovernance";
+import Resources from "./pages/gxpify/Resources";
 import CatFramework from "./pages/gxpify/CatFramework";
 import FAQs from "./pages/gxpify/FAQs";
 import About from "./pages/gxpify/About";
@@ -37,18 +40,24 @@ const App = () => (
         <Routes>
           <Route path="/" element={<GxpHome />} />
           
-          {/* Audits */}
+          {/* GxP Audit Services */}
           <Route path="/audits" element={<AuditsOverview />} />
-          <Route path="/audits/glp-gcp" element={<GlpGcpAudits />} />
           <Route path="/audits/gmp" element={<GmpAudits />} />
-          <Route path="/audits/vendor" element={<VendorAudits />} />
           <Route path="/audits/gdp" element={<GdpAudits />} />
+          <Route path="/audits/glp" element={<GlpAudits />} />
+          <Route path="/audits/gcp" element={<GcpAudits />} />
           <Route path="/audits/gpvp" element={<GpvpAudits />} />
+          {/* Hidden but accessible */}
+          <Route path="/audits/vendor" element={<VendorAudits />} />
           <Route path="/audits/specialized" element={<SpecializedAudits />} />
           
           {/* Coverage & Delivery */}
-          <Route path="/global-coverage" element={<GlobalCoverage />} />
           <Route path="/india-asean" element={<IndiaAsean />} />
+          <Route path="/global-coverage" element={<GlobalCoverage />} />
+          
+          {/* Audit Governance & Resources */}
+          <Route path="/audit-governance" element={<AuditGovernance />} />
+          <Route path="/resources" element={<Resources />} />
           
           {/* CAT Framework */}
           <Route path="/cat-framework" element={<CatFramework />} />

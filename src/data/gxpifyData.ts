@@ -6,6 +6,7 @@ export interface AuditService {
   description: string;
   icon: string;
   href: string;
+  scopeNote?: string;
 }
 
 export interface FAQItem {
@@ -25,25 +26,11 @@ export interface Testimonial {
 // Audit Services Data
 export const auditServices: AuditService[] = [
   {
-    id: 'glp-gcp',
-    title: 'GLP / GCP Audits',
-    description: 'Laboratory and clinical site audits ensuring regulatory compliance for preclinical and clinical research.',
-    icon: 'Flask',
-    href: '/audits/glp-gcp'
-  },
-  {
     id: 'gmp',
     title: 'GMP Audits',
     description: 'Comprehensive manufacturing audits for pharmaceuticals, biologics, and medical devices.',
     icon: 'Factory',
     href: '/audits/gmp'
-  },
-  {
-    id: 'vendor',
-    title: 'Vendor & Supply Chain',
-    description: 'Thorough supplier qualification and ongoing monitoring across your supply network.',
-    icon: 'Truck',
-    href: '/audits/vendor'
   },
   {
     id: 'gdp',
@@ -53,18 +40,27 @@ export const auditServices: AuditService[] = [
     href: '/audits/gdp'
   },
   {
-    id: 'gpvp',
-    title: 'GPvP Audits',
-    description: 'Pharmacovigilance system audits for MAHs and service providers worldwide.',
-    icon: 'Shield',
-    href: '/audits/gpvp'
+    id: 'glp',
+    title: 'GLP Audits',
+    description: 'Non-clinical laboratory audits ensuring regulatory compliance for preclinical research.',
+    icon: 'FlaskConical',
+    href: '/audits/glp'
   },
   {
-    id: 'specialized',
-    title: 'Specialized Audits',
-    description: 'Packaging, regulatory gap assessments, and inspection readiness audits.',
-    icon: 'ClipboardCheck',
-    href: '/audits/specialized'
+    id: 'gcp',
+    title: 'GCP Audits (Limited)',
+    description: 'Clinical trial audits limited to BA/BE studies and Phase I trials only.',
+    icon: 'Stethoscope',
+    href: '/audits/gcp',
+    scopeNote: 'BA/BE & Phase I only'
+  },
+  {
+    id: 'gpvp',
+    title: 'GPvP Audits (Selective)',
+    description: 'Pharmacovigilance audits focused on vendor-related PV system assessments.',
+    icon: 'Shield',
+    href: '/audits/gpvp',
+    scopeNote: 'Vendor-focused PV audits only'
   }
 ];
 
@@ -90,7 +86,7 @@ export const faqs: FAQItem[] = [
   // General Audit FAQs
   {
     question: 'What type of audits does GxPify conduct?',
-    answer: 'GxPify conducts independent GxP audits across the pharmaceutical and life sciences value chain, including GLP, GCP, GMP, GDP, and GPvP audits. We also perform specialized vendor, supplier, and supply chain audits.',
+    answer: 'GxPify conducts independent GxP audits across the pharmaceutical and life sciences value chain, including GLP, GCP (limited to BA/BE and Phase I), GMP, GDP, and GPvP audits (selective, vendor-focused).',
     category: 'general'
   },
   {
@@ -114,16 +110,28 @@ export const faqs: FAQItem[] = [
     answer: 'Yes, when required by geography or specialized expertise, we engage qualified external auditors and subject matter experts. All external resources operate under GxPify governance and accountability standards.',
     category: 'independence'
   },
-  // Vendor Audits
   {
-    question: 'What is the difference between vendor and supplier audits?',
-    answer: 'While often used interchangeably, vendor audits typically focus on service providers (CDMOs, CROs, labs), while supplier audits focus on material providers (API, excipients, packaging). Both follow the same rigorous methodology.',
-    category: 'vendor'
+    question: 'Why does GxPify not implement CAPA?',
+    answer: 'Implementing CAPA for audit findings would compromise our independence for future audits. Clients are responsible for developing and implementing their own corrective actions. This separation maintains audit integrity and ensures objective assessment.',
+    category: 'independence'
   },
+  // GCP (Limited) clarification
   {
-    question: 'Do you audit packaging suppliers?',
-    answer: 'Yes. We audit both primary packaging (vials, syringes, closures) and secondary/printed packaging (cartons, labels, leaflets) suppliers, including ISO 15378-aligned assessments.',
-    category: 'vendor'
+    question: 'Why is GCP audit scope limited?',
+    answer: 'Our GCP audit services are intentionally limited to BA/BE studies and Phase I trials. This focused scope ensures deep, specialized expertise. For Phase II-IV trials, we recommend engaging audit providers with broader clinical trial coverage.',
+    category: 'gcp'
+  },
+  // GPvP (Selective) clarification
+  {
+    question: 'What does "selective" mean for GPvP audits?',
+    answer: 'Our GPvP audit services are selective, focusing primarily on vendor-related pharmacovigilance assessments. This includes PV service provider audits and vendor oversight evaluations, rather than comprehensive MAH PV system audits.',
+    category: 'gpvp'
+  },
+  // Local auditor usage
+  {
+    question: 'How does local auditor usage work in ASEAN?',
+    answer: 'For ASEAN-based audits, we may engage qualified local auditors who operate under GxPify governance. The Lead Auditor maintains single-point accountability regardless of local auditor involvement.',
+    category: 'coverage'
   },
   // Global Coverage
   {
@@ -132,20 +140,31 @@ export const faqs: FAQItem[] = [
     category: 'coverage'
   },
   {
-    question: 'How does the regional delivery model work?',
-    answer: 'Audits are commissioned by global clients and executed by our Lead Auditor-led teams in India and ASEAN. This ensures global standards with regional execution capability.',
+    question: 'Do you cover China, Middle East, or Africa?',
+    answer: 'Currently, our primary focus is India and ASEAN for audit delivery. For audits in China, Middle East, or Africa, please contact us to discuss specific requirements and potential arrangements.',
     category: 'coverage'
   },
   // CAT Framework
   {
     question: 'What is the CAT Framework?',
-    answer: 'CAT (Consult · Assess · Train) is our integrated framework for training and QMS enablement, available in India and ASEAN only. It combines contextual consulting, gap assessment, and role-based GxP training.',
+    answer: 'CAT (Clarify · Assess · Transfer) is our integrated framework for QMS strengthening, available in India and ASEAN only. It includes contextual consulting, gap assessment, and role-based GxP training for small to mid-size organizations.',
     category: 'cat'
   },
   {
     question: 'Is CAT separate from audit services?',
-    answer: 'Yes. CAT is completely separate from our audit services to maintain independence. CAT clients in India/ASEAN cannot be audited by GxPify to avoid any conflict of interest.',
+    answer: 'Yes. CAT is completely separate from our audit services to maintain independence. CAT clients in India/ASEAN cannot be audited by GxPify to avoid any conflict of interest. A cooling-off period applies before audit services can be provided to former CAT clients.',
     category: 'cat'
+  },
+  {
+    question: 'What is the cooling-off period for CAT clients?',
+    answer: 'Organizations that have received CAT Framework services must observe a cooling-off period before GxPify can conduct audit services for them. This ensures complete independence and prevents any perception of conflict of interest.',
+    category: 'cat'
+  },
+  // QMS enablement vs audits
+  {
+    question: 'What is the difference between QMS enablement and audits?',
+    answer: 'QMS enablement (through CAT Framework) helps organizations build and strengthen their quality management systems. Audits are independent assessments of existing systems. These services are deliberately separated to maintain audit independence.',
+    category: 'general'
   },
 ];
 
@@ -202,31 +221,45 @@ export const howItWorksSteps = [
   }
 ];
 
-// Navigation Links
+// Navigation Links - Updated to match sitemap
 export const mainNavLinks = [
   {
-    label: 'Audits',
+    label: 'GxP Audit Services',
     href: '/audits',
     children: [
-      { label: 'Audits Overview', href: '/audits' },
-      { label: 'GLP / GCP Services', href: '/audits/glp-gcp' },
-      { label: 'GMP Services', href: '/audits/gmp' },
-      { label: 'Vendor & Supply Chain', href: '/audits/vendor' },
-      { label: 'GDP Services', href: '/audits/gdp' },
-      { label: 'GPvP Services', href: '/audits/gpvp' },
-      { label: 'Specialized Audits', href: '/audits/specialized' },
+      { label: 'GMP Audit Services', href: '/audits/gmp' },
+      { label: 'GDP Audit Services', href: '/audits/gdp' },
+      { label: 'GLP Audit Services', href: '/audits/glp' },
+      { label: 'GCP Audit Services (Limited)', href: '/audits/gcp' },
+      { label: 'GPvP Audit Services (Selective)', href: '/audits/gpvp' },
     ]
   },
+  { label: 'India & ASEAN Delivery', href: '/india-asean' },
   { label: 'Global Coverage', href: '/global-coverage' },
-  { label: 'India & ASEAN', href: '/india-asean' },
+  { label: 'Audit Governance', href: '/audit-governance' },
   { label: 'CAT Framework', href: '/cat-framework' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Resources', href: '/resources' },
   { label: 'FAQs', href: '/faqs' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export const footerLinks = {
+  quickLinks: [
+    { label: 'GxP Audit Services', href: '/audits' },
+    { label: 'India & ASEAN Delivery', href: '/india-asean' },
+    { label: 'Audit Governance', href: '/audit-governance' },
+    { label: 'CAT Framework', href: '/cat-framework' },
+    { label: 'Resources', href: '/resources' },
+    { label: 'FAQs', href: '/faqs' },
+    { label: 'Contact', href: '/contact' },
+  ],
+  legal: [
+    { label: 'Privacy Policy', href: '/legal/privacy' },
+    { label: 'Terms of Use', href: '/legal/terms' },
+    { label: 'Disclaimer', href: '/legal/disclaimer' },
+  ],
+  // Keep these for backward compatibility but they won't be used in footer
   company: [
     { label: 'About GxPify', href: '/about' },
     { label: 'Global Coverage', href: '/global-coverage' },
@@ -234,17 +267,12 @@ export const footerLinks = {
   ],
   services: [
     { label: 'Audits Overview', href: '/audits' },
-    { label: 'Vendor & Supply Chain', href: '/audits/vendor' },
+    { label: 'Audit Governance', href: '/audit-governance' },
     { label: 'CAT Framework', href: '/cat-framework' },
   ],
   support: [
     { label: 'FAQs', href: '/faqs' },
-    { label: 'Blog', href: '/blog' },
+    { label: 'Resources', href: '/resources' },
     { label: 'Contact', href: '/contact' },
-  ],
-  legal: [
-    { label: 'Terms of Use', href: '/legal/terms' },
-    { label: 'Disclaimer', href: '/legal/disclaimer' },
-    { label: 'Privacy Policy', href: '/legal/privacy' },
   ]
 };

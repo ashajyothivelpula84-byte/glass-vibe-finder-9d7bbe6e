@@ -29,7 +29,7 @@ const GxpNavbar = () => {
     document.documentElement.classList.toggle('dark');
   };
 
-  const auditsLink = mainNavLinks.find(link => link.label === 'Audits');
+  const auditsLink = mainNavLinks.find(link => link.label === 'GxP Audit Services');
 
   return (
     <header
@@ -58,7 +58,7 @@ const GxpNavbar = () => {
                 onMouseLeave={() => setIsAuditsOpen(false)}
                 className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                Audits
+                GxP Audit Services
                 <ChevronDown className={`w-4 h-4 transition-transform ${isAuditsOpen ? 'rotate-180' : ''}`} />
               </button>
               
@@ -82,7 +82,7 @@ const GxpNavbar = () => {
             </div>
 
             {/* Other Nav Links */}
-            {mainNavLinks.filter(link => link.label !== 'Audits').map((link) => (
+            {mainNavLinks.filter(link => link.label !== 'GxP Audit Services').map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -132,7 +132,7 @@ const GxpNavbar = () => {
                   onClick={() => setIsAuditsOpen(!isAuditsOpen)}
                   className="flex items-center justify-between w-full py-2 text-base font-medium text-foreground"
                 >
-                  Audits
+                  GxP Audit Services
                   <ChevronDown className={`w-4 h-4 transition-transform ${isAuditsOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isAuditsOpen && (
@@ -151,7 +151,7 @@ const GxpNavbar = () => {
               </div>
 
               {/* Other Links */}
-              {mainNavLinks.filter(link => link.label !== 'Audits').map((link) => (
+              {mainNavLinks.filter(link => link.label !== 'GxP Audit Services').map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
