@@ -1,26 +1,35 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, Truck, Thermometer, AlertTriangle, Users, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
 
 const GdpAudits = () => {
-  const coverage = [
-    { title: 'Warehouse Audits', description: 'Storage facility compliance and quality systems' },
-    { title: 'Cold Storage Audits', description: 'Temperature-controlled logistics and monitoring' },
-    { title: 'Distribution & Logistics Oversight', description: 'Transportation and supply chain integrity' },
+  const auditScope = [
+    'Warehouses and depots',
+    'Cold storage facilities',
+    'Transportation and logistics providers',
+    'Temperature-controlled distribution',
+    'Returns, recalls, and complaint handling',
   ];
 
-  const faqItems = [
+  const auditFocus = [
+    { title: 'Temperature Control and Monitoring', icon: Thermometer },
+    { title: 'Deviation and Excursion Management', icon: AlertTriangle },
+    { title: 'Vendor Qualification and Oversight', icon: Users },
+    { title: 'Distribution Documentation and Traceability', icon: FileText },
+  ];
+
+  const pageFaqs = [
     {
-      question: 'What does a GDP audit cover?',
-      answer: 'Our GDP audits assess storage conditions, temperature monitoring, transportation practices, documentation systems, quality management, and overall compliance with Good Distribution Practice requirements.',
+      question: 'Do you audit cold chain operations?',
+      answer: 'Yes, where included in the commissioned scope. Cold chain audits cover temperature-controlled storage, monitoring systems, excursion management, and transportation validation.',
       category: 'gdp'
     },
     {
-      question: 'Do you audit cold chain logistics?',
-      answer: 'Yes. We conduct specialized cold chain audits covering temperature-controlled storage, monitoring systems, excursion management, and transportation validation.',
+      question: 'Are remote GDP audits supported?',
+      answer: 'Yes, subject to scope and feasibility. Remote audits may be appropriate for certain elements of GDP assessment, particularly documentation review and system evaluations.',
       category: 'gdp'
     }
   ];
@@ -29,95 +38,128 @@ const GdpAudits = () => {
     <PageLayout>
       <PageHero
         title="GDP Audit Services"
-        subtitle="Distribution and logistics audits ensuring product integrity throughout the pharmaceutical supply chain. Warehouses, cold chain, and transportation."
-        badge="Distribution Excellence"
+        subtitle="Distribution & Cold Chain Oversight"
+        badge="Distribution"
       />
 
+      {/* Introduction */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="max-w-3xl mb-12">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Scope Overview
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Good Distribution Practice (GDP) is essential for maintaining product quality from manufacturer to patient. Our GDP audits assess your distribution network, storage facilities, and logistics operations to ensure compliance and product integrity.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {coverage.map((item) => (
-              <div key={item.title} className="p-6 bg-card border border-border rounded-lg">
-                <CheckCircle className="w-6 h-6 text-accent mb-4" />
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+          <div className="max-w-4xl">
+            <div className="flex items-start gap-4 mb-8">
+              <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
+                <Truck className="w-6 h-6 text-accent" />
               </div>
-            ))}
+              <div>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                  GxPify conducts Sponsor / Audit Firm Commissioned GDP audits supporting oversight of 
+                  pharmaceutical distribution and logistics operations.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  GDP audits focus on ensuring product integrity throughout the supply chain, 
+                  particularly where third-party logistics providers are involved.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Audit Scope */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Audit Delivery Model
+              Audit Scope
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              GDP audits are conducted by qualified auditors with relevant logistics and distribution expertise. Our risk-based approach focuses on critical control points throughout your distribution network.
+            <p className="text-muted-foreground mb-8">
+              GDP audits may include:
             </p>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>• Temperature mapping and monitoring assessment</li>
-              <li>• Transportation validation review</li>
-              <li>• Warehouse qualification evaluation</li>
-              <li>• Documentation and traceability systems</li>
-              <li>• Deviation and CAPA management</li>
-            </ul>
+            <div className="grid md:grid-cols-2 gap-4">
+              {auditScope.map((item) => (
+                <div key={item} className="flex items-start gap-3 p-4 bg-card border border-border rounded-lg">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Audit Focus */}
       <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
+              Audit Focus
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {auditFocus.map((item) => (
+                <div key={item.title} className="flex items-start gap-4 p-6 bg-secondary border border-border rounded-xl">
+                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <span className="text-foreground font-medium">{item.title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-secondary">
         <div className="container-wide">
           <div className="max-w-3xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
               Frequently Asked Questions
             </h2>
-            <FAQAccordion faqs={faqItems} />
+            <FAQAccordion faqs={pageFaqs} />
           </div>
         </div>
       </section>
 
+      {/* CTA */}
       <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
           <div className="absolute top-10 right-10 w-48 h-48 border border-primary-foreground/10 rounded-full" />
           <div className="absolute bottom-10 left-10 w-32 h-32 border border-accent/20 rounded-full" />
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
         </div>
         
         <div className="container-wide text-center relative z-10">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Discuss Your GDP Audit Needs
+            Request a GDP Audit Discussion
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
             Contact us to define the scope for your distribution and logistics audits.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
-              <Link to="/contact">
-                Request an Audit
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link to="/audits">View All Audits</Link>
-            </Button>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+            <Link to="/contact">
+              Contact GxPify
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer Links */}
+      <section className="py-8 bg-secondary border-t border-border">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/gcp" className="text-muted-foreground hover:text-accent transition-colors">GCP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audits/gpvp" className="text-muted-foreground hover:text-accent transition-colors">GPvP</Link>
+            <span className="text-border">|</span>
+            <Link to="/audit-governance" className="text-muted-foreground hover:text-accent transition-colors">Audit Governance</Link>
+            <span className="text-border">|</span>
+            <Link to="/faqs" className="text-muted-foreground hover:text-accent transition-colors">FAQs</Link>
           </div>
         </div>
       </section>
