@@ -1,180 +1,169 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, ClipboardList, FileCheck, Users, Shield, AlertTriangle } from 'lucide-react';
+import { ArrowRight, CheckCircle, ClipboardCheck, Shield, Ban, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const AuditGovernance = () => {
-  const lifecycleSteps = [
-    {
-      phase: 'Plan',
-      title: 'Audit Planning',
-      description: 'Scope definition, risk assessment, resource allocation, and audit schedule development based on client requirements.',
-      icon: ClipboardList,
-      items: ['Client scope definition', 'Risk-based prioritization', 'Auditor assignment', 'Logistics coordination']
-    },
-    {
-      phase: 'Execute',
-      title: 'Audit Execution',
-      description: 'On-site or remote audit activities conducted by qualified auditors following established methodology.',
-      icon: Users,
-      items: ['Opening meeting', 'Document review', 'Interviews & observations', 'Evidence collection']
-    },
-    {
-      phase: 'Report',
-      title: 'Audit Reporting',
-      description: 'Comprehensive reporting with clear findings, observations, and actionable recommendations.',
-      icon: FileCheck,
-      items: ['Draft report preparation', 'Client review cycle', 'Final report issuance', 'Findings classification']
-    }
+  const auditFocus = [
+    'System behavior',
+    'Risk control effectiveness',
+    'Regulatory intent',
   ];
 
-  const principles = [
+  const auditFlow = [
+    { step: 1, title: 'Commissioning & scope confirmation' },
+    { step: 2, title: 'Pre-audit planning and document review' },
+    { step: 3, title: 'Audit execution (on-site or remote)' },
+    { step: 4, title: 'Observation development' },
+    { step: 5, title: 'Final audit report issuance' },
+  ];
+
+  const independenceBoundaries = [
+    'No CAPA implementation',
+    'No QMS deployment within audit scope',
+    'No bundled training',
+    'CAT Framework maintained separately',
+  ];
+
+  const pageFaqs = [
     {
-      title: 'Scope Discipline',
-      description: 'Every audit operates within clearly defined, client-approved scope. We do not expand scope without explicit agreement.',
-      icon: CheckCircle
+      question: "Why don't you implement CAPAs?",
+      answer: 'To preserve audit independence and regulatory credibility.',
     },
     {
-      title: 'Independence',
-      description: 'Our auditors maintain complete independence from auditees. No commercial relationships or conflicts of interest are permitted.',
-      icon: Shield
+      question: 'Do you use technical specialists?',
+      answer: 'Specialist inputs may be used under Lead Auditor oversight where scope requires.',
     },
-    {
-      title: 'Lead Auditor Accountability',
-      description: 'A designated Lead Auditor assumes single-point accountability for every audit, ensuring quality and consistency.',
-      icon: Users
-    },
-    {
-      title: 'Transparent Reporting',
-      description: 'Findings are reported objectively with clear evidence. We do not soften or exaggerate observations.',
-      icon: FileCheck
-    }
+  ];
+
+  const footerLinks = [
+    { label: 'Audit Services', href: '/audits' },
+    { label: 'CAT Framework', href: '/cat-framework' },
+    { label: 'Resources', href: '/resources' },
+    { label: 'FAQs', href: '/faqs' },
   ];
 
   return (
     <PageLayout>
       <PageHero
         title="Audit Governance & Methodology"
-        subtitle="Our systematic approach to audit planning, execution, and reporting ensures consistent quality and actionable outcomes."
+        subtitle="Structured. Scope-Driven. Defensible."
         badge="Governance"
-      />
+      >
+        <div className="flex items-center gap-3 mt-4">
+          <ClipboardCheck className="w-8 h-8 text-accent" />
+        </div>
+      </PageHero>
 
-      {/* Audit Lifecycle */}
+      {/* Introduction */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Audit Lifecycle
-            </h2>
-            <p className="text-muted-foreground">
-              Every audit follows a structured lifecycle from planning through reporting, ensuring consistent quality and clear deliverables.
+          <div className="max-w-4xl">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              All GxPify audits follow a structured, scope-driven methodology, designed to produce defensible, decision-relevant outcomes.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {lifecycleSteps.map((step, index) => (
-              <div key={step.phase} className="relative">
-                {/* Connection line */}
-                {index < lifecycleSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-accent/50 to-transparent z-0" />
-                )}
-                
-                <div className="relative bg-card border border-border rounded-xl p-6 hover:border-accent/50 transition-colors h-full">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-accent/10 rounded-xl">
-                      <step.icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-medium text-accent uppercase tracking-wider">{step.phase}</span>
-                      <h3 className="font-display text-lg font-semibold text-foreground">{step.title}</h3>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">{step.description}</p>
-                  <ul className="space-y-2">
-                    {step.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+            
+            <h2 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-6">
+              Audits focus on:
+            </h2>
+            <div className="grid sm:grid-cols-3 gap-4 mb-8">
+              {auditFocus.map((item) => (
+                <div key={item} className="flex items-center gap-3 p-4 bg-secondary border border-border rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                  <span className="font-medium text-foreground">{item}</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            
+            <p className="text-muted-foreground leading-relaxed">
+              Rather than checklist accumulation.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Core Principles */}
+      {/* Standard Audit Flow */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Core Principles
+          <div className="max-w-4xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
+              Standard Audit Flow
             </h2>
-            <p className="text-muted-foreground">
-              Our audit methodology is built on foundational principles that ensure objectivity, quality, and value.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {principles.map((principle) => (
-              <div key={principle.title} className="flex gap-4 p-6 bg-card border border-border rounded-xl">
-                <div className="p-3 bg-accent/10 rounded-lg h-fit flex-shrink-0">
-                  <principle.icon className="w-5 h-5 text-accent" />
+            
+            <div className="space-y-4">
+              {auditFlow.map((item) => (
+                <div key={item.step} className="flex items-center gap-4 p-5 bg-card border border-border rounded-lg group hover:border-accent/50 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-display font-bold flex-shrink-0">
+                    {item.step}
+                  </div>
+                  <span className="text-foreground font-medium">{item.title}</span>
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">{principle.title}</h3>
-                  <p className="text-sm text-muted-foreground">{principle.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* No CAPA Implementation Statement */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-start gap-4 p-6 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 rounded-xl">
-              <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-lg flex-shrink-0">
-                <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-              </div>
-              <div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-                  CAPA Implementation Boundary
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  GxPify does not implement CAPA (Corrective and Preventive Actions) for audit findings. Our role ends with the delivery of the audit report.
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <strong>Rationale:</strong> Implementing CAPA for audit findings would compromise our independence for future audits. 
-                  Clients are responsible for developing and implementing their own corrective actions based on our findings. 
-                  This separation maintains the integrity of subsequent audits and ensures objective assessment.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Independence Statement */}
+      {/* Independence & Boundaries */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <div className="flex items-start gap-4 mb-8">
+              <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
+                <Shield className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-2">
+                  Independence & Boundaries
+                </h2>
+                <p className="text-muted-foreground">
+                  To preserve audit integrity:
+                </p>
+              </div>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 gap-4">
+              {independenceBoundaries.map((item) => (
+                <div key={item} className="flex items-center gap-3 p-5 bg-secondary border border-border rounded-lg">
+                  <Ban className="w-5 h-5 text-destructive flex-shrink-0" />
+                  <span className="text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="max-w-3xl mx-auto text-center">
-            <Shield className="w-12 h-12 text-accent mx-auto mb-6" />
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              Independence Statement
+          <div className="max-w-3xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
+              Frequently Asked Questions
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Independence is the cornerstone of audit credibility. GxPify auditors have no commercial, financial, or personal relationships 
-              with the organizations they audit. We proactively identify and disclose any potential conflicts of interest before engagement.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Our independence policies are reviewed annually and all auditors sign conflict-of-interest declarations for each engagement.
-            </p>
+            <Accordion type="single" collapsible className="space-y-4">
+              {pageFaqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`faq-${index}`}
+                  className="bg-card border border-border rounded-lg px-6 data-[state=open]:bg-background"
+                >
+                  <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-4">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-4">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
@@ -189,22 +178,36 @@ const AuditGovernance = () => {
         </div>
         
         <div className="container-wide text-center relative z-10">
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Questions About Our Methodology?
+          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
+            View Audit Services
           </h2>
-          <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
-            Contact us to learn more about our audit governance and how we can support your quality objectives.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
-              <Link to="/contact">
-                Request an Audit Discussion
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link to="/faqs">View FAQs</Link>
-            </Button>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+            <Link to="/audits">
+              Explore Services
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer Links */}
+      <section className="py-6 bg-secondary border-t border-border">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            {footerLinks.map((link, index) => (
+              <>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-accent transition-colors"
+                >
+                  {link.label}
+                </Link>
+                {index < footerLinks.length - 1 && (
+                  <span key={`sep-${index}`} className="text-border">|</span>
+                )}
+              </>
+            ))}
           </div>
         </div>
       </section>
