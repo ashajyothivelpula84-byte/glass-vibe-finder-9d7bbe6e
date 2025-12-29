@@ -17,12 +17,13 @@ const IndiaAsean = () => {
     'Practical execution across complex, multi-tier supply chains',
   ];
 
+  // No country flags per image rules - using region names only
   const coreRegions = [
-    { name: 'India', flag: '🇮🇳' },
-    { name: 'Singapore', flag: '🇸🇬' },
-    { name: 'Malaysia', flag: '🇲🇾' },
-    { name: 'Vietnam', flag: '🇻🇳' },
-    { name: 'Thailand', flag: '🇹🇭' },
+    { name: 'India', region: 'South Asia' },
+    { name: 'Singapore', region: 'ASEAN' },
+    { name: 'Malaysia', region: 'ASEAN' },
+    { name: 'Vietnam', region: 'ASEAN' },
+    { name: 'Thailand', region: 'ASEAN' },
   ];
 
   const deliveryModelPoints = [
@@ -92,9 +93,12 @@ const IndiaAsean = () => {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {coreRegions.map((region) => (
-                <div key={region.name} className="p-4 bg-secondary border border-border rounded-lg text-center">
-                  <span className="text-3xl mb-2 block">{region.flag}</span>
-                  <span className="font-medium text-foreground text-sm">{region.name}</span>
+                <div key={region.name} className="p-4 bg-secondary border border-border rounded-lg text-center group hover:border-accent/50 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/20 transition-colors">
+                    <MapPin className="w-5 h-5 text-accent" />
+                  </div>
+                  <span className="font-medium text-foreground text-sm block">{region.name}</span>
+                  <span className="text-xs text-muted-foreground">{region.region}</span>
                 </div>
               ))}
             </div>
@@ -195,7 +199,7 @@ const IndiaAsean = () => {
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
             <Link to="/contact">
-              Contact Us
+              Request an Audit Discussion
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
