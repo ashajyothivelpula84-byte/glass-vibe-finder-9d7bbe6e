@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
 
@@ -8,52 +9,92 @@ const Disclaimer = () => {
 
       <section className="section-padding bg-background">
         <div className="container-narrow">
-          <div className="prose prose-slate max-w-none">
-            <p className="text-muted-foreground mb-6">
-              Last updated: January 2024
+          <div className="prose prose-slate dark:prose-invert max-w-none">
+            <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
+              1. General Disclaimer
+            </h2>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              The information provided on this website is for general informational purposes only and should not be construed as professional, regulatory, or legal advice.
             </p>
 
             <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
-              General Disclaimer
+              2. No Regulatory Authority
             </h2>
-            <p className="text-muted-foreground mb-4">
-              The information provided on this website is for general informational purposes only. While we strive to keep the information accurate and up to date, we make no representations or warranties of any kind about the completeness, accuracy, reliability, or suitability of the information.
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              GxPify:
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-4 space-y-1">
+              <li>Is not a regulatory authority</li>
+              <li>Does not conduct inspections</li>
+              <li>Does not act on behalf of regulators</li>
+            </ul>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              All audits are Sponsor / Audit Firm Commissioned and conducted under defined scope.
             </p>
 
             <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
-              No Regulatory Advice
+              3. No Assurance or Certification
             </h2>
-            <p className="text-muted-foreground mb-4">
-              The content on this website does not constitute regulatory, legal, or professional advice. For specific guidance on regulatory compliance, you should consult with qualified professionals and relevant regulatory authorities.
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              Audit services do not:
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-4 space-y-1">
+              <li>Certify compliance</li>
+              <li>Guarantee inspection outcomes</li>
+              <li>Replace regulatory inspections</li>
+            </ul>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              Audit conclusions are limited to the agreed scope and timeframe.
             </p>
 
             <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
-              Independence Statement
+              4. Independence & Boundaries
             </h2>
-            <p className="text-muted-foreground mb-4">
-              GxPify provides independent audit services only. We do not certify, accredit, approve, or endorse any organization, product, or service. Our audits are assessments based on defined scope and methodology agreed with clients.
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              GxPify does not:
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-4 space-y-1">
+              <li>Implement CAPAs</li>
+              <li>Deploy QMS within audit scope</li>
+              <li>Provide regulatory representation</li>
+            </ul>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              QMS strengthening under the CAT Framework is governed separately.
             </p>
 
             <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
-              No Guarantee of Results
+              5. Limitation of Reliance
             </h2>
-            <p className="text-muted-foreground mb-4">
-              The use of our services does not guarantee regulatory approval, inspection success, or any particular outcome. Results depend on many factors outside our control.
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              Users should not rely solely on website content for decision-making. Engagement-specific advice is provided only under formal contract.
             </p>
 
             <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
-              External Links
+              6. Contact
             </h2>
-            <p className="text-muted-foreground mb-4">
-              This website may contain links to external websites. GxPify is not responsible for the content or practices of linked websites.
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              For clarification regarding this Disclaimer, contact:<br />
+              Email: <a href="mailto:contact@gxpify.com" className="text-accent hover:text-accent/80 transition-colors">contact@gxpify.com</a>
             </p>
+          </div>
+        </div>
+      </section>
 
-            <h2 className="font-display text-xl font-semibold text-foreground mt-8 mb-4">
-              Limitation of Liability
-            </h2>
-            <p className="text-muted-foreground mb-4">
-              In no event shall GxPify be liable for any damages arising from the use of information on this website or from any services provided.
-            </p>
+      {/* Footer Links */}
+      <section className="py-6 bg-muted border-t border-border">
+        <div className="container-wide">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+            <Link to="/privacy" className="text-muted-foreground hover:text-accent transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-border">|</span>
+            <Link to="/terms" className="text-muted-foreground hover:text-accent transition-colors">
+              Terms of Use
+            </Link>
+            <span className="text-border">|</span>
+            <Link to="/contact" className="text-muted-foreground hover:text-accent transition-colors">
+              Contact
+            </Link>
           </div>
         </div>
       </section>
