@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail, MapPin, Phone, ArrowUpRight, Shield } from 'lucide-react';
+import { Linkedin, Mail, MapPin, ArrowUpRight, Shield } from 'lucide-react';
 import { footerLinks } from '@/data/gxpifyData';
 
 const GxpFooter = () => {
@@ -12,11 +12,6 @@ const GxpFooter = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/5" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-foreground/5 rounded-full blur-3xl" />
-        <div className="absolute top-20 left-1/4 w-2 h-2 bg-accent/40 rounded-full" />
-        <div className="absolute top-40 right-1/3 w-3 h-3 bg-primary-foreground/20 rounded-full" />
-        <div className="absolute bottom-32 right-1/4 w-2 h-2 bg-accent/30 rounded-full" />
-        
-        {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
           backgroundSize: '60px 60px'
@@ -27,7 +22,7 @@ const GxpFooter = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
       <div className="container-wide relative z-10">
-        {/* Newsletter / CTA Section */}
+        {/* CTA Section */}
         <div className="py-12 border-b border-primary-foreground/10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
@@ -35,15 +30,15 @@ const GxpFooter = () => {
                 <Shield className="w-8 h-8 text-accent" />
               </div>
               <div>
-                <h3 className="font-display text-xl font-semibold">Ready to Elevate Your Compliance?</h3>
-                <p className="text-primary-foreground/70 text-sm">Get in touch for independent, risk-based GxP audits.</p>
+                <h3 className="font-display text-xl font-semibold">Ready to Discuss Your Audit Requirement?</h3>
+                <p className="text-primary-foreground/70 text-sm">Independent, scope-driven GxP audits across India and ASEAN.</p>
               </div>
             </div>
             <Link 
               to="/contact" 
               className="group inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-medium rounded-lg transition-all duration-300 shadow-lg shadow-accent/25"
             >
-              Request an Audit
+              Contact GxPify
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
@@ -53,7 +48,7 @@ const GxpFooter = () => {
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
             {/* Brand Column */}
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-5">
               <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center shadow-lg shadow-accent/25 group-hover:scale-105 transition-transform">
                   <span className="text-accent-foreground font-display font-bold text-xl">G</span>
@@ -64,8 +59,8 @@ const GxpFooter = () => {
                 </div>
               </Link>
               <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-sm mb-8">
-                Independent GxP audit services for global life sciences organizations. 
-                Global mandates. Client-defined scope. Regional execution. Single-point accountability.
+                Sponsor / Audit Firm Commissioned GxP Audits delivered across India & ASEAN. 
+                Independent, scope-driven audits supporting global life sciences organizations.
               </p>
               
               {/* Contact Info */}
@@ -105,53 +100,13 @@ const GxpFooter = () => {
               </div>
             </div>
 
-            {/* GxPify Column */}
-            <div className="lg:col-span-2">
+            {/* Quick Links Column */}
+            <div className="lg:col-span-4">
               <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
-                GxPify
+                Quick Links
               </h4>
               <ul className="space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services Column */}
-            <div className="lg:col-span-2">
-              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
-                Services
-              </h4>
-              <ul className="space-y-3">
-                {footerLinks.services.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Support Column */}
-            <div className="lg:col-span-2">
-              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
-                Support
-              </h4>
-              <ul className="space-y-3">
-                {footerLinks.support.map((link) => (
+                {footerLinks.quickLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
@@ -166,7 +121,7 @@ const GxpFooter = () => {
             </div>
 
             {/* Legal Column */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
                 Legal
               </h4>
