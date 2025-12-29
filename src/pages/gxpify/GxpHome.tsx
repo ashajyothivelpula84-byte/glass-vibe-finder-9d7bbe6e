@@ -1,76 +1,69 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Shield, Globe, Target, Award, Quote, Star } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Shield, 
+  Globe, 
+  Network, 
+  Building, 
+  Factory, 
+  Truck, 
+  FlaskConical, 
+  ClipboardCheck, 
+  HeartPulse,
+  MapPin,
+  Scale,
+  Layers,
+  Award,
+  BookOpen,
+  Mail
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
-import ServiceCard from '@/components/gxpify/ServiceCard';
-import ValuePropCard from '@/components/gxpify/ValuePropCard';
-import FAQAccordion from '@/components/gxpify/FAQAccordion';
-import { auditServices, valueProps, howItWorksSteps, faqs, globalCoverageCountries } from '@/data/gxpifyData';
-import heroPharma from '@/assets/hero-pharma.jpg';
-
-// Testimonials Data
-const testimonials = [
-  {
-    id: 1,
-    name: 'Dr. Sarah Mitchell',
-    role: 'VP Quality Assurance',
-    company: 'PharmaCorp International',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
-    quote: 'GxPify transformed our vendor qualification process. Their risk-based approach and transparent reporting helped us identify critical gaps we had overlooked. The Lead Auditor accountability model gave us confidence throughout the engagement.',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'James Anderson',
-    role: 'Director of Compliance',
-    company: 'BioGen Solutions',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    quote: 'Working with GxPify on our GMP audits was exceptional. Their team demonstrated deep regulatory knowledge and provided actionable insights that strengthened our quality management system significantly.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Dr. Elena Rodriguez',
-    role: 'Head of Pharmacovigilance',
-    company: 'MedLife Sciences',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face',
-    quote: 'The GPvP audit conducted by GxPify was thorough and insightful. Their independent approach and clear communication made the entire process smooth. Highly recommend for any life sciences organization.',
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: 'Michael Chen',
-    role: 'Supply Chain Director',
-    company: 'Global Pharma Ltd',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    quote: 'GxPify\'s vendor audit services helped us establish a robust supplier qualification framework. Their global coverage and regional execution model perfectly suited our international supply chain needs.',
-    rating: 5,
-  },
-];
 
 const GxpHome = () => {
-  const generalFaqs = faqs.filter(f => f.category === 'general').slice(0, 3);
+  const auditServices = [
+    {
+      title: 'GMP Audit Services',
+      description: 'Manufacturing & contract operations',
+      icon: Factory,
+      href: '/audits/gmp'
+    },
+    {
+      title: 'GDP Audit Services',
+      description: 'Warehousing, logistics & distribution',
+      icon: Truck,
+      href: '/audits/gdp'
+    },
+    {
+      title: 'GLP Audit Services',
+      description: 'Nonclinical research environments',
+      icon: FlaskConical,
+      href: '/audits/glp'
+    },
+    {
+      title: 'GCP Audit Services (Limited)',
+      description: 'BA/BE & Phase I only',
+      icon: ClipboardCheck,
+      href: '/audits/gcp'
+    },
+    {
+      title: 'GPvP Audit Services (Selective)',
+      description: 'Vendor-focused PV audits',
+      icon: HeartPulse,
+      href: '/audits/gpvp'
+    }
+  ];
 
   return (
     <PageLayout>
-      {/* Enhanced Hero Section */}
+      {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center bg-primary text-primary-foreground overflow-hidden">
-        {/* Geometric Background Pattern */}
+        {/* Background Elements */}
         <div className="absolute inset-0">
-          {/* Gradient overlays */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary-foreground)/0.08)_0%,transparent_50%)]" />
-          
-          {/* Geometric shapes */}
-          <div className="absolute top-20 right-10 w-72 h-72 border border-primary-foreground/10 rounded-full animate-pulse" />
-          <div className="absolute top-40 right-20 w-48 h-48 border border-accent/20 rounded-full" />
+          <div className="absolute top-20 right-10 w-72 h-72 border border-primary-foreground/10 rounded-full" />
           <div className="absolute bottom-20 left-10 w-64 h-64 border border-primary-foreground/5 rounded-full" />
-          <div className="absolute top-1/3 left-1/4 w-4 h-4 bg-accent/30 rounded-full animate-pulse" />
-          <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-primary-foreground/20 rounded-full" />
-          <div className="absolute bottom-1/3 right-1/4 w-5 h-5 bg-accent/20 rounded-full animate-pulse" />
-          
-          {/* Grid pattern */}
           <div className="absolute inset-0 opacity-[0.02]" style={{
             backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
             backgroundSize: '60px 60px'
@@ -78,101 +71,50 @@ const GxpHome = () => {
         </div>
 
         <div className="container-wide relative z-10 py-20 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="text-left">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6 animate-fade-in">
-                <Shield className="w-4 h-4 text-accent" />
-                <span className="text-sm font-medium text-primary-foreground/90">Independent Audit Practice</span>
+          <div className="max-w-4xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6 animate-fade-in">
+              <Shield className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Independent Audit Practice</span>
+            </div>
+
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">
+              Sponsor / Audit Firm Commissioned GxP Audits{' '}
+              <span className="text-accent">Delivered Across India & ASEAN</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-8 animate-fade-in max-w-3xl">
+              Independent, scope-driven audits supporting global life sciences organizations and audit firms 
+              across development, manufacturing, distribution, and pharmacovigilance vendors (as applicable).
+            </p>
+
+            {/* Hero Icons */}
+            <div className="flex flex-wrap gap-6 mb-10 animate-fade-in">
+              <div className="flex items-center gap-2 text-primary-foreground/80">
+                <Shield className="w-5 h-5 text-accent" />
+                <span className="text-sm">Audit Integrity</span>
               </div>
-
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">
-                Independent GxP Audit Services for{' '}
-                <span className="text-accent">Global Life Sciences</span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed mb-8 animate-fade-in max-w-xl">
-                Global mandates. Client-defined scope. Regional execution. Single-point audit accountability.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-start gap-4 mb-10 animate-fade-in">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
-                  <Link to="/contact">
-                    Request an Audit
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                  <Link to="/cat-framework">Training & QMS (ASEAN)</Link>
-                </Button>
+              <div className="flex items-center gap-2 text-primary-foreground/80">
+                <Globe className="w-5 h-5 text-accent" />
+                <span className="text-sm">Global Clients</span>
               </div>
-
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-4 animate-fade-in">
-                {[
-                  { icon: CheckCircle, text: 'Independent & Objective' },
-                  { icon: Target, text: 'Risk-Based Methodology' },
-                  { icon: Award, text: 'Lead Auditor Accountability' },
-                ].map((item, index) => (
-                  <span 
-                    key={item.text}
-                    className="flex items-center gap-2 text-sm text-primary-foreground/80"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <item.icon className="w-4 h-4 text-accent" />
-                    {item.text}
-                  </span>
-                ))}
+              <div className="flex items-center gap-2 text-primary-foreground/80">
+                <Network className="w-5 h-5 text-accent" />
+                <span className="text-sm">Vendor Oversight</span>
               </div>
             </div>
 
-            {/* Right Content - Hero Image with Stats Overlay */}
-            <div className="relative animate-fade-in hidden lg:block">
-              {/* Main Image Container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={heroPharma} 
-                  alt="Pharmaceutical laboratory audit professionals" 
-                  className="w-full h-[500px] object-cover"
-                />
-                {/* Dark overlay for better text contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-                
-                {/* Stats overlay at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
-                      <Globe className="w-6 h-6 text-accent mb-2" />
-                      <p className="font-display text-2xl font-bold text-primary-foreground">5+</p>
-                      <p className="text-xs text-primary-foreground/70">Countries Served</p>
-                    </div>
-                    
-                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
-                      <Shield className="w-6 h-6 text-accent mb-2" />
-                      <p className="font-display text-2xl font-bold text-primary-foreground">6</p>
-                      <p className="text-xs text-primary-foreground/70">GxP Domains</p>
-                    </div>
-                    
-                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
-                      <Target className="w-6 h-6 text-accent mb-2" />
-                      <p className="font-display text-2xl font-bold text-primary-foreground">100%</p>
-                      <p className="text-xs text-primary-foreground/70">Client-Defined Scope</p>
-                    </div>
-                    
-                    <div className="bg-primary/80 backdrop-blur-md border border-primary-foreground/20 rounded-xl p-4 hover:bg-primary/90 transition-all duration-300">
-                      <Award className="w-6 h-6 text-accent mb-2" />
-                      <p className="font-display text-2xl font-bold text-primary-foreground">1</p>
-                      <p className="text-xs text-primary-foreground/70">Lead Auditor Accountability</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-accent/30 rounded-xl -z-10" />
-              <div className="absolute -top-4 -left-4 w-24 h-24 border border-primary-foreground/10 rounded-xl -z-10" />
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+                <Link to="/audits">
+                  Explore GxP Audit Services
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+                <Link to="/contact">Discuss an Audit Requirement</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -180,36 +122,115 @@ const GxpHome = () => {
         {/* Bottom Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path
-              d="M0 100V40C240 70 480 85 720 70C960 55 1200 20 1440 40V100H0Z"
-              className="fill-background"
-            />
+            <path d="M0 100V40C240 70 480 85 720 70C960 55 1200 20 1440 40V100H0Z" className="fill-background" />
           </svg>
         </div>
       </section>
 
-      {/* Audit Services */}
+      {/* WHO WE WORK WITH */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="text-center mb-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <Building className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Our Clients</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
+                Who We Work With
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                GxPify supports life sciences sponsors and global audit firms seeking disciplined, 
+                regulator-aligned audit oversight of outsourced activities.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Typical commissioning entities include:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Pharmaceutical and biotechnology sponsors</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Medical device and combination product organizations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Global audit firms acting on behalf of sponsors</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted-foreground">
+                Audit delivery is aligned to defined scope, contractual mandate, and regulatory expectations.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="bg-secondary rounded-2xl p-8 border border-border">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center p-4 bg-card rounded-xl">
+                    <Globe className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <p className="text-2xl font-bold text-foreground">Global</p>
+                    <p className="text-sm text-muted-foreground">Client Base</p>
+                  </div>
+                  <div className="text-center p-4 bg-card rounded-xl">
+                    <Shield className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <p className="text-2xl font-bold text-foreground">Independent</p>
+                    <p className="text-sm text-muted-foreground">Oversight</p>
+                  </div>
+                  <div className="text-center p-4 bg-card rounded-xl">
+                    <Scale className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <p className="text-2xl font-bold text-foreground">Disciplined</p>
+                    <p className="text-sm text-muted-foreground">Approach</p>
+                  </div>
+                  <div className="text-center p-4 bg-card rounded-xl">
+                    <ClipboardCheck className="w-8 h-8 text-accent mx-auto mb-3" />
+                    <p className="text-2xl font-bold text-foreground">Aligned</p>
+                    <p className="text-sm text-muted-foreground">To Regulations</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GxP AUDIT SERVICES */}
+      <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
-              Our Audit Services
+              GxP Audit Services
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive GxP audit services across the pharmaceutical and life sciences value chain.
+            <p className="text-muted-foreground">
+              GxPify delivers Sponsor / Audit Firm Commissioned GxP audits, including vendor and supply chain audits, across:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {auditServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+              <Link
+                key={service.title}
+                to={service.href}
+                className="group bg-card rounded-xl p-6 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="p-3 bg-accent/10 rounded-lg w-fit mb-4 group-hover:bg-accent/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{service.description}</p>
+              </Link>
             ))}
           </div>
 
-          <div className="text-center mt-10">
+          <div className="text-center mt-8">
+            <p className="text-muted-foreground mb-4">
+              Each audit is planned and executed with scope discipline, ensuring outcomes are relevant, defensible, and decision-useful.
+            </p>
             <Button variant="outline" asChild>
               <Link to="/audits">
-                View All Audit Services
+                View GxP Audit Services
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -217,316 +238,314 @@ const GxpHome = () => {
         </div>
       </section>
 
-      {/* How We Deliver */}
-      <section className="section-padding bg-secondary">
-        <div className="container-wide">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
-              How We Deliver Audits
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A transparent, client-focused approach from scope definition to final report.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {howItWorksSteps.map((step) => (
-              <div key={step.step} className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary text-primary-foreground rounded-full font-display font-semibold text-lg mb-4">
-                  {step.step}
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why GxPify */}
+      {/* INDIA & ASEAN DELIVERY */}
       <section className="section-padding bg-background">
         <div className="container-wide">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
-              Why GxPify
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              What sets our audit services apart from the rest.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {valueProps.map((prop) => (
-              <ValuePropCard key={prop.title} {...prop} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="section-padding bg-secondary overflow-hidden">
-        <div className="container-wide">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
-              <Star className="w-4 h-4 text-primary fill-primary" />
-              <span className="text-sm font-medium text-primary">Client Success Stories</span>
-            </div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Hear from quality and compliance professionals who have partnered with GxPify for their audit needs.
-            </p>
-          </div>
-
-          {/* Testimonials Grid */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                className="group relative bg-card rounded-2xl p-8 border border-border shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Quote Icon */}
-                <div className="absolute -top-4 -left-2 w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
-                  <Quote className="w-6 h-6 text-primary-foreground" />
-                </div>
-
-                {/* Stars */}
-                <div className="flex gap-1 mb-4 pt-2">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-accent fill-accent" />
-                  ))}
-                </div>
-
-                {/* Quote Text */}
-                <blockquote className="text-foreground leading-relaxed mb-6 text-lg">
-                  "{testimonial.quote}"
-                </blockquote>
-
-                {/* Author */}
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-card"
-                    />
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-3 h-3 text-accent-foreground" />
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-display font-bold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    <p className="text-sm text-primary font-medium">{testimonial.company}</p>
-                  </div>
-                </div>
-
-                {/* Decorative Corner */}
-                <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-primary/5 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[
-              { value: '100%', label: 'Client Satisfaction' },
-              { value: '50+', label: 'Audits Completed' },
-              { value: '5+', label: 'Countries Served' },
-              { value: '6', label: 'GxP Domains' },
-            ].map((stat, index) => (
-              <div 
-                key={stat.label}
-                className="text-center p-6 bg-card rounded-xl border border-border hover:border-primary/30 transition-colors"
-              >
-                <p className="font-display text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Global Coverage */}
-      <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
-          <div className="absolute top-10 right-10 w-64 h-64 border border-primary-foreground/10 rounded-full" />
-          <div className="absolute bottom-10 left-10 w-40 h-40 border border-accent/20 rounded-full" />
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-accent/30 rounded-full animate-pulse" />
-          <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-primary-foreground/20 rounded-full" />
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
-        </div>
-        
-        <div className="container-wide relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                Global Coverage & Delivery
-              </h2>
-              <p className="text-primary-foreground/80 leading-relaxed mb-6 text-lg">
-                We serve global clients across major pharmaceutical markets. Audits are commissioned by organizations worldwide and executed by our Lead Auditor-led teams in India and ASEAN regions.
-              </p>
-              <div className="flex flex-wrap gap-3 mb-8">
-                {globalCoverageCountries.map((country) => (
-                  <span
-                    key={country.code}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full text-sm"
-                  >
-                    <span>{country.flag}</span>
-                    {country.name}
-                  </span>
-                ))}
+            <div className="order-2 lg:order-1">
+              <div className="bg-secondary rounded-2xl p-8 border border-border">
+                <h3 className="font-display text-xl font-semibold text-foreground mb-6">Key Features</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                      <Award className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Single-point accountability</p>
+                      <p className="text-sm text-muted-foreground">For audit judgment and reporting</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                      <ClipboardCheck className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Scope-aligned delivery</p>
+                      <p className="text-sm text-muted-foreground">To sponsor or audit-firm commissioning scope</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                      <Globe className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Local auditor usage</p>
+                      <p className="text-sm text-muted-foreground">In ASEAN where required by geography or language</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                      <Scale className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Consistent methodology</p>
+                      <p className="text-sm text-muted-foreground">Across all engagements</p>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
-                <Link to="/global-coverage">
-                  Learn About Our Coverage
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <MapPin className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Delivery Model</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
+                India & ASEAN Delivery
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Audit delivery is primarily executed across India and ASEAN under a founder-led, 
+                Lead Auditor–driven model.
+              </p>
+              <Button variant="outline" asChild>
+                <Link to="/india-asean">
+                  India & ASEAN Delivery
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>
-            <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-8 border border-primary-foreground/20">
-              <h3 className="font-display text-xl font-bold mb-6">
-                Regional Execution Model
-              </h3>
-              <ul className="space-y-4 text-primary-foreground/80">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Lead Auditor accountability for every engagement</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Qualified local auditors and SMEs when required</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Consistent global standards across all regions</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Transparent governance and reporting</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* CAT Framework Teaser */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="max-w-4xl mx-auto bg-card border border-border rounded-lg p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                  India & ASEAN Only
-                </span>
-                <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                  CAT Framework
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Consult · Assess · Train — Our integrated framework for training and QMS enablement, separate from audit services to maintain independence.
-                </p>
-                <Button asChild>
-                  <Link to="/cat-framework">
-                    Explore CAT Framework
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg">
-                  <span className="font-display font-semibold text-accent">C</span>
-                  <div>
-                    <p className="font-medium text-foreground">Consult</p>
-                    <p className="text-sm text-muted-foreground">Context for Training & QMS</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg">
-                  <span className="font-display font-semibold text-accent">A</span>
-                  <div>
-                    <p className="font-medium text-foreground">Assess</p>
-                    <p className="text-sm text-muted-foreground">Gap & Lifecycle Readiness</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg">
-                  <span className="font-display font-semibold text-accent">T</span>
-                  <div>
-                    <p className="font-medium text-foreground">Train</p>
-                    <p className="text-sm text-muted-foreground">Role-Based GxP Training</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
+      {/* AUDIT GOVERNANCE */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <Scale className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Governance</span>
+              </div>
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
-                Frequently Asked Questions
+                Audit Governance & Methodology
               </h2>
+              <p className="text-muted-foreground">
+                All audits are governed through a structured methodology covering:
+              </p>
             </div>
-            <FAQAccordion faqs={generalFaqs} defaultOpen="item-0" />
-            <div className="text-center mt-8">
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-card rounded-xl p-6 border border-border">
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full" />
+                    <span className="text-foreground">Pre-audit planning and scope alignment</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full" />
+                    <span className="text-foreground">On-site or remote execution</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full" />
+                    <span className="text-foreground">Risk-based observation classification</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full" />
+                    <span className="text-foreground">Clear, defensible reporting</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-card rounded-xl p-6 border border-border">
+                <p className="text-sm text-muted-foreground mb-4">
+                  A strict separation is maintained between:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3">
+                    <Shield className="w-5 h-5 text-accent flex-shrink-0" />
+                    <span className="text-foreground font-medium">Audit services</span>
+                  </li>
+                  <li className="text-muted-foreground pl-8">and</li>
+                  <li className="flex items-center gap-3">
+                    <Layers className="w-5 h-5 text-accent flex-shrink-0" />
+                    <span className="text-foreground font-medium">QMS strengthening activities</span>
+                  </li>
+                </ul>
+                <p className="text-sm text-muted-foreground mt-4">
+                  undertaken separately under the CAT Framework
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
               <Button variant="outline" asChild>
-                <Link to="/faqs">View All FAQs</Link>
+                <Link to="/audit-governance">
+                  Audit Governance & Methodology
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* CAT FRAMEWORK */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <Layers className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">QMS Strengthening</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-4">
+                CAT Framework
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Clarify – Assess – Transfer (India & ASEAN)
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                For small to mid-size life sciences organizations operating in India & ASEAN, 
+                GxPify offers structured QMS strengthening support using the Clarify – Assess – Transfer (CAT) framework.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                CAT engagements are:
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Separate from audit assignments</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Not undertaken for audit-firm–commissioned work</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Designed to strengthen internal systems without compromising audit independence</span>
+                </li>
+              </ul>
+              <Button variant="outline" asChild>
+                <Link to="/cat-framework">
+                  CAT Framework
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="bg-secondary rounded-2xl p-8 border border-border text-center">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="p-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl font-bold text-accent">C</span>
+                    </div>
+                    <p className="font-semibold text-foreground">Clarify</p>
+                  </div>
+                  <div className="p-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl font-bold text-accent">A</span>
+                    </div>
+                    <p className="font-semibold text-foreground">Assess</p>
+                  </div>
+                  <div className="p-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl font-bold text-accent">T</span>
+                    </div>
+                    <p className="font-semibold text-foreground">Transfer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT GXPIFY */}
+      <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+              <Award className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Our Story</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
+              About GxPify
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GxPify is a founder-led audit practice built on extensive experience across pharmaceutical manufacturing, 
+              regulatory affairs, corporate QA, development QA, and global audit delivery.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              The practice reflects a disciplined, audit-first philosophy grounded in operational realism and regulatory intent.
+            </p>
+            <Button variant="outline" asChild>
+              <Link to="/about">
+                About GxPify
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* RESOURCES */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+              <BookOpen className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Knowledge Hub</span>
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-6">
+              Resources
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Access practical perspectives on:
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              <div className="bg-secondary rounded-lg p-4 text-center">
+                <p className="text-sm font-medium text-foreground">Audit Governance</p>
+              </div>
+              <div className="bg-secondary rounded-lg p-4 text-center">
+                <p className="text-sm font-medium text-foreground">Vendor Qualification</p>
+              </div>
+              <div className="bg-secondary rounded-lg p-4 text-center">
+                <p className="text-sm font-medium text-foreground">Independence Principles</p>
+              </div>
+              <div className="bg-secondary rounded-lg p-4 text-center">
+                <p className="text-sm font-medium text-foreground">Scope Management</p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground mb-8">
+              Designed to support informed sponsor decision-making.
+            </p>
+            <Button variant="outline" asChild>
+              <Link to="/resources">
+                Resources
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
       <section className="relative section-padding bg-primary text-primary-foreground overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
           <div className="absolute top-10 right-10 w-48 h-48 border border-primary-foreground/10 rounded-full" />
           <div className="absolute bottom-10 left-10 w-32 h-32 border border-accent/20 rounded-full" />
-          <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-accent/30 rounded-full animate-pulse" />
-          <div className="absolute bottom-1/3 right-1/4 w-4 h-4 bg-primary-foreground/20 rounded-full" />
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
         </div>
         
         <div className="container-wide text-center relative z-10">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-10 text-lg md:text-xl">
-            Contact us to discuss your audit requirements. We'll work with you to define a scope that meets your specific needs.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
-              <Link to="/contact">
-                Request an Audit
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link to="/contact">Training & QMS Enquiry</Link>
-            </Button>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
+            <Mail className="w-4 h-4 text-accent" />
+            <span className="text-sm font-medium text-primary-foreground/90">Get in Touch</span>
           </div>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Discuss Your Audit Requirement
+          </h2>
+          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8 text-lg">
+            Whether you represent a sponsor organization or an audit firm, GxPify supports clearly scoped, 
+            professionally governed GxP audits across India and ASEAN.
+          </p>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
+            <Link to="/contact">
+              Contact GxPify
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
         </div>
       </section>
     </PageLayout>
