@@ -29,7 +29,7 @@ const GxpNavbar = () => {
     document.documentElement.classList.toggle('dark');
   };
 
-  const auditsLink = mainNavLinks.find(link => link.label === 'GxP Audit Services');
+  const auditsLink = mainNavLinks.find(link => link.label === 'Audit Services');
 
   return (
     <header
@@ -51,6 +51,18 @@ const GxpNavbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
+            {/* Home Link */}
+            <Link
+              to="/"
+              className={`px-4 py-2 text-sm font-medium transition-colors ${
+                location.pathname === '/'
+                  ? 'text-primary'
+                  : 'text-foreground hover:text-primary'
+              }`}
+            >
+              Home
+            </Link>
+
             {/* Audits Dropdown */}
             <div className="relative">
               <button
@@ -58,7 +70,7 @@ const GxpNavbar = () => {
                 onMouseLeave={() => setIsAuditsOpen(false)}
                 className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
-                GxP Audit Services
+                Audit Services
                 <ChevronDown className={`w-4 h-4 transition-transform ${isAuditsOpen ? 'rotate-180' : ''}`} />
               </button>
               
@@ -82,7 +94,7 @@ const GxpNavbar = () => {
             </div>
 
             {/* Other Nav Links */}
-            {mainNavLinks.filter(link => link.label !== 'GxP Audit Services').map((link) => (
+            {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home').map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -108,7 +120,7 @@ const GxpNavbar = () => {
             </button>
 
             <Button asChild className="hidden sm:inline-flex">
-              <Link to="/contact">Request an Audit</Link>
+              <Link to="/contact">Request an Audit Discussion</Link>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -126,13 +138,21 @@ const GxpNavbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background animate-fade-in">
             <div className="py-4 space-y-1">
+              {/* Home Link */}
+              <Link
+                to="/"
+                className="block px-4 py-2 text-base font-medium text-foreground hover:text-primary"
+              >
+                Home
+              </Link>
+
               {/* Audits Section */}
               <div className="px-4">
                 <button
                   onClick={() => setIsAuditsOpen(!isAuditsOpen)}
                   className="flex items-center justify-between w-full py-2 text-base font-medium text-foreground"
                 >
-                  GxP Audit Services
+                  Audit Services
                   <ChevronDown className={`w-4 h-4 transition-transform ${isAuditsOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isAuditsOpen && (
@@ -151,7 +171,7 @@ const GxpNavbar = () => {
               </div>
 
               {/* Other Links */}
-              {mainNavLinks.filter(link => link.label !== 'GxP Audit Services').map((link) => (
+              {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home').map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
@@ -163,7 +183,7 @@ const GxpNavbar = () => {
 
               <div className="px-4 pt-4">
                 <Button asChild className="w-full">
-                  <Link to="/contact">Request an Audit</Link>
+                  <Link to="/contact">Request an Audit Discussion</Link>
                 </Button>
               </div>
             </div>
