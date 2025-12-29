@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
@@ -7,20 +7,20 @@ import FAQAccordion from '@/components/gxpify/FAQAccordion';
 
 const GpvpAudits = () => {
   const coverage = [
-    { title: 'MAH Pharmacovigilance System Audits', description: 'Marketing authorization holder PV system assessment' },
-    { title: 'PV Service Provider Audits', description: 'Third-party pharmacovigilance vendor evaluation' },
-    { title: 'Global Safety Oversight', description: 'Multi-regional PV compliance assessment' },
+    { title: 'PV Service Provider Audits', description: 'Third-party pharmacovigilance vendor evaluation and qualification' },
+    { title: 'Vendor Oversight Assessments', description: 'Evaluation of contracted PV service quality and compliance' },
+    { title: 'PV Quality Agreement Reviews', description: 'Assessment of vendor agreements and oversight mechanisms' },
   ];
 
   const faqItems = [
     {
-      question: 'What is covered in a GPvP audit?',
-      answer: 'Our GPvP audits assess pharmacovigilance system master files, case processing, signal detection, risk management, PSMF maintenance, and overall compliance with applicable regulations.',
+      question: 'What does "selective" mean for GPvP audits?',
+      answer: 'Our GPvP audit services are selective, focusing primarily on vendor-related pharmacovigilance assessments. This includes PV service provider audits and vendor oversight evaluations, rather than comprehensive MAH PV system audits.',
       category: 'gpvp'
     },
     {
-      question: 'Do you audit PV service providers?',
-      answer: 'Yes. We conduct audits of third-party pharmacovigilance service providers to ensure they meet quality and compliance requirements for the services contracted.',
+      question: 'Do you audit full MAH pharmacovigilance systems?',
+      answer: 'Our GPvP services focus on vendor-related PV audits. For comprehensive MAH pharmacovigilance system audits, we recommend engaging audit providers with broader PV system coverage.',
       category: 'gpvp'
     }
   ];
@@ -29,9 +29,27 @@ const GpvpAudits = () => {
     <PageLayout>
       <PageHero
         title="GPvP Audit Services"
-        subtitle="Pharmacovigilance system audits for marketing authorization holders and service providers. Ensuring patient safety through robust PV compliance."
-        badge="Patient Safety"
+        subtitle="Selective pharmacovigilance audits focused on vendor assessments and PV service provider evaluations."
+        badge="Selective Scope"
       />
+
+      {/* Scope Clarification Banner */}
+      <section className="py-6 bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-900">
+        <div className="container-wide">
+          <div className="flex items-start gap-4 max-w-3xl">
+            <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-lg flex-shrink-0">
+              <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-foreground mb-1">Selective Scope Notice</h3>
+              <p className="text-sm text-muted-foreground">
+                GxPify GPvP audit services are <strong>vendor-focused only</strong>. We specialize in PV service provider audits 
+                and vendor oversight assessments, not comprehensive MAH pharmacovigilance system audits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section-padding bg-background">
         <div className="container-wide">
@@ -40,7 +58,9 @@ const GpvpAudits = () => {
               Scope Overview
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Pharmacovigilance is fundamental to patient safety. Our GPvP audit services help marketing authorization holders and their service providers maintain robust pharmacovigilance systems that meet global regulatory expectations.
+              Our selective GPvP audit services focus on vendor-related pharmacovigilance assessments. 
+              We help sponsors evaluate and qualify their contracted PV service providers, ensuring vendor compliance 
+              with applicable regulations and quality requirements.
             </p>
           </div>
 
