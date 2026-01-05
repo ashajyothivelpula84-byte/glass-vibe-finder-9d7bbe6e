@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
+import gdpHeroImage from '@/assets/gxpify/gdp_primary_warehouse_01.jpg';
+import gdpColdchainImage from '@/assets/gxpify/gdp_primary_coldchain_02.jpg';
+import gdpSupportingImage from '@/assets/gxpify/gdp_supporting_docs_01.jpg';
 
 const GdpAudits = () => {
   const auditScope = [
@@ -36,11 +39,39 @@ const GdpAudits = () => {
 
   return (
     <PageLayout>
-      <PageHero
-        title="GDP Audit Services"
-        subtitle="Distribution & Cold Chain Oversight"
-        badge="Distribution"
-      />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={gdpHeroImage} 
+            alt="GDP warehouse controlled temperature storage" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
+        </div>
+        
+        <div className="container-wide relative z-10 py-16 md:py-24">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
+              <Truck className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Distribution</span>
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+              GDP Audit Services
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
+              Distribution & Cold Chain Oversight
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 60V24C240 42 480 51 720 42C960 33 1200 12 1440 24V60H0Z" className="fill-background" />
+          </svg>
+        </div>
+      </section>
 
       {/* Introduction */}
       <section className="section-padding bg-background">
@@ -87,8 +118,35 @@ const GdpAudits = () => {
         </div>
       </section>
 
-      {/* Audit Focus */}
+      {/* Cold Chain Image Section */}
       <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={gdpColdchainImage} 
+                  alt="Cold chain storage facility" 
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
+                  Cold Chain Expertise
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our GDP audits include comprehensive assessment of cold chain operations, 
+                  covering temperature-controlled storage, monitoring systems, excursion 
+                  management protocols, and transportation qualification.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit Focus */}
+      <section className="section-padding bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
@@ -96,13 +154,40 @@ const GdpAudits = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {auditFocus.map((item) => (
-                <div key={item.title} className="flex items-start gap-4 p-6 bg-secondary border border-border rounded-xl">
+                <div key={item.title} className="flex items-start gap-4 p-6 bg-card border border-border rounded-xl">
                   <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
                     <item.icon className="w-5 h-5 text-accent" />
                   </div>
                   <span className="text-foreground font-medium">{item.title}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Supporting Image */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
+                  Documentation & Traceability
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Comprehensive review of distribution records, shipment documentation, 
+                  governance policies, and compliance frameworks ensures full traceability 
+                  across your supply chain operations.
+                </p>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={gdpSupportingImage} 
+                  alt="Distribution audit documentation review" 
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>

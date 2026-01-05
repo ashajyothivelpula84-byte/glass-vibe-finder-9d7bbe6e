@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, CheckCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
-import PageHero from '@/components/gxpify/PageHero';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import indiaAseanHeroImage from '@/assets/gxpify/delivery_india_asean_01.jpg';
 
 const IndiaAsean = () => {
   const deliveryFocus = [
@@ -58,15 +58,39 @@ const IndiaAsean = () => {
 
   return (
     <PageLayout>
-      <PageHero
-        title="India & ASEAN Delivery"
-        subtitle="Primary Audit Execution Regions"
-        badge="Regional Delivery"
-      >
-        <div className="flex items-center gap-3 mt-4">
-          <MapPin className="w-8 h-8 text-accent" />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={indiaAseanHeroImage} 
+            alt="India and ASEAN audit delivery regions" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
         </div>
-      </PageHero>
+        
+        <div className="container-wide relative z-10 py-16 md:py-24">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
+              <MapPin className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Regional Delivery</span>
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+              India & ASEAN Delivery
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
+              Primary Audit Execution Regions
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 60V24C240 42 480 51 720 42C960 33 1200 12 1440 24V60H0Z" className="fill-background" />
+          </svg>
+        </div>
+      </section>
 
       {/* Introduction */}
       <section className="section-padding bg-background">
