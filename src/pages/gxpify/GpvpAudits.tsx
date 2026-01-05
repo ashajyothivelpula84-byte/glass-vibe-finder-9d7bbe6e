@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, HeartPulse, FileCheck, Database, Users, Bell, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
-import PageHero from '@/components/gxpify/PageHero';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
+import gpvpHeroImage from '@/assets/gxpify/gpvp_primary_systems_01.jpg';
+import gpvpSupportingImage from '@/assets/gxpify/gpvp_supporting_workflow_01.jpg';
 
 const GpvpAudits = () => {
   const auditScope = [
@@ -35,11 +36,39 @@ const GpvpAudits = () => {
 
   return (
     <PageLayout>
-      <PageHero
-        title="GPvP Audit Services (Selective)"
-        subtitle="Vendor-Focused Pharmacovigilance Oversight"
-        badge="Selective"
-      />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={gpvpHeroImage} 
+            alt="Pharmacovigilance systems and data flows" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
+        </div>
+        
+        <div className="container-wide relative z-10 py-16 md:py-24">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
+              <HeartPulse className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Selective</span>
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+              GPvP Audit Services (Selective)
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
+              Vendor-Focused Pharmacovigilance Oversight
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 60V24C240 42 480 51 720 42C960 33 1200 12 1440 24V60H0Z" className="fill-background" />
+          </svg>
+        </div>
+      </section>
 
       {/* Scope Notice */}
       <section className="py-6 bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-900">
@@ -127,8 +156,35 @@ const GpvpAudits = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Supporting Image Section */}
       <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
+                  End-to-End Workflow Assessment
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our GPvP audits assess the complete pharmacovigilance workflow from risk assessment 
+                  through audit verification, governance, implementation, and final approval, ensuring 
+                  vendor compliance with regulatory expectations.
+                </p>
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={gpvpSupportingImage} 
+                  alt="Pharmacovigilance workflow and governance process" 
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-3xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
