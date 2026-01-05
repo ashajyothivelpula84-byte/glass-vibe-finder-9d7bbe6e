@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mainNavLinks } from '@/data/gxpifyData';
+import gxpifyLogo from '@/assets/gxpify/gxpify_logo.png';
 
 const GxpNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,11 +43,12 @@ const GxpNavbar = () => {
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-lg">G</span>
-            </div>
-            <span className="font-display text-xl font-semibold text-foreground">GxPify</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={gxpifyLogo} 
+              alt="GxPify - Life Sciences Audits" 
+              className="h-10 lg:h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
