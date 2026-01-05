@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Linkedin, Send, Info, ClipboardCheck, Layers } from 'lucide-react';
+import { Mail, Linkedin, Send, Info, ClipboardCheck, Layers, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import PageLayout from '@/components/gxpify/PageLayout';
-import PageHero from '@/components/gxpify/PageHero';
 import { z } from 'zod';
+import contactBackgroundImage from '@/assets/gxpify/contact_background_01.jpg';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -89,11 +89,39 @@ const Contact = () => {
 
   return (
     <PageLayout>
-      <PageHero
-        title="Contact GxPify"
-        subtitle="Submit your enquiry for GxP audits or CAT Framework services"
-        badge="Get in Touch"
-      />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={contactBackgroundImage} 
+            alt="Contact GxPify" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
+        </div>
+        
+        <div className="container-wide relative z-10 py-16 md:py-24">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
+              <MessageSquare className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Get in Touch</span>
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+              Contact GxPify
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
+              Submit your enquiry for GxP audits or CAT Framework services
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 60V24C240 42 480 51 720 42C960 33 1200 12 1440 24V60H0Z" className="fill-background" />
+          </svg>
+        </div>
+      </section>
 
       {/* Contact Purpose */}
       <section className="section-padding bg-background">

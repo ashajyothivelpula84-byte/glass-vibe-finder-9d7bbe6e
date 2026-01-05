@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import auditGovernanceHeroImage from '@/assets/gxpify/audit_governance_primary_01.jpg';
+import auditGovernanceSupportingImage from '@/assets/gxpify/audit_governance_supporting_01.jpg';
 
 const AuditGovernance = () => {
   const auditFocus = [
@@ -161,6 +162,19 @@ const AuditGovernance = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Supporting Image Section */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-5xl mx-auto">
+            <img 
+              src={auditGovernanceSupportingImage} 
+              alt="Audit checklist and methodology documentation review" 
+              className="w-full h-auto rounded-xl shadow-lg border border-border"
+            />
           </div>
         </div>
       </section>
