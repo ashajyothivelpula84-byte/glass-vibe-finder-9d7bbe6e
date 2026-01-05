@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
-import PageHero from '@/components/gxpify/PageHero';
+import aboutHeroImage from '@/assets/gxpify/about_founder_01.jpg';
 
 const About = () => {
   const values = [
@@ -15,11 +15,39 @@ const About = () => {
 
   return (
     <PageLayout>
-      <PageHero
-        title="About GxPify"
-        subtitle="Independent GxP audit services built on principles of integrity, transparency, and accountability."
-        badge="Our Story"
-      />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[400px] md:min-h-[500px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={aboutHeroImage} 
+            alt="About GxPify - Ethics, integrity, and professional audit practice" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
+        </div>
+        
+        <div className="container-wide relative z-10 py-16 md:py-24">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
+              <User className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Our Story</span>
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+              About GxPify
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
+              Independent GxP audit services built on principles of integrity, transparency, and accountability.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 60V24C240 42 480 51 720 42C960 33 1200 12 1440 24V60H0Z" className="fill-background" />
+          </svg>
+        </div>
+      </section>
 
       <section className="section-padding bg-background">
         <div className="container-wide">
