@@ -20,6 +20,11 @@ import {
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 
+// Home page images
+import homeHero from '@/assets/gxpify/home_hero_01.jpg';
+import homeSupportingDocs from '@/assets/gxpify/home_supporting_docs_01.jpg';
+import homeSupportingSystems from '@/assets/gxpify/home_supporting_systems_02.jpg';
+
 const GxpHome = () => {
   const auditServices = [
     {
@@ -58,16 +63,15 @@ const GxpHome = () => {
     <PageLayout>
       {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center bg-primary text-primary-foreground overflow-hidden">
-        {/* Background Elements */}
+        {/* Background Image */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-foreground/10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.15)_0%,transparent_50%)]" />
-          <div className="absolute top-20 right-10 w-72 h-72 border border-primary-foreground/10 rounded-full" />
-          <div className="absolute bottom-20 left-10 w-64 h-64 border border-primary-foreground/5 rounded-full" />
-          <div className="absolute inset-0 opacity-[0.02]" style={{
-            backgroundImage: 'linear-gradient(hsl(var(--primary-foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary-foreground)) 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }} />
+          <img 
+            src={homeHero} 
+            alt="Global audit credibility" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent" />
         </div>
 
         <div className="container-wide relative z-10 py-20 md:py-32">
@@ -165,29 +169,12 @@ const GxpHome = () => {
               </p>
             </div>
             <div className="relative">
-              <div className="bg-secondary rounded-2xl p-8 border border-border">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-4 bg-card rounded-xl">
-                    <Globe className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <p className="text-2xl font-bold text-foreground">Global</p>
-                    <p className="text-sm text-muted-foreground">Client Base</p>
-                  </div>
-                  <div className="text-center p-4 bg-card rounded-xl">
-                    <Shield className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <p className="text-2xl font-bold text-foreground">Independent</p>
-                    <p className="text-sm text-muted-foreground">Oversight</p>
-                  </div>
-                  <div className="text-center p-4 bg-card rounded-xl">
-                    <Scale className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <p className="text-2xl font-bold text-foreground">Disciplined</p>
-                    <p className="text-sm text-muted-foreground">Approach</p>
-                  </div>
-                  <div className="text-center p-4 bg-card rounded-xl">
-                    <ClipboardCheck className="w-8 h-8 text-accent mx-auto mb-3" />
-                    <p className="text-2xl font-bold text-foreground">Aligned</p>
-                    <p className="text-sm text-muted-foreground">To Regulations</p>
-                  </div>
-                </div>
+              <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+                <img 
+                  src={homeSupportingDocs} 
+                  alt="Audit rigor and documentation" 
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
           </div>
@@ -243,46 +230,12 @@ const GxpHome = () => {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="bg-secondary rounded-2xl p-8 border border-border">
-                <h3 className="font-display text-xl font-semibold text-foreground mb-6">Key Features</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                      <Award className="w-4 h-4 text-accent" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Single-point accountability</p>
-                      <p className="text-sm text-muted-foreground">For audit judgment and reporting</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                      <ClipboardCheck className="w-4 h-4 text-accent" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Scope-aligned delivery</p>
-                      <p className="text-sm text-muted-foreground">To sponsor or audit-firm commissioning scope</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                      <Globe className="w-4 h-4 text-accent" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Local auditor usage</p>
-                      <p className="text-sm text-muted-foreground">In ASEAN where required by geography or language</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                      <Scale className="w-4 h-4 text-accent" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Consistent methodology</p>
-                      <p className="text-sm text-muted-foreground">Across all engagements</p>
-                    </div>
-                  </li>
-                </ul>
+              <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+                <img 
+                  src={homeSupportingSystems} 
+                  alt="Lifecycle integration across GxP domains" 
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
             <div className="order-1 lg:order-2">

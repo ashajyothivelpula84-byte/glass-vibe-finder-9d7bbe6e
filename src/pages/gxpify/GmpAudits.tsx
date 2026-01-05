@@ -1,11 +1,25 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Factory, CheckCircle, ClipboardCheck, FileText, Users, Package } from 'lucide-react';
+import { ArrowRight, Factory, CheckCircle, ClipboardCheck, FileText, Package } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import PageHero from '@/components/gxpify/PageHero';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
 
+// GMP page images
+import gmpPharma from '@/assets/gxpify/gmp_primary_pharma_01.jpg';
+import gmpBiologics from '@/assets/gxpify/gmp_primary_biologics_02.jpg';
+import gmpDevices from '@/assets/gxpify/gmp_primary_devices_03.jpg';
+import gmpQc from '@/assets/gxpify/gmp_primary_qc_04.jpg';
+import gmpSupporting from '@/assets/gxpify/gmp_supporting_docs_01.jpg';
+
 const GmpAudits = () => {
+  const facilityImages = [
+    { src: gmpPharma, alt: 'Pharmaceutical Manufacturing Facility', label: 'Pharma Manufacturing' },
+    { src: gmpBiologics, alt: 'Biologics Production Facility', label: 'Biologics Facility' },
+    { src: gmpDevices, alt: 'Medical Devices Manufacturing', label: 'Medical Devices' },
+    { src: gmpQc, alt: 'Quality Control Laboratory', label: 'QC Laboratory' },
+  ];
+
   const auditScope = [
     'API manufacturers',
     'Finished dosage form manufacturers (OSDs, topicals, sterile products)',
@@ -43,9 +57,26 @@ const GmpAudits = () => {
         badge="Manufacturing"
       />
 
-      {/* Introduction */}
+      {/* Facility Images Grid */}
       <section className="section-padding bg-background">
         <div className="container-wide">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            {facilityImages.map((image) => (
+              <div key={image.label} className="group relative rounded-xl overflow-hidden border border-border shadow-md">
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+                <p className="absolute bottom-3 left-3 right-3 text-sm font-medium text-primary-foreground">
+                  {image.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Introduction */}
           <div className="max-w-4xl">
             <div className="flex items-start gap-4 mb-8">
               <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
@@ -109,8 +140,50 @@ const GmpAudits = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Supporting Image Section */}
       <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+              <img 
+                src={gmpSupporting} 
+                alt="GMP audit documentation and batch records" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+                Documentation & Records Review
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Our GMP audits include thorough review of batch records, SOPs, and quality documentation 
+                to assess compliance with regulatory requirements.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full" />
+                  <span className="text-foreground">Batch record review and verification</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full" />
+                  <span className="text-foreground">SOP compliance assessment</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full" />
+                  <span className="text-foreground">Training record evaluation</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full" />
+                  <span className="text-foreground">Equipment qualification documentation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-3xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
