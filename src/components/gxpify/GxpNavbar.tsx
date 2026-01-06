@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { mainNavLinks } from '@/data/gxpifyData';
 import gxpifyLogo from '@/assets/gxpify/gxpify_logo.png';
@@ -9,7 +9,6 @@ const GxpNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuditsOpen, setIsAuditsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,11 +24,6 @@ const GxpNavbar = () => {
     setIsAuditsOpen(false);
   }, [location]);
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark');
-  };
-
   const auditsLink = mainNavLinks.find(link => link.label === 'Audit Services');
 
   return (
@@ -41,33 +35,21 @@ const GxpNavbar = () => {
       }`}
     >
       <nav className="container-wide">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+        <div className="flex items-center justify-between h-20 lg:h-24">
+          {/* Logo with tagline underneath */}
+          <Link to="/" className="flex flex-col items-start">
             <img 
               src={gxpifyLogo} 
               alt="GxPify - Life Sciences Audits" 
               className="h-10 lg:h-12 w-auto"
             />
-            <span className="hidden md:block text-xs lg:text-sm text-muted-foreground font-medium border-l border-border pl-3">
+            <span className="text-[10px] lg:text-xs text-muted-foreground font-medium mt-1">
               Independent, scope-disciplined GxP audits
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {/* Home Link */}
-            <Link
-              to="/"
-              className={`px-4 py-2 text-sm font-medium transition-colors ${
-                location.pathname === '/'
-                  ? 'text-primary'
-                  : 'text-foreground hover:text-primary'
-              }`}
-            >
-              Home
-            </Link>
-
             {/* Audits Dropdown */}
             <div className="relative">
               <button
@@ -98,7 +80,7 @@ const GxpNavbar = () => {
               )}
             </div>
 
-            {/* Other Nav Links */}
+            {/* Other Nav Links (excluding Home and Audit Services) */}
             {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home').map((link) => (
               <Link
                 key={link.href}
@@ -116,14 +98,6 @@ const GxpNavbar = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-secondary transition-colors"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-
             <Button asChild className="hidden sm:inline-flex">
               <Link to="/contact">Request an Audit Discussion</Link>
             </Button>
@@ -143,14 +117,6 @@ const GxpNavbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background animate-fade-in">
             <div className="py-4 space-y-1">
-              {/* Home Link */}
-              <Link
-                to="/"
-                className="block px-4 py-2 text-base font-medium text-foreground hover:text-primary"
-              >
-                Home
-              </Link>
-
               {/* Audits Section */}
               <div className="px-4">
                 <button
@@ -175,7 +141,7 @@ const GxpNavbar = () => {
                 )}
               </div>
 
-              {/* Other Links */}
+              {/* Other Links (excluding Home and Audit Services) */}
               {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home').map((link) => (
                 <Link
                   key={link.href}
