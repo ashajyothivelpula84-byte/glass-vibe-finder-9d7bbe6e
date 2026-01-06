@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { mainNavLinks } from '@/data/gxpifyData';
 import gxpifyLogo from '@/assets/gxpify/gxpify_logo.png';
 
@@ -42,19 +43,30 @@ const GxpNavbar = () => {
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex flex-col">
+          <Link to="/" className="flex items-center gap-3">
             <img 
               src={gxpifyLogo} 
               alt="GxPify - Life Sciences Audits" 
-              className="h-8 lg:h-10 w-auto"
+              className="h-10 lg:h-12 w-auto"
             />
-            <span className="hidden md:block text-[10px] lg:text-xs text-muted-foreground font-medium mt-0.5">
+            <span className="hidden md:block text-xs lg:text-sm text-muted-foreground font-medium border-l border-border pl-3">
               Independent, scope-disciplined GxP audits
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
+            {/* Home Link */}
+            <Link
+              to="/"
+              className={`px-4 py-2 text-sm font-medium transition-colors ${
+                location.pathname === '/'
+                  ? 'text-primary'
+                  : 'text-foreground hover:text-primary'
+              }`}
+            >
+              Home
+            </Link>
 
             {/* Audits Dropdown */}
             <div className="relative">
@@ -104,6 +116,17 @@ const GxpNavbar = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-secondary transition-colors"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+
+            <Button asChild className="hidden sm:inline-flex">
+              <Link to="/contact">Request an Audit Discussion</Link>
+            </Button>
 
             {/* Mobile Menu Button */}
             <button
@@ -120,6 +143,13 @@ const GxpNavbar = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t border-border bg-background animate-fade-in">
             <div className="py-4 space-y-1">
+              {/* Home Link */}
+              <Link
+                to="/"
+                className="block px-4 py-2 text-base font-medium text-foreground hover:text-primary"
+              >
+                Home
+              </Link>
 
               {/* Audits Section */}
               <div className="px-4">
@@ -156,6 +186,11 @@ const GxpNavbar = () => {
                 </Link>
               ))}
 
+              <div className="px-4 pt-4">
+                <Button asChild className="w-full">
+                  <Link to="/contact">Request an Audit Discussion</Link>
+                </Button>
+              </div>
             </div>
           </div>
         )}
