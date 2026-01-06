@@ -43,12 +43,15 @@ const GxpNavbar = () => {
       <nav className="container-wide">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center gap-3">
             <img 
               src={gxpifyLogo} 
               alt="GxPify - Life Sciences Audits" 
               className="h-10 lg:h-12 w-auto"
             />
+            <span className="hidden md:block text-xs lg:text-sm text-muted-foreground font-medium border-l border-border pl-3">
+              Independent, scope-disciplined GxP audits
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
