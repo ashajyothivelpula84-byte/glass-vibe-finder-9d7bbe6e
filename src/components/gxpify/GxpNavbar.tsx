@@ -80,8 +80,8 @@ const GxpNavbar = () => {
               )}
             </div>
 
-            {/* Other Nav Links (excluding Home and Audit Services) */}
-            {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home').map((link) => (
+            {/* Other Nav Links (excluding Home, Audit Services, and Contact) */}
+            {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home' && link.label !== 'Contact').map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -141,8 +141,8 @@ const GxpNavbar = () => {
                 )}
               </div>
 
-              {/* Other Links (excluding Home and Audit Services) */}
-              {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home').map((link) => (
+              {/* Other Links (excluding Home, Audit Services, and Contact) */}
+              {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home' && link.label !== 'Contact').map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
