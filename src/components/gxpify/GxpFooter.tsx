@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, Mail, MapPin, ArrowUpRight, Shield } from 'lucide-react';
 import { footerLinks } from '@/data/gxpifyData';
+import gxpifyLogo from '@/assets/gxpify/gxpify_logo.png';
 
 const GxpFooter = () => {
   const currentYear = new Date().getFullYear();
@@ -49,14 +50,12 @@ const GxpFooter = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
             {/* Brand Column */}
             <div className="lg:col-span-5">
-              <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
-                <div className="w-12 h-12 bg-gradient-to-br from-accent to-accent/80 rounded-xl flex items-center justify-center shadow-lg shadow-accent/25 group-hover:scale-105 transition-transform">
-                  <span className="text-accent-foreground font-display font-bold text-xl">G</span>
-                </div>
-                <div>
-                  <span className="font-display text-2xl font-bold block">GxPify</span>
-                  <span className="text-xs text-primary-foreground/60 tracking-wider uppercase">Audit Excellence</span>
-                </div>
+              <Link to="/" className="inline-block mb-6 group">
+                <img 
+                  src={gxpifyLogo} 
+                  alt="GxPify - Life Sciences Audits" 
+                  className="h-12 w-auto brightness-0 invert group-hover:opacity-90 transition-opacity"
+                />
               </Link>
               <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-sm mb-8">
                 Sponsor / Audit Firm Commissioned GxP Audits delivered across India & ASEAN. 
