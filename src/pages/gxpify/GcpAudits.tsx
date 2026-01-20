@@ -1,33 +1,46 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ClipboardCheck, FileCheck, Shield, Database, Users, AlertTriangle, Dna } from 'lucide-react';
+import { ArrowRight, ClipboardCheck, CheckCircle, Scale, FileText, Building, Users, Microscope, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
+
+// GCP page images
 import gcpHeroImage from '@/assets/gxpify/gcp_primary_governance_01.jpg';
 import gcpSupportingImage from '@/assets/gxpify/gcp_supporting_docs_01.jpg';
 
 const GcpAudits = () => {
-  const auditScope = [
-    'BA/BE studies',
-    'Phase I clinical trials',
+  const auditContexts = [
+    'Sponsor GCP oversight and governance audits',
+    'CRO qualification and oversight audits',
+    'Investigator site audits'
   ];
 
-  const auditFocus = [
-    { title: 'Protocol Adherence', icon: FileCheck },
-    { title: 'Subject Safety Oversight', icon: Shield },
-    { title: 'Data Integrity and Documentation', icon: Database },
-    { title: 'CRO Quality System Effectiveness', icon: Users },
+  const vendorAudits = [
+    'Central laboratories',
+    'Bioanalytical laboratories',
+    'Imaging vendors',
+    'eClinical and data vendors'
+  ];
+
+  const programAudits = [
+    'Trial Master File (TMF) governance',
+    'Monitoring system oversight'
   ];
 
   const pageFaqs = [
     {
-      question: 'Do you audit Phase II–IV trials?',
-      answer: 'No. Scope is limited to BA/BE and Phase I. This deliberate limitation ensures specialized expertise and focused quality in early-phase clinical research auditing.',
+      question: 'Can GxPify be engaged for a single GCP audit only?',
+      answer: 'Yes. GCP audits are undertaken based on defined commissioning needs. Engagement for one GCP audit does not imply or require additional audits.',
       category: 'gcp'
     },
     {
-      question: 'Do you audit MAH clinical systems?',
-      answer: 'Only via global audit-firm mandates, if applicable. Direct MAH-level clinical system audits are not undertaken as part of standard GxPify GCP audit services.',
+      question: 'Can audit firms commission GCP audits on behalf of sponsors?',
+      answer: 'Yes. Audit firms may commission GCP audits on behalf of sponsors. Scope, objectives, and reporting expectations are defined by the commissioning audit firm in alignment with sponsor requirements.',
+      category: 'gcp'
+    },
+    {
+      question: 'Does GxPify define or approve GCP audit scope?',
+      answer: 'No. Audit scope is defined and approved by the commissioning sponsor or audit firm. GxPify executes the audit and applies professional judgment within that approved scope.',
       category: 'gcp'
     }
   ];
@@ -39,7 +52,7 @@ const GcpAudits = () => {
         <div className="absolute inset-0">
           <img 
             src={gcpHeroImage} 
-            alt="Clinical trial protocol governance" 
+            alt="GCP clinical trial governance" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
@@ -48,14 +61,14 @@ const GcpAudits = () => {
         <div className="container-wide relative z-10 py-16 md:py-24">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
-              <Dna className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-primary-foreground/90">Limited Scope</span>
+              <ClipboardCheck className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Clinical</span>
             </div>
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-              GCP Audit Services (Limited Scope)
+              GCP Audit Services
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
-              BA/BE & Phase I Oversight
+              Good Clinical Practice (GCP) Audits
             </p>
           </div>
         </div>
@@ -68,115 +81,234 @@ const GcpAudits = () => {
         </div>
       </section>
 
-      {/* Scope Notice */}
-      <section className="py-6 bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-900">
-        <div className="container-wide">
-          <div className="flex items-start gap-4 max-w-3xl">
-            <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-lg flex-shrink-0">
-              <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-1">Limited Scope Notice</h3>
-              <p className="text-sm text-muted-foreground">
-                GCP audit services are limited to <strong>BA/BE studies</strong> and <strong>Phase I clinical trials only</strong>. 
-                Multi-center or MAH-level clinical system audits are not undertaken directly.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Introduction */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
-                <ClipboardCheck className="w-6 h-6 text-accent" />
-              </div>
-              <div>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                  GxPify conducts limited-scope GCP audits, designed to support sponsor oversight of 
-                  early-phase and bioequivalence clinical activities.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  This deliberate scoping ensures depth, relevance, and defensibility.
-                </p>
-              </div>
-            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              GxPify undertakes commissioned GCP audits for sponsors and audit firms to evaluate clinical oversight, vendor governance, investigator site compliance, and data integrity across regulated clinical research environments.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GCP audits are delivered under client-approved scope, with defined objectives and governed execution, so audit outcomes support sponsor oversight, audit-firm reliance, and regulatory decision-making across clinical development programs.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Engagements may involve a single GCP audit or multiple GCP audits across programs, vendors, or sites, based entirely on commissioning requirements.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Audit Scope */}
+      {/* Commissioned GCP Audits */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Audit Scope
+              Commissioned GCP Audits
             </h2>
-            <p className="text-muted-foreground mb-8">
-              GCP audits are limited to:
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              At GxPify, GCP audits are delivered as commissioned audit engagements.
             </p>
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
-              {auditScope.map((item) => (
-                <div key={item} className="flex items-start gap-3 p-4 bg-card border border-border rounded-lg">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground italic">
-              Multi-center or MAH-level clinical system audits are not undertaken directly.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Each GCP audit is characterized by:
+            </p>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Scope and objectives defined and approved by the commissioning sponsor or audit firm</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Applicable GCP regulatory expectations relevant to the audited activities</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Audit execution, evidence evaluation, and professional judgment applied within that approved scope</span>
+              </li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              GCP audits may be commissioned directly by sponsors or by audit firms acting on behalf of sponsors.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              In all cases, audit execution and reporting remain governed, consistent, and traceable.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Audit Focus */}
+      {/* GCP Audit Contexts */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Audit Focus
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              GCP Audit Contexts
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {auditFocus.map((item) => (
-                <div key={item.title} className="flex items-start gap-4 p-6 bg-secondary border border-border rounded-xl">
-                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-accent" />
-                  </div>
-                  <span className="text-foreground font-medium">{item.title}</span>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              GCP audits focus on sponsor oversight arrangements, governance controls, and system effectiveness across clinical programs.
+            </p>
+            <p className="text-muted-foreground mb-6">Contexts may include:</p>
+
+            {/* Main Contexts */}
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              {auditContexts.map((context) => (
+                <div key={context} className="flex items-start gap-3 p-4 bg-secondary border border-border rounded-lg">
+                  <Building className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">{context}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Vendor Audits */}
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <Users className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">Vendor audits, including:</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4 ml-10">
+                {vendorAudits.map((vendor) => (
+                  <div key={vendor} className="flex items-start gap-3 p-3 bg-secondary border border-border rounded-lg">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-foreground">{vendor}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Program-Level Audits */}
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <Monitor className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">Program-level oversight audits, including:</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4 ml-10">
+                {programAudits.map((program) => (
+                  <div key={program} className="flex items-start gap-3 p-3 bg-secondary border border-border rounded-lg">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-foreground">{program}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="text-sm text-muted-foreground">
+              Each context is evaluated within its own approved scope.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit Execution and Judgment */}
+      <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <Scale className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Judgment</span>
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+                Audit Execution and Judgment
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Within the client-approved audit scope, the Lead Auditor is responsible for:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Executing the audit</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Evaluating audit evidence</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Applying professional audit judgment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Issuing audit conclusions and reports</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted-foreground">
+                Audit judgment is applied to oversight arrangements, governance controls, and compliance, supporting inspection readiness and sponsor decision-making without interfering in clinical operations.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+              <img 
+                src={gcpSupportingImage} 
+                alt="Oversight and data integrity" 
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Supporting Image Section */}
+      {/* Global Coverage and GCP Audit Delivery */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              Global Coverage and GCP Audit Delivery
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GxPify supports global sponsors and audit firms operating across regulated life-sciences markets.
+            </p>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground"><strong>Global Coverage</strong> reflects where sponsors and audit firms operate and commission GCP audits</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground"><strong>Audit Delivery</strong> reflects where GCP audits are executed in accordance with approved scope</span>
+              </li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Audit planning, judgment, and reporting are conducted in English under defined governance controls.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Where required, language or regional facilitation is applied to support execution without altering audit accountability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit Governance */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src={gcpSupportingImage} 
-                  alt="Clinical documentation review process" 
-                  className="w-full h-64 md:h-80 object-cover"
-                />
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+              <ClipboardCheck className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Governance</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              Audit Governance as a Foundation
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              All GCP audits delivered by GxPify operate within a defined governance framework that supports:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <FileText className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Clear scope definition prior to execution</p>
               </div>
-              <div>
-                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  Documentation Excellence
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our GCP audits include thorough review of informed consent forms, case report 
-                  forms, protocol adherence documentation, safety reports, and lab results to 
-                  ensure complete regulatory compliance.
-                </p>
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <Scale className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Consistent application of professional judgment</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <ClipboardCheck className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Structured, traceable reporting</p>
               </div>
             </div>
+            <p className="text-sm text-muted-foreground">
+              This governance framework exists to support sponsor and audit-firm oversight, not to replace it.
+            </p>
           </div>
         </div>
       </section>
@@ -186,7 +318,7 @@ const GcpAudits = () => {
         <div className="container-wide">
           <div className="max-w-3xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Frequently Asked Questions
+              GCP Audit Services — FAQs
             </h2>
             <FAQAccordion faqs={pageFaqs} />
           </div>
@@ -204,10 +336,10 @@ const GcpAudits = () => {
         
         <div className="container-wide text-center relative z-10">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Request a GCP Audit Discussion
+            Request an Audit Discussion
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
-            Contact us to define the scope for your BA/BE or Phase I clinical audits.
+            Contact us to define the scope for your GCP audit requirements.
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
             <Link to="/contact">
@@ -218,21 +350,18 @@ const GcpAudits = () => {
         </div>
       </section>
 
-      {/* Footer Links */}
+      {/* Related Audit Domains */}
       <section className="py-8 bg-secondary border-t border-border">
         <div className="container-wide">
+          <p className="text-center text-sm text-muted-foreground mb-4">Related GxP Audit Domains</p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP</Link>
+            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/gdp" className="text-muted-foreground hover:text-accent transition-colors">GDP</Link>
+            <Link to="/audits/gdp" className="text-muted-foreground hover:text-accent transition-colors">GDP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP</Link>
+            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/gpvp" className="text-muted-foreground hover:text-accent transition-colors">GPvP</Link>
-            <span className="text-border">|</span>
-            <Link to="/audit-governance" className="text-muted-foreground hover:text-accent transition-colors">Audit Governance</Link>
-            <span className="text-border">|</span>
-            <Link to="/faqs" className="text-muted-foreground hover:text-accent transition-colors">FAQs</Link>
+            <Link to="/audits/gpvp" className="text-muted-foreground hover:text-accent transition-colors">GPvP Audit Services</Link>
           </div>
         </div>
       </section>

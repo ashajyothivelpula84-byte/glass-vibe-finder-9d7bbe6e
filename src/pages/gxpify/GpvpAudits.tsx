@@ -1,35 +1,44 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, HeartPulse, FileCheck, Database, Users, Bell, AlertTriangle } from 'lucide-react';
+import { ArrowRight, HeartPulse, CheckCircle, Scale, FileText, ClipboardCheck, Users, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
+
+// GPvP page images
 import gpvpHeroImage from '@/assets/gxpify/gpvp_primary_systems_01.jpg';
 import gpvpSupportingImage from '@/assets/gxpify/gpvp_supporting_workflow_01.jpg';
 
 const GpvpAudits = () => {
-  const auditScope = [
-    'Case processing vendors',
-    'Literature screening vendors',
-    'Safety database support providers',
-    'AE intake and call center operations',
+  const auditContexts = [
+    'MAH-level pharmacovigilance system governance audits',
+    'Pharmacovigilance quality system and oversight audits'
   ];
 
-  const auditFocus = [
-    { title: 'Case Handling Workflows', icon: FileCheck },
-    { title: 'Data Integrity and Timelines', icon: Database },
-    { title: 'Vendor Quality Oversight', icon: Users },
-    { title: 'Signal Escalation Processes (vendor level)', icon: Bell },
+  const vendorAudits = [
+    'Case processing service providers',
+    'Literature search vendors',
+    'Call centers and intake vendors',
+    'PV data management and support vendors'
+  ];
+
+  const oversightAudits = [
+    'Oversight audits of outsourced and hybrid PV operating models'
   ];
 
   const pageFaqs = [
     {
-      question: 'Do you audit MAH PV systems?',
-      answer: 'No, unless commissioned through a global audit firm. Core MAH-level PV system audits are not undertaken directly as part of standard GxPify GPvP audit services.',
+      question: 'Can GxPify be engaged for a single GPvP audit only?',
+      answer: 'Yes. GPvP audits are undertaken based on defined commissioning needs. Engagement for one GPvP audit does not imply or require additional audits.',
       category: 'gpvp'
     },
     {
-      question: 'Are PV audits offered globally?',
-      answer: 'Yes, subject to scope and governance. GPvP audits can be commissioned globally with delivery primarily across India and ASEAN regions.',
+      question: 'Can audit firms commission GPvP audits on behalf of sponsors?',
+      answer: 'Yes. Audit firms may commission GPvP audits on behalf of sponsors. Scope, objectives, and reporting expectations are defined by the commissioning audit firm in alignment with sponsor requirements.',
+      category: 'gpvp'
+    },
+    {
+      question: 'Does GxPify define or approve GPvP audit scope?',
+      answer: 'No. Audit scope is defined and approved by the commissioning sponsor or audit firm. GxPify executes the audit and applies professional judgment within that approved scope.',
       category: 'gpvp'
     }
   ];
@@ -41,7 +50,7 @@ const GpvpAudits = () => {
         <div className="absolute inset-0">
           <img 
             src={gpvpHeroImage} 
-            alt="Pharmacovigilance systems and data flows" 
+            alt="Pharmacovigilance systems and governance" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/60" />
@@ -51,13 +60,13 @@ const GpvpAudits = () => {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6">
               <HeartPulse className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-primary-foreground/90">Selective</span>
+              <span className="text-sm font-medium text-primary-foreground/90">Pharmacovigilance</span>
             </div>
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-              GPvP Audit Services (Selective)
+              GPvP Audit Services
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
-              Vendor-Focused Pharmacovigilance Oversight
+              Good Pharmacovigilance Practice (GPvP) Audits
             </p>
           </div>
         </div>
@@ -70,115 +79,234 @@ const GpvpAudits = () => {
         </div>
       </section>
 
-      {/* Scope Notice */}
-      <section className="py-6 bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-900">
-        <div className="container-wide">
-          <div className="flex items-start gap-4 max-w-3xl">
-            <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-lg flex-shrink-0">
-              <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-1">Selective Scope Notice</h3>
-              <p className="text-sm text-muted-foreground">
-                GPvP audit services are <strong>vendor-focused only</strong>. Core MAH-level PV system audits 
-                are not undertaken directly.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Introduction */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
-                <HeartPulse className="w-6 h-6 text-accent" />
-              </div>
-              <div>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                  GxPify conducts selective, vendor-focused GPvP audits, supporting sponsor oversight of 
-                  outsourced pharmacovigilance activities.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  GPvP audits are offered where vendor performance directly impacts sponsor safety obligations.
-                </p>
-              </div>
-            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              GxPify undertakes selective, commissioned GPvP audits for sponsors and audit firms to evaluate pharmacovigilance system governance, oversight arrangements, and outsourced vendor controls within regulated safety environments.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GPvP audits are delivered under client-approved scope, with defined objectives and governed execution, so audit outcomes support sponsor oversight, audit-firm reliance, and regulatory confidence across pharmacovigilance operating models.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Engagements are selective by design, reflecting the governance-focused nature of pharmacovigilance audits and the importance of maintaining clear audit boundaries.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Audit Scope */}
+      {/* Commissioned GPvP Audits */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Audit Scope
+              Commissioned GPvP Audits
             </h2>
-            <p className="text-muted-foreground mb-8">
-              GPvP audits may include:
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              At GxPify, GPvP audits are delivered as commissioned audit engagements.
             </p>
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
-              {auditScope.map((item) => (
-                <div key={item} className="flex items-start gap-3 p-4 bg-card border border-border rounded-lg">
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground italic">
-              Core MAH-level PV system audits are not undertaken directly.
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Each GPvP audit is characterized by:
+            </p>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Scope and objectives defined and approved by the commissioning sponsor or audit firm</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Applicable GPvP regulatory expectations relevant to the audited activities</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Audit execution, evidence evaluation, and professional judgment applied within that approved scope</span>
+              </li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              GPvP audits may be commissioned directly by sponsors or by audit firms acting on behalf of sponsors.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              In all cases, audit execution and reporting remain governed, consistent, and traceable.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Audit Focus */}
+      {/* GPvP Audit Contexts */}
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Audit Focus
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              GPvP Audit Contexts
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {auditFocus.map((item) => (
-                <div key={item.title} className="flex items-start gap-4 p-6 bg-secondary border border-border rounded-xl">
-                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-accent" />
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              GPvP audits are typically commissioned to evaluate pharmacovigilance system governance and outsourced vendor oversight.
+            </p>
+            <p className="text-muted-foreground mb-6">Contexts may include:</p>
+
+            {/* System Audits */}
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <Building className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">System-Level Audits</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4 ml-10">
+                {auditContexts.map((context) => (
+                  <div key={context} className="flex items-start gap-3 p-4 bg-secondary border border-border rounded-lg">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-foreground">{context}</span>
                   </div>
-                  <span className="text-foreground font-medium">{item.title}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Vendor Audits */}
+            <div className="mb-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <Users className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-foreground">Vendor audits, including:</h3>
+              </div>
+              <div className="grid md:grid-cols-2 gap-4 ml-10">
+                {vendorAudits.map((vendor) => (
+                  <div key={vendor} className="flex items-start gap-3 p-3 bg-secondary border border-border rounded-lg">
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                    <span className="text-foreground">{vendor}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Oversight Audits */}
+            <div className="mb-6">
+              {oversightAudits.map((audit) => (
+                <div key={audit} className="flex items-start gap-3 p-4 bg-secondary border border-border rounded-lg">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">{audit}</span>
                 </div>
               ))}
+            </div>
+
+            <p className="text-sm text-muted-foreground">
+              Each context is evaluated within its own approved scope.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit Execution and Judgment */}
+      <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <Scale className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Judgment</span>
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+                Audit Execution and Judgment
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Within the client-approved audit scope, the Lead Auditor is responsible for:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Executing the audit</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Evaluating audit evidence</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Applying professional audit judgment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Issuing audit conclusions and reports</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted-foreground">
+                Audit judgment is applied to governance structures, oversight arrangements, and control effectiveness, supporting regulatory confidence without extending into operational safety activities or medical decision-making.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+              <img 
+                src={gpvpSupportingImage} 
+                alt="Oversight and control effectiveness" 
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Supporting Image Section */}
+      {/* Global Coverage and GPvP Audit Delivery */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              Global Coverage and GPvP Audit Delivery
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GxPify supports global sponsors and audit firms operating across regulated life-sciences markets.
+            </p>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground"><strong>Global Coverage</strong> reflects where sponsors and audit firms operate and commission GPvP audits</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground"><strong>Audit Delivery</strong> reflects where GPvP audits are executed in accordance with approved scope</span>
+              </li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Audit planning, judgment, and reporting are conducted in English under defined governance controls.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Where required, language or regional facilitation is applied to support execution without altering audit accountability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit Governance */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  End-to-End Workflow Assessment
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our GPvP audits assess the complete pharmacovigilance workflow from risk assessment 
-                  through audit verification, governance, implementation, and final approval, ensuring 
-                  vendor compliance with regulatory expectations.
-                </p>
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+              <ClipboardCheck className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Governance</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              Audit Governance as a Foundation
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              All GPvP audits delivered by GxPify operate within a defined governance framework that supports:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <FileText className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Clear scope definition prior to execution</p>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src={gpvpSupportingImage} 
-                  alt="Pharmacovigilance workflow and governance process" 
-                  className="w-full h-64 md:h-80 object-cover"
-                />
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <Scale className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Consistent application of professional judgment</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <ClipboardCheck className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Structured, traceable reporting</p>
               </div>
             </div>
+            <p className="text-sm text-muted-foreground">
+              This governance framework exists to support sponsor and audit-firm oversight, not to replace it.
+            </p>
           </div>
         </div>
       </section>
@@ -188,7 +316,7 @@ const GpvpAudits = () => {
         <div className="container-wide">
           <div className="max-w-3xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Frequently Asked Questions
+              GPvP Audit Services — FAQs
             </h2>
             <FAQAccordion faqs={pageFaqs} />
           </div>
@@ -206,10 +334,10 @@ const GpvpAudits = () => {
         
         <div className="container-wide text-center relative z-10">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Request a GPvP Audit Discussion
+            Request an Audit Discussion
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
-            Contact us to define the scope for your pharmacovigilance vendor audits.
+            Contact us to define the scope for your GPvP audit requirements.
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
             <Link to="/contact">
@@ -220,21 +348,18 @@ const GpvpAudits = () => {
         </div>
       </section>
 
-      {/* Footer Links */}
+      {/* Related Audit Domains */}
       <section className="py-8 bg-secondary border-t border-border">
         <div className="container-wide">
+          <p className="text-center text-sm text-muted-foreground mb-4">Related GxP Audit Domains</p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP</Link>
+            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/gdp" className="text-muted-foreground hover:text-accent transition-colors">GDP</Link>
+            <Link to="/audits/gdp" className="text-muted-foreground hover:text-accent transition-colors">GDP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP</Link>
+            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/gcp" className="text-muted-foreground hover:text-accent transition-colors">GCP</Link>
-            <span className="text-border">|</span>
-            <Link to="/audit-governance" className="text-muted-foreground hover:text-accent transition-colors">Audit Governance</Link>
-            <span className="text-border">|</span>
-            <Link to="/faqs" className="text-muted-foreground hover:text-accent transition-colors">FAQs</Link>
+            <Link to="/audits/gcp" className="text-muted-foreground hover:text-accent transition-colors">GCP Audit Services</Link>
           </div>
         </div>
       </section>
