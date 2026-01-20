@@ -1,38 +1,37 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck, Thermometer, AlertTriangle, Users, FileText } from 'lucide-react';
+import { ArrowRight, Truck, CheckCircle, Scale, FileText, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
-import PageHero from '@/components/gxpify/PageHero';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
+
+// GDP page images
 import gdpHeroImage from '@/assets/gxpify/gdp_primary_warehouse_01.jpg';
-import gdpColdchainImage from '@/assets/gxpify/gdp_primary_coldchain_02.jpg';
 import gdpSupportingImage from '@/assets/gxpify/gdp_supporting_docs_01.jpg';
 
 const GdpAudits = () => {
-  const auditScope = [
-    'Warehouses and depots',
-    'Cold storage facilities',
-    'Transportation and logistics providers',
-    'Temperature-controlled distribution',
-    'Returns, recalls, and complaint handling',
-  ];
-
-  const auditFocus = [
-    { title: 'Temperature Control and Monitoring', icon: Thermometer },
-    { title: 'Deviation and Excursion Management', icon: AlertTriangle },
-    { title: 'Vendor Qualification and Oversight', icon: Users },
-    { title: 'Distribution Documentation and Traceability', icon: FileText },
+  const auditContexts = [
+    'Finished-product distribution centers',
+    'Third-party logistics providers (3PLs)',
+    'Transporters, including temperature-controlled transport',
+    'Wholesalers and distributors',
+    'Regional depots and contracted warehousing providers',
+    'Supply-chain vendors supporting GDP-relevant activities'
   ];
 
   const pageFaqs = [
     {
-      question: 'Do you audit cold chain operations?',
-      answer: 'Yes, where included in the commissioned scope. Cold chain audits cover temperature-controlled storage, monitoring systems, excursion management, and transportation validation.',
+      question: 'Can GxPify be engaged for a single GDP audit only?',
+      answer: 'Yes. GDP audits are undertaken based on defined commissioning needs. Engagement for one GDP audit does not imply or require additional audits.',
       category: 'gdp'
     },
     {
-      question: 'Are remote GDP audits supported?',
-      answer: 'Yes, subject to scope and feasibility. Remote audits may be appropriate for certain elements of GDP assessment, particularly documentation review and system evaluations.',
+      question: 'Can audit firms commission GDP audits on behalf of sponsors?',
+      answer: 'Yes. Audit firms may commission GDP audits on behalf of sponsors. Scope, objectives, and reporting expectations are defined by the commissioning audit firm in alignment with sponsor requirements.',
+      category: 'gdp'
+    },
+    {
+      question: 'Does GxPify define or approve GDP audit scope?',
+      answer: 'No. Audit scope is defined and approved by the commissioning sponsor or audit firm. GxPify executes the audit and applies professional judgment within that approved scope.',
       category: 'gdp'
     }
   ];
@@ -60,7 +59,7 @@ const GdpAudits = () => {
               GDP Audit Services
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-2xl">
-              Distribution & Cold Chain Oversight
+              Good Distribution Practice (GDP) Audits
             </p>
           </div>
         </div>
@@ -77,128 +76,201 @@ const GdpAudits = () => {
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <div className="flex items-start gap-4 mb-8">
-              <div className="p-3 bg-accent/10 rounded-xl flex-shrink-0">
-                <Truck className="w-6 h-6 text-accent" />
-              </div>
-              <div>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                  GxPify conducts Sponsor / Audit Firm Commissioned GDP audits supporting oversight of 
-                  pharmaceutical distribution and logistics operations.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  GDP audits focus on ensuring product integrity throughout the supply chain, 
-                  particularly where third-party logistics providers are involved.
-                </p>
-              </div>
-            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              GxPify undertakes commissioned GDP audits for sponsors and audit firms where distribution and supply-chain controls are critical to product quality and regulatory compliance.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GDP audits are delivered under client-approved scope, with defined objectives and governed execution, so audit outcomes support sponsor oversight, audit-firm reliance, and regulatory decision-making across complex distribution models.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Engagements may involve a single GDP audit or multiple GDP audits across distribution partners, based entirely on commissioning requirements.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Audit Scope */}
+      {/* Commissioned GDP Audits */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Audit Scope
+              Commissioned GDP Audits
             </h2>
-            <p className="text-muted-foreground mb-8">
-              GDP audits may include:
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              At GxPify, GDP audits are delivered as commissioned audit engagements.
             </p>
-            <div className="grid md:grid-cols-2 gap-4">
-              {auditScope.map((item) => (
-                <div key={item} className="flex items-start gap-3 p-4 bg-card border border-border rounded-lg">
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Each GDP audit is characterized by:
+            </p>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Scope and objectives defined and approved by the commissioning sponsor or audit firm</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Applicable GDP regulatory expectations relevant to the audited activities</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground">Audit execution, evidence evaluation, and professional judgment applied within that approved scope</span>
+              </li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Audits may be commissioned directly by sponsors or by audit firms acting on behalf of sponsors.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              In all cases, audit execution and reporting remain governed, consistent, and traceable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* GDP Audit Contexts */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              GDP Audit Contexts
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              GDP audits are typically commissioned to evaluate control effectiveness across distribution interfaces, rather than isolated logistics activities.
+            </p>
+            <p className="text-muted-foreground mb-6">Contexts may include:</p>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {auditContexts.map((context) => (
+                <div key={context} className="flex items-start gap-3 p-4 bg-secondary border border-border rounded-lg">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">{item}</span>
+                  <span className="text-foreground">{context}</span>
                 </div>
               ))}
             </div>
+            <p className="text-sm text-muted-foreground">
+              Each context is evaluated within its own approved scope.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Cold Chain Image Section */}
-      <section className="section-padding bg-background">
+      {/* Audit Execution and Judgment */}
+      <section className="section-padding bg-secondary">
         <div className="container-wide">
-          <div className="max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src={gdpColdchainImage} 
-                  alt="Cold chain storage facility" 
-                  className="w-full h-64 md:h-80 object-cover"
-                />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+                <Scale className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Judgment</span>
               </div>
-              <div>
-                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  Cold Chain Expertise
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our GDP audits include comprehensive assessment of cold chain operations, 
-                  covering temperature-controlled storage, monitoring systems, excursion 
-                  management protocols, and transportation qualification.
-                </p>
-              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+                Audit Execution and Judgment
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Within the client-approved audit scope, the Lead Auditor is responsible for:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Executing the audit</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Evaluating audit evidence</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Applying professional audit judgment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground">Issuing audit conclusions and reports</span>
+                </li>
+              </ul>
+              <p className="text-sm text-muted-foreground">
+                This model supports consistency, traceability, and defensible audit outcomes without altering client authority over audit intent or scope.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+              <img 
+                src={gdpSupportingImage} 
+                alt="Distribution control and traceability" 
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Audit Focus */}
+      {/* Global Coverage and GDP Audit Delivery */}
+      <section className="section-padding bg-background">
+        <div className="container-wide">
+          <div className="max-w-4xl">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              Global Coverage and GDP Audit Delivery
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              GxPify supports global sponsors and audit firms operating across regulated life-sciences markets.
+            </p>
+            <ul className="space-y-3 mb-6">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground"><strong>Global Coverage</strong> reflects where sponsors and audit firms operate and commission GDP audits</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                <span className="text-foreground"><strong>Audit Delivery</strong> reflects where GDP audits are executed in accordance with approved scope</span>
+              </li>
+            </ul>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Audit planning, judgment, and reporting are conducted in English under defined governance controls.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Where required, language or regional facilitation is applied to support execution without altering audit accountability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Audit Governance */}
       <section className="section-padding bg-secondary">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Audit Focus
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-full mb-4">
+              <ClipboardCheck className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Governance</span>
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              Audit Governance as a Foundation
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {auditFocus.map((item) => (
-                <div key={item.title} className="flex items-start gap-4 p-6 bg-card border border-border rounded-xl">
-                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-accent" />
-                  </div>
-                  <span className="text-foreground font-medium">{item.title}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Supporting Image */}
-      <section className="section-padding bg-background">
-        <div className="container-wide">
-          <div className="max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  Documentation & Traceability
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Comprehensive review of distribution records, shipment documentation, 
-                  governance policies, and compliance frameworks ensures full traceability 
-                  across your supply chain operations.
-                </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              All GDP audits delivered by GxPify operate within a defined governance framework that supports:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <FileText className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Clear scope definition prior to execution</p>
               </div>
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src={gdpSupportingImage} 
-                  alt="Distribution audit documentation review" 
-                  className="w-full h-64 md:h-80 object-cover"
-                />
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <Scale className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Consistent application of professional judgment</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 border border-border">
+                <ClipboardCheck className="w-5 h-5 text-accent mb-2" />
+                <p className="text-foreground font-medium text-sm">Structured, traceable reporting</p>
               </div>
             </div>
+            <p className="text-sm text-muted-foreground">
+              This governance framework exists to support sponsor and audit-firm oversight, not to replace it.
+            </p>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-3xl">
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              Frequently Asked Questions
+              GDP Audit Services — FAQs
             </h2>
             <FAQAccordion faqs={pageFaqs} />
           </div>
@@ -216,10 +288,10 @@ const GdpAudits = () => {
         
         <div className="container-wide text-center relative z-10">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Request a GDP Audit Discussion
+            Request an Audit Discussion
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto mb-8 text-lg">
-            Contact us to define the scope for your distribution and logistics audits.
+            Contact us to define the scope for your GDP audit requirements.
           </p>
           <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25" asChild>
             <Link to="/contact">
@@ -230,21 +302,18 @@ const GdpAudits = () => {
         </div>
       </section>
 
-      {/* Footer Links */}
+      {/* Related Audit Domains */}
       <section className="py-8 bg-secondary border-t border-border">
         <div className="container-wide">
+          <p className="text-center text-sm text-muted-foreground mb-4">Related GxP Audit Domains</p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP</Link>
+            <Link to="/audits/gmp" className="text-muted-foreground hover:text-accent transition-colors">GMP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP</Link>
+            <Link to="/audits/glp" className="text-muted-foreground hover:text-accent transition-colors">GLP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/gcp" className="text-muted-foreground hover:text-accent transition-colors">GCP</Link>
+            <Link to="/audits/gcp" className="text-muted-foreground hover:text-accent transition-colors">GCP Audit Services</Link>
             <span className="text-border">|</span>
-            <Link to="/audits/gpvp" className="text-muted-foreground hover:text-accent transition-colors">GPvP</Link>
-            <span className="text-border">|</span>
-            <Link to="/audit-governance" className="text-muted-foreground hover:text-accent transition-colors">Audit Governance</Link>
-            <span className="text-border">|</span>
-            <Link to="/faqs" className="text-muted-foreground hover:text-accent transition-colors">FAQs</Link>
+            <Link to="/audits/gpvp" className="text-muted-foreground hover:text-accent transition-colors">GPvP Audit Services</Link>
           </div>
         </div>
       </section>
