@@ -1,10 +1,37 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail, MapPin, ArrowUpRight, Shield } from 'lucide-react';
-import { footerLinks } from '@/data/gxpifyData';
+import { Linkedin, Instagram, ArrowUpRight, Shield } from 'lucide-react';
 import gxpifyLogo from '@/assets/gxpify/gxpify_logo.png';
 
 const GxpFooter = () => {
   const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    auditServices: [
+      { label: 'GxP Audit Services', href: '/audits' },
+      { label: 'GMP Audit Services', href: '/audits/gmp' },
+      { label: 'GDP Audit Services', href: '/audits/gdp' },
+      { label: 'GLP Audit Services', href: '/audits/glp' },
+      { label: 'GCP Audit Services', href: '/audits/gcp' },
+      { label: 'GPvP Audit Services', href: '/audits/gpvp' },
+    ],
+    governanceContext: [
+      { label: 'Audit Governance & Methodology', href: '/audit-governance' },
+      { label: 'Global Coverage', href: '/global-coverage' },
+      { label: 'India & Regional Audit Delivery', href: '/india-asean' },
+    ],
+    insightReference: [
+      { label: 'Resources', href: '/resources' },
+      { label: 'Global FAQs', href: '/faqs' },
+    ],
+    aboutContact: [
+      { label: 'About GxPify', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+    ],
+    legal: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms & Disclaimer', href: '/terms' },
+    ],
+  };
 
   return (
     <footer className="relative bg-primary text-primary-foreground overflow-hidden">
@@ -32,7 +59,7 @@ const GxpFooter = () => {
               </div>
               <div>
                 <h3 className="font-display text-xl font-semibold">Ready to Discuss Your Audit Requirement?</h3>
-                <p className="text-primary-foreground/70 text-sm">Independent, scope-driven GxP audits across India and ASEAN.</p>
+                <p className="text-primary-foreground/70 text-sm">Independent, scope-driven GxP audits across life-sciences environments.</p>
               </div>
             </div>
             <Link 
@@ -49,7 +76,7 @@ const GxpFooter = () => {
         <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
             {/* Brand Column */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-4">
               <Link to="/" className="inline-block mb-6 group">
                 <img 
                   src={gxpifyLogo} 
@@ -58,27 +85,13 @@ const GxpFooter = () => {
                 />
               </Link>
               <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-sm mb-8">
-                Sponsor / Audit Firm Commissioned GxP Audits delivered across India & ASEAN. 
-                Independent, scope-driven audits supporting global life sciences organizations.
+                Founder-led, audit-first GxP audit practice delivering commissioned audits under defined scope and governed execution across life-sciences environments.
               </p>
               
-              {/* Contact Info */}
-              <div className="space-y-3 mb-6">
-                <a href="mailto:contact@gxpify.com" className="flex items-center gap-3 text-sm text-primary-foreground/70 hover:text-accent transition-colors group">
-                  <div className="p-2 bg-primary-foreground/10 rounded-lg group-hover:bg-accent/20 transition-colors">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  contact@gxpify.com
-                </a>
-                <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
-                  <div className="p-2 bg-primary-foreground/10 rounded-lg">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  India & ASEAN
-                </div>
-              </div>
-
-              {/* Social Links */}
+              {/* Professional Presence */}
+              <h4 className="font-display text-sm font-semibold mb-4 uppercase tracking-wider text-accent">
+                Professional Presence
+              </h4>
               <div className="flex items-center gap-3">
                 <a
                   href="https://linkedin.com"
@@ -90,22 +103,82 @@ const GxpFooter = () => {
                   <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
                 <a
-                  href="mailto:contact@gxpify.com"
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-3 rounded-xl bg-primary-foreground/10 hover:bg-accent/20 hover:text-accent transition-all duration-300 group"
-                  aria-label="Email"
+                  aria-label="Instagram - Audit Thinking & Metaphors"
+                  title="Audit Thinking & Metaphors"
                 >
-                  <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </a>
               </div>
             </div>
 
-            {/* Quick Links Column */}
-            <div className="lg:col-span-4">
+            {/* Audit Services Column */}
+            <div className="lg:col-span-2">
               <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
-                Quick Links
+                Audit Services
               </h4>
               <ul className="space-y-3">
-                {footerLinks.quickLinks.map((link) => (
+                {footerLinks.auditServices.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Governance & Context Column */}
+            <div className="lg:col-span-2">
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                Governance & Context
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.governanceContext.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Insight & Reference + About & Contact Column */}
+            <div className="lg:col-span-2">
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                Insight & Reference
+              </h4>
+              <ul className="space-y-3 mb-8">
+                {footerLinks.insightReference.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      to={link.href}
+                      className="group flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/30 group-hover:bg-accent transition-colors" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
+                About & Contact
+              </h4>
+              <ul className="space-y-3">
+                {footerLinks.aboutContact.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
@@ -120,7 +193,7 @@ const GxpFooter = () => {
             </div>
 
             {/* Legal Column */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-2">
               <h4 className="font-display text-sm font-semibold mb-5 uppercase tracking-wider text-accent">
                 Legal
               </h4>
@@ -143,20 +216,20 @@ const GxpFooter = () => {
 
         {/* Bottom Bar */}
         <div className="py-6 border-t border-primary-foreground/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-sm text-primary-foreground/50">
-              <span>© {currentYear} GxPify.</span>
-              <span className="hidden sm:inline">•</span>
-              <span className="hidden sm:inline">All rights reserved.</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <span className="text-xs text-primary-foreground/40 uppercase tracking-wider">
-                Independent Audit Services
-              </span>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="text-sm text-primary-foreground/50">
+                © {currentYear} GxPify. All rights reserved.
+              </div>
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="text-xs text-primary-foreground/50">Accepting Engagements</span>
               </div>
+            </div>
+            <div className="text-center md:text-left">
+              <p className="text-xs text-primary-foreground/40 leading-relaxed max-w-3xl">
+                All audits are commissioned engagements delivered under client-approved scope and governed execution. GxPify does not provide consulting, remediation ownership, or operational services.
+              </p>
             </div>
           </div>
         </div>
