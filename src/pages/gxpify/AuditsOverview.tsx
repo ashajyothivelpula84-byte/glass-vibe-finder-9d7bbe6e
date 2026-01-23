@@ -5,7 +5,7 @@ import PageLayout from '@/components/gxpify/PageLayout';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
 
 // Images - exactly 5 total (1 primary + 4 supporting)
-import heroImage from '@/assets/gxpify/home_hero_01.jpg';
+import heroImage from '@/assets/gxpify/audit_governance_primary_01.jpg';
 import supportingReliability from '@/assets/gxpify/home_supporting_systems_02.jpg';
 import supportingCoverage from '@/assets/gxpify/home_supporting_global_04.jpg';
 import supportingGovernance from '@/assets/gxpify/home_supporting_governance_05.jpg';
@@ -80,14 +80,17 @@ const AuditsOverview = () => {
         
         <div className="container-wide relative z-10 py-20">
           <div className="max-w-3xl">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6">
               Commissioned GxP Audits Across the Product Lifecycle
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed mb-6">
               GxPify undertakes commissioned GxP audits for sponsors and audit firms across the life-sciences product lifecycle — from development-stage systems through manufacturing, distribution, clinical oversight, and pharmacovigilance governance.
             </p>
-            <p className="text-primary-foreground/80 leading-relaxed mb-8">
+            <p className="text-primary-foreground/80 leading-relaxed mb-4">
               All audits are delivered under client-approved scope, with defined objectives and governed execution, so outcomes remain usable, defensible, and aligned with sponsor or audit-firm oversight expectations.
+            </p>
+            <p className="text-primary-foreground/80 leading-relaxed mb-8">
+              Organizations may engage GxPify for a single audit, or multiple audit engagements across different GxP domains. Each audit engagement is commissioned, scoped, executed, and reported independently.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground" asChild>
@@ -109,11 +112,11 @@ const AuditsOverview = () => {
       </section>
 
       {/* SECTION 1 – COMMISSIONED AUDIT MODEL | NO IMAGE */}
-      <section className="section-padding bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container-wide">
           <div className="max-w-4xl">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
-              Commissioned GxP Audits
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              What "Commissioned GxP Audits" Mean at GxPify
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               At GxPify, audits are delivered as commissioned engagements, not exploratory, advisory, or preparatory exercises.
@@ -161,7 +164,7 @@ const AuditsOverview = () => {
       </section>
 
       {/* IMAGE 2 – SUPPORTING: Reliability & Execution Discipline */}
-      <section className="section-padding bg-secondary">
+      <section className="py-16 md:py-20 bg-secondary">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
@@ -169,7 +172,7 @@ const AuditsOverview = () => {
                 <Shield className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-accent">Reliability</span>
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Reliability in Audit Execution
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -181,15 +184,19 @@ const AuditsOverview = () => {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">Scope-aligned execution</span>
+                  <span className="text-foreground">Execution aligned strictly to the approved audit scope</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">Consistent evidence interpretation</span>
+                  <span className="text-foreground">Consistent interpretation of audit evidence</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">Clear judgment ownership</span>
+                  <span className="text-foreground">Clear ownership of professional audit judgment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
+                  <span className="text-foreground">Structured, governance-ready reporting</span>
                 </li>
               </ul>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -206,7 +213,7 @@ const AuditsOverview = () => {
                 </li>
               </ul>
             </div>
-            <div className="order-1 lg:order-2 rounded-2xl overflow-hidden border border-border shadow-lg">
+            <div className="order-1 lg:order-2 rounded-xl overflow-hidden border border-border">
               <img 
                 src={supportingReliability} 
                 alt="System alignment and judgment discipline" 
@@ -218,11 +225,11 @@ const AuditsOverview = () => {
       </section>
 
       {/* SECTION 2 – GxP AUDIT DOMAINS | ICONS ONLY */}
-      <section id="audit-domains" className="section-padding bg-background">
+      <section id="audit-domains" className="py-16 md:py-20 bg-background">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-              GxP Audit Domains Available
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              GxP Audit Domains
             </h2>
             <p className="text-muted-foreground">
               GxPify undertakes audits across the following GxP domains, based on commissioning requirements:
@@ -234,7 +241,7 @@ const AuditsOverview = () => {
               <Link
                 key={domain.title}
                 to={domain.href}
-                className="group bg-card rounded-xl p-6 border border-border hover:border-accent/50 hover:shadow-lg transition-all duration-300"
+                className="group bg-card rounded-xl p-6 border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
@@ -246,7 +253,7 @@ const AuditsOverview = () => {
                     </span>
                   )}
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
                   {domain.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">{domain.description}</p>
@@ -265,10 +272,10 @@ const AuditsOverview = () => {
       </section>
 
       {/* IMAGE 3 – SUPPORTING: Coverage vs Delivery Concept */}
-      <section className="section-padding bg-secondary">
+      <section className="py-16 md:py-20 bg-secondary">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+            <div className="rounded-xl overflow-hidden border border-border">
               <img 
                 src={supportingCoverage} 
                 alt="Coverage vs delivery abstraction" 
@@ -280,7 +287,7 @@ const AuditsOverview = () => {
                 <Globe className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-accent">Coverage & Delivery</span>
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Global Coverage and Audit Delivery
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -289,37 +296,29 @@ const AuditsOverview = () => {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground"><strong>Coverage</strong> = who commissions</span>
+                  <span className="text-foreground"><strong>Global Coverage</strong> reflects where sponsors and audit firms operate and commission audits</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground"><strong>Delivery</strong> = where audits are executed</span>
+                  <span className="text-foreground"><strong>Audit Delivery</strong> reflects where audits are executed in accordance with approved scope</span>
                 </li>
               </ul>
               <p className="text-sm text-muted-foreground mb-8">
-                Audit planning, judgment, and reporting are conducted in English under defined governance controls.
+                Audit planning, judgment, and reporting are conducted in English under defined governance controls. Where required, language or regional facilitation is applied to support execution without altering audit accountability.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button variant="outline" asChild>
-                  <Link to="/global-coverage">
-                    View Global Coverage
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link to="/india-asean">
-                    View India & Regional Audit Delivery
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </Button>
-              </div>
+              <Button variant="outline" asChild>
+                <Link to="/global-coverage">
+                  View Coverage & Delivery
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* IMAGE 4 – SUPPORTING: Governance Foundation */}
-      <section className="section-padding bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -327,7 +326,7 @@ const AuditsOverview = () => {
                 <Scale className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-accent">Governance</span>
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Audit Governance as the Common Foundation
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -336,15 +335,15 @@ const AuditsOverview = () => {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">Scope discipline</span>
+                  <span className="text-foreground">Clear scope definition prior to execution</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">Judgment consistency</span>
+                  <span className="text-foreground">Consistent application of professional judgment</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <span className="text-foreground">Traceable reporting</span>
+                  <span className="text-foreground">Traceable and defensible reporting</span>
                 </li>
               </ul>
               <p className="text-sm text-muted-foreground mb-8">
@@ -352,12 +351,12 @@ const AuditsOverview = () => {
               </p>
               <Button variant="outline" asChild>
                 <Link to="/audit-governance">
-                  Audit Governance & Methodology
+                  Review Audit Governance & Methodology
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+            <div className="rounded-xl overflow-hidden border border-border">
               <img 
                 src={supportingGovernance} 
                 alt="Governance framework abstraction" 
@@ -369,10 +368,10 @@ const AuditsOverview = () => {
       </section>
 
       {/* IMAGE 5 – SUPPORTING: Multi-Audit / Program Use */}
-      <section className="section-padding bg-secondary">
+      <section className="py-16 md:py-20 bg-secondary">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+            <div className="rounded-xl overflow-hidden border border-border">
               <img 
                 src={supportingMultiAudit} 
                 alt="Modular audit structure" 
@@ -384,7 +383,7 @@ const AuditsOverview = () => {
                 <Layers className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-accent">Engagement Flexibility</span>
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-6">
                 Single or Multiple Audit Engagements
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -413,11 +412,11 @@ const AuditsOverview = () => {
       </section>
 
       {/* SECTION – FAQs | NO IMAGE */}
-      <section className="section-padding bg-background">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8">
-              GxP Audit Services – FAQs
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-8">
+              Orientation FAQs
             </h2>
             <FAQAccordion faqs={pageFaqs} />
           </div>
@@ -425,10 +424,10 @@ const AuditsOverview = () => {
       </section>
 
       {/* SECTION – PATHWAYS | NO IMAGE */}
-      <section className="section-padding bg-secondary">
+      <section className="py-16 md:py-20 bg-secondary">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
               Pathways Forward
             </h2>
             <p className="text-muted-foreground">
