@@ -4,7 +4,8 @@ import { ArrowRight, Globe, CheckCircle, MapPin, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
-import globalCoverageHeroImage from '@/assets/gxpify/global_coverage_01.jpg';
+import heroImage from '@/assets/gxpify/global_coverage_hero_01.jpg';
+import supportingImage from '@/assets/gxpify/global_coverage_supporting_01.jpg';
 
 const GlobalCoverage = () => {
   const [activeSection, setActiveSection] = useState('intro');
@@ -104,8 +105,8 @@ const GlobalCoverage = () => {
       <section className="relative min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={globalCoverageHeroImage} 
-            alt="Global coverage network visualization" 
+            src={heroImage} 
+            alt="Global coverage network visualization"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
@@ -222,6 +223,17 @@ const GlobalCoverage = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+
+              {/* Supporting Image - Coverage vs Delivery Separation */}
+              <div className="mb-16">
+                <div className="rounded-xl overflow-hidden border border-border shadow-sm">
+                  <img 
+                    src={supportingImage} 
+                    alt="Coverage vs delivery separation visualization" 
+                    className="w-full h-auto max-h-[320px] object-cover"
+                  />
                 </div>
               </div>
 
