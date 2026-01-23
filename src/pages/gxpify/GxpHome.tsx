@@ -134,7 +134,7 @@ const GxpHome = () => {
             <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
               Commissioned GxP Audits Across the Product Lifecycle
             </h2>
-            <p className="text-body text-secondary leading-relaxed mb-8">
+            <p className="text-base text-muted-foreground leading-relaxed mb-8">
               GxPify supports audits spanning the life-sciences product lifecycle — from development-related systems through manufacturing, distribution, clinical oversight, and pharmacovigilance governance.
             </p>
           </div>
@@ -156,7 +156,7 @@ const GxpHome = () => {
             ))}
           </div>
 
-          <p className="text-sm text-secondary text-center mt-8 max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground text-center mt-8 max-w-2xl mx-auto">
             Each audit engagement is commissioned independently, with scope and objectives defined by the commissioning party prior to execution.
           </p>
         </div>
@@ -174,7 +174,7 @@ const GxpHome = () => {
               <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
                 Why Many Audits Miss What Matters
               </h2>
-              <p className="text-body text-secondary leading-relaxed mb-6">
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 Most audits do not fall short because procedures are missing. They fall short because:
               </p>
               <ul className="space-y-3">
@@ -185,7 +185,7 @@ const GxpHome = () => {
                   </li>
                 ))}
               </ul>
-              <p className="text-body text-secondary leading-relaxed mt-6">
+              <p className="text-base text-muted-foreground leading-relaxed mt-6">
                 GxPify's audit approach focuses on how systems operate within the approved audit scope, so conclusions reflect actual execution across interfaces relevant to the engagement.
               </p>
             </div>
@@ -211,10 +211,10 @@ const GxpHome = () => {
             <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
               Founder-Led Accountability
             </h2>
-            <p className="text-body text-secondary leading-relaxed mb-4">
+            <p className="text-base text-muted-foreground leading-relaxed mb-4">
               All GxPify audits are delivered under single-point Lead Auditor accountability.
             </p>
-            <p className="text-body text-secondary leading-relaxed mb-8">
+            <p className="text-base text-muted-foreground leading-relaxed mb-8">
               Within the client-approved audit scope, the Lead Auditor is responsible for executing the audit, evaluating audit evidence, and applying professional audit judgment. This model supports consistency, traceability, and defensible audit conclusions without altering client authority over audit intent or scope.
             </p>
             
@@ -246,7 +246,7 @@ const GxpHome = () => {
             <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
               Global Clients. Defined Audit Delivery.
             </h2>
-            <p className="text-body text-secondary leading-relaxed mb-6">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
               GxPify supports global sponsors and audit firms operating across regulated life-sciences markets, including North America, Europe, and other globally regulated regions.
             </p>
             <ul className="space-y-3 text-left max-w-xl mx-auto mb-6">
@@ -259,7 +259,7 @@ const GxpHome = () => {
                 <span className="text-foreground"><strong className="font-semibold">Audit Delivery</strong> reflects where audits are executed in accordance with approved scope</span>
               </li>
             </ul>
-            <p className="text-sm text-secondary">
+            <p className="text-sm text-muted-foreground">
               This distinction supports accurate expectations and consistent governance across geographies.
             </p>
           </div>
@@ -277,7 +277,7 @@ const GxpHome = () => {
             <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
               Single or Multiple Audit Needs
             </h2>
-            <p className="text-body text-secondary leading-relaxed mb-6">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
               Organizations may engage GxPify for:
             </p>
             <ul className="space-y-3 mb-6">
@@ -290,7 +290,7 @@ const GxpHome = () => {
                 <span className="text-foreground">Multiple audit engagements across different GxP domains</span>
               </li>
             </ul>
-            <p className="text-body text-secondary leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Each audit engagement retains its own defined scope, execution, and reporting, regardless of engagement size or audit mix.
             </p>
           </div>
@@ -309,7 +309,7 @@ const GxpHome = () => {
               <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
                 Audit Governance as a Foundation
               </h2>
-              <p className="text-body text-secondary leading-relaxed mb-6">
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 GxPify audits are delivered within a defined governance framework that supports:
               </p>
             </div>
@@ -329,7 +329,7 @@ const GxpHome = () => {
               </li>
             </ul>
 
-            <p className="text-body text-secondary text-center leading-relaxed mb-8">
+            <p className="text-base text-muted-foreground text-center leading-relaxed mb-8">
               This governance framework exists to support sponsor and audit-firm oversight — not to replace or override it.
             </p>
 
@@ -354,7 +354,7 @@ const GxpHome = () => {
             <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
               Resources for Better Audit Decisions
             </h2>
-            <p className="text-body text-secondary leading-relaxed mb-6">
+            <p className="text-base text-muted-foreground leading-relaxed mb-6">
               GxPify shares audit-relevant perspectives intended to support:
             </p>
             <ul className="space-y-3 mb-8">
@@ -371,7 +371,7 @@ const GxpHome = () => {
                 <span className="text-foreground">Identification of accountability blind spots</span>
               </li>
             </ul>
-            <p className="text-body text-secondary leading-relaxed mb-8">
+            <p className="text-base text-muted-foreground leading-relaxed mb-8">
               These resources inform audit thinking ahead of commissioning decisions.
             </p>
             <Button variant="outline" asChild className="btn-formal">
@@ -403,7 +403,7 @@ const GxpHome = () => {
             <h2 className="text-editorial-h2 font-semibold text-foreground mb-6">
               Pathways Forward
             </h2>
-            <p className="text-body text-secondary leading-relaxed mb-8">
+            <p className="text-base text-muted-foreground leading-relaxed mb-8">
               If this audit-first, governance-aligned approach fits your expectations, you may explore audit services or initiate engagement through formal channels.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -427,19 +427,19 @@ const GxpHome = () => {
       <section className="py-8 border-t border-border">
         <div className="container-wide">
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            <Link to="/about" className="text-secondary hover:text-accent transition-colors duration-150">About GxPify</Link>
+            <Link to="/about" className="text-muted-foreground hover:text-accent transition-colors duration-150">About GxPify</Link>
             <span className="text-border">•</span>
-            <Link to="/audits" className="text-secondary hover:text-accent transition-colors duration-150">GxP Audit Services</Link>
+            <Link to="/audits" className="text-muted-foreground hover:text-accent transition-colors duration-150">GxP Audit Services</Link>
             <span className="text-border">•</span>
-            <Link to="/audit-governance" className="text-secondary hover:text-accent transition-colors duration-150">Audit Governance & Methodology</Link>
+            <Link to="/audit-governance" className="text-muted-foreground hover:text-accent transition-colors duration-150">Audit Governance & Methodology</Link>
             <span className="text-border">•</span>
-            <Link to="/global-coverage" className="text-secondary hover:text-accent transition-colors duration-150">Coverage & Delivery</Link>
+            <Link to="/global-coverage" className="text-muted-foreground hover:text-accent transition-colors duration-150">Coverage & Delivery</Link>
             <span className="text-border">•</span>
-            <Link to="/resources" className="text-secondary hover:text-accent transition-colors duration-150">Audit Resources</Link>
+            <Link to="/resources" className="text-muted-foreground hover:text-accent transition-colors duration-150">Audit Resources</Link>
             <span className="text-border">•</span>
-            <Link to="/faqs" className="text-secondary hover:text-accent transition-colors duration-150">Global FAQs</Link>
+            <Link to="/faqs" className="text-muted-foreground hover:text-accent transition-colors duration-150">Global FAQs</Link>
             <span className="text-border">•</span>
-            <Link to="/contact" className="text-secondary hover:text-accent transition-colors duration-150">Contact</Link>
+            <Link to="/contact" className="text-muted-foreground hover:text-accent transition-colors duration-150">Contact</Link>
           </div>
         </div>
       </section>
