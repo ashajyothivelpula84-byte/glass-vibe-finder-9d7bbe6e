@@ -4,7 +4,8 @@ import { ArrowRight, CheckCircle, ClipboardCheck, Shield, Scale, FileText, User,
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/gxpify/PageLayout';
 import FAQAccordion from '@/components/gxpify/FAQAccordion';
-import auditGovernanceHeroImage from '@/assets/gxpify/audit_governance_primary_01.jpg';
+import heroImage from '@/assets/gxpify/audit_governance_primary_01.jpg';
+import supportingImage from '@/assets/gxpify/audit_governance_supporting_01.jpg';
 
 const AuditGovernance = () => {
   const [activeSection, setActiveSection] = useState('intro');
@@ -74,7 +75,7 @@ const AuditGovernance = () => {
     },
     {
       question: 'What does "independent" mean in GxPify audits?',
-      answer: 'Independence refers to the application of professional audit judgment without operational responsibility — not separation from sponsor or audit-firm governance.',
+      answer: 'Independence refers to the application of professional audit judgment without operational responsibility.',
       category: 'governance'
     },
     {
@@ -130,7 +131,7 @@ const AuditGovernance = () => {
       <section className="relative min-h-[400px] md:min-h-[480px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={auditGovernanceHeroImage} 
+            src={heroImage} 
             alt="Audit governance and methodology framework" 
             className="w-full h-full object-cover"
           />
@@ -172,7 +173,7 @@ const AuditGovernance = () => {
                     GxPify operates under a defined audit governance framework designed to preserve audit integrity, scope discipline, and consistency of professional judgment across all commissioned GxP audits.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    This framework exists to ensure audit outcomes are reliable for sponsor oversight, audit-firm reliance, and regulatory decision-making — without altering client authority over audit intent or scope.
+                    This framework ensures audit outcomes are reliable for sponsor oversight, audit-firm reliance, and regulatory decision-making, without altering client authority over audit intent or audit scope.
                   </p>
                 </div>
               </div>
@@ -190,7 +191,7 @@ const AuditGovernance = () => {
                   </div>
                   
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    At GxPify, audits are delivered as structured, commissioned engagements — not as ad-hoc evaluations.
+                    Audits are delivered as structured, commissioned engagements, not as ad-hoc evaluations.
                   </p>
                   
                   <p className="text-foreground font-medium mb-4">Governed audit delivery means:</p>
@@ -253,6 +254,17 @@ const AuditGovernance = () => {
                 </div>
               </div>
 
+              {/* Supporting Image - Accountability & Methodology */}
+              <div className="mb-16">
+                <div className="rounded-xl overflow-hidden border border-border shadow-sm">
+                  <img 
+                    src={supportingImage} 
+                    alt="Accountability and methodology flow" 
+                    className="w-full h-auto max-h-[320px] object-cover"
+                  />
+                </div>
+              </div>
+
               {/* Scope Control and Boundary Discipline */}
               <div id="scope-control" className="mb-16">
                 <div className="p-8 bg-card border border-border rounded-xl shadow-sm">
@@ -266,10 +278,10 @@ const AuditGovernance = () => {
                   </div>
                   
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Audit governance at GxPify is anchored in formal scope control:
+                    Audit governance at GxPify is anchored in formal scope control.
                   </p>
                   
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-6">
                     {scopeControlPoints.map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
@@ -277,6 +289,10 @@ const AuditGovernance = () => {
                       </li>
                     ))}
                   </ul>
+
+                  <p className="text-sm text-muted-foreground">
+                    This discipline ensures audits remain objective evaluations of compliance and system effectiveness within the agreed scope.
+                  </p>
                 </div>
               </div>
 
@@ -291,8 +307,12 @@ const AuditGovernance = () => {
                       Audit Methodology (High-Level)
                     </h2>
                   </div>
+
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    While audit methodologies vary by GxP domain, all GxPify audits follow a consistent high-level structure:
+                  </p>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-4 mb-6">
                     {methodologySteps.map((item) => (
                       <div key={item.step} className="flex items-start gap-4 p-4 bg-secondary/50 border border-border rounded-lg">
                         <div className="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-display font-bold flex-shrink-0">
@@ -305,6 +325,10 @@ const AuditGovernance = () => {
                       </div>
                     ))}
                   </div>
+
+                  <p className="text-sm text-muted-foreground">
+                    Detailed methodology steps are applied within each engagement in alignment with applicable regulatory expectations.
+                  </p>
                 </div>
               </div>
 
@@ -325,7 +349,7 @@ const AuditGovernance = () => {
                   </p>
                   
                   <p className="text-foreground font-medium mb-4">Reporting is characterized by:</p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-6">
                     {reportingCharacteristics.map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -333,6 +357,10 @@ const AuditGovernance = () => {
                       </li>
                     ))}
                   </ul>
+
+                  <p className="text-sm text-muted-foreground">
+                    Reports are designed to be defensible, traceable, and inspection-relevant.
+                  </p>
                 </div>
               </div>
 
@@ -368,7 +396,7 @@ const AuditGovernance = () => {
               <div id="faqs" className="mb-16">
                 <div className="p-8 bg-card border border-border rounded-xl shadow-sm">
                   <h2 className="font-display text-2xl font-semibold text-foreground mb-6">
-                    Audit Governance — FAQs (Orientation)
+                    Audit Governance — FAQs
                   </h2>
                   <FAQAccordion faqs={pageFaqs} />
                 </div>
@@ -376,7 +404,7 @@ const AuditGovernance = () => {
 
               {/* Pathways */}
               <div id="pathways" className="mb-16">
-                <h2 className="font-display text-2xl font-semibold text-foreground mb-6">
+                <h2 className="font-display text-2xl font-semibold text-foreground mb-4">
                   Pathways
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-6">
