@@ -9,26 +9,20 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1200px",
+        "2xl": "1100px", // contentMax
       },
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        sans: ['Inter', 'Source Sans Pro', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        // Hero headline: 42-48px desktop, 30-34px mobile
-        'hero': ['clamp(1.875rem, 5vw, 3rem)', { lineHeight: '1.2', fontWeight: '600' }],
-        // Page H1: 34-36px desktop, 26-28px mobile
-        'h1': ['clamp(1.625rem, 4vw, 2.25rem)', { lineHeight: '1.3', fontWeight: '600' }],
-        // Section H2: 24-26px desktop, 20-22px mobile
-        'h2': ['clamp(1.25rem, 3vw, 1.625rem)', { lineHeight: '1.3', fontWeight: '500' }],
-        // Section H3: 18-20px
-        'h3': ['clamp(1.125rem, 2.5vw, 1.25rem)', { lineHeight: '1.3', fontWeight: '500' }],
-        // Body text: 16-17px
-        'body': ['1.0625rem', { lineHeight: '1.7', fontWeight: '400' }],
-        // Small notes: 13-14px
-        'small': ['0.8125rem', { lineHeight: '1.5', fontWeight: '400' }],
+        // Audit-grade editorial typography - LOCKED
+        'h1': ['2.25rem', { lineHeight: '1.3', fontWeight: '600' }],    // 36px
+        'h2': ['1.75rem', { lineHeight: '1.3', fontWeight: '500' }],    // 28px
+        'h3': ['1.375rem', { lineHeight: '1.3', fontWeight: '500' }],   // 22px
+        'body': ['1rem', { lineHeight: '1.65', fontWeight: '400' }],    // 16px
+        'small': ['0.875rem', { lineHeight: '1.5', fontWeight: '400' }], // 14px
       },
       colors: {
         border: "hsl(var(--border))",
@@ -83,6 +77,19 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      // Spacing scale: xs=0.5rem, sm=1rem, md=2rem, lg=3rem, xl=4.5rem
+      spacing: {
+        'xs': '0.5rem',
+        'sm-space': '1rem',
+        'md-space': '2rem',
+        'lg-space': '3rem',
+        'xl-space': '4.5rem',
+      },
+      maxWidth: {
+        'content': '1100px',  // contentMax
+        'wide': '1280px',     // wideMax
+        'text': '720px',      // textMax
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -90,7 +97,14 @@ export default {
       },
       boxShadow: {
         'professional': '0 1px 2px 0 rgba(0, 0, 0, 0.03)',
-        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03)',
+        'card': '0 2px 4px -1px rgba(0, 0, 0, 0.04)',
+      },
+      // Motion: 150ms ease-in-out ONLY - no scroll animations
+      transitionDuration: {
+        'hover': '150ms',
+      },
+      transitionTimingFunction: {
+        'editorial': 'ease-in-out',
       },
       keyframes: {
         "accordion-down": {
@@ -109,7 +123,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.4s ease-out forwards",
+        "fade-in": "fade-in 0.3s ease-out forwards",
       },
     },
   },
