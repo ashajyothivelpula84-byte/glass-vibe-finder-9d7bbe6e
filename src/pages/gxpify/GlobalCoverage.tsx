@@ -113,10 +113,9 @@ const GlobalCoverage = () => {
         
         <div className="container-wide relative z-10 py-16 md:py-20">
           <div className="max-w-3xl">
-            {/* Content Lock Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 border border-accent/40 rounded-full mb-6 backdrop-blur-sm">
-              <CheckCircle className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-primary-foreground">LOCK 1: CONTENT (FINAL, APPROVED)</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full mb-6 backdrop-blur-sm">
+              <Globe className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-primary-foreground/90">Sponsor Geography</span>
             </div>
             
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 leading-tight">
@@ -239,7 +238,7 @@ const GlobalCoverage = () => {
                   </div>
                   
                   <p className="text-foreground font-medium mb-4">Global Coverage enables GxPify to:</p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 mb-6">
                     {governanceEnables.map((item) => (
                       <li key={item} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
@@ -247,6 +246,10 @@ const GlobalCoverage = () => {
                       </li>
                     ))}
                   </ul>
+                  
+                  <p className="text-sm text-muted-foreground italic">
+                    Audit scope, interpretation, judgment, and reporting remain governed and consistent, irrespective of where sponsors operate globally.
+                  </p>
                 </div>
               </div>
 
@@ -275,6 +278,10 @@ const GlobalCoverage = () => {
                       </Link>
                     </p>
                   </div>
+                  
+                  <p className="text-sm text-muted-foreground mt-4 italic">
+                    Maintaining this separation avoids overstatement and preserves audit integrity.
+                  </p>
                 </div>
               </div>
 
@@ -282,7 +289,7 @@ const GlobalCoverage = () => {
               <div id="faqs" className="mb-16">
                 <div className="p-8 bg-card border border-border rounded-xl shadow-sm">
                   <h2 className="font-display text-2xl font-semibold text-foreground mb-6">
-                    Global Coverage — FAQs (Orientation)
+                    Global Coverage — FAQs
                   </h2>
                   <FAQAccordion faqs={pageFaqs} />
                 </div>
@@ -290,9 +297,12 @@ const GlobalCoverage = () => {
 
               {/* Pathways */}
               <div id="pathways" className="mb-16">
-                <h2 className="font-display text-2xl font-semibold text-foreground mb-6">
+                <h2 className="font-display text-2xl font-semibold text-foreground mb-4">
                   Pathways
                 </h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Global Coverage provides context for how audits are commissioned and relied upon.
+                </p>
                 <div className="grid gap-4">
                   {pathwayLinks.map((link) => (
                     <Link
