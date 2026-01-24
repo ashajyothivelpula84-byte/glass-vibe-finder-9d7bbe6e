@@ -235,10 +235,15 @@ export const mainNavLinks = [
       { label: 'GPvP Audit Services (Selective)', href: '/audits/gpvp' },
     ]
   },
-  { label: 'India & ASEAN Delivery', href: '/india-asean' },
-  { label: 'Global Coverage', href: '/global-coverage' },
+  {
+    label: 'Coverage & Delivery',
+    href: '/global-coverage',
+    children: [
+      { label: 'Global Coverage', href: '/global-coverage' },
+      { label: 'India & Regional Audit Delivery', href: '/india-asean' },
+    ]
+  },
   { label: 'Audit Governance & Methodology', href: '/audit-governance' },
-  { label: 'CAT Framework', href: '/cat-framework' },
   { label: 'Resources', href: '/resources' },
   { label: 'FAQs', href: '/faqs' },
   { label: 'About GxPify', href: '/about' },
