@@ -9,6 +9,7 @@ const GxpNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuditsOpen, setIsAuditsOpen] = useState(false);
+  const [isCoverageOpen, setIsCoverageOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -22,9 +23,11 @@ const GxpNavbar = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsAuditsOpen(false);
+    setIsCoverageOpen(false);
   }, [location]);
 
   const auditsLink = mainNavLinks.find(link => link.label === 'Audit Services');
+  const coverageLink = mainNavLinks.find(link => link.label === 'Coverage & Delivery');
 
   return (
     <header
@@ -80,8 +83,43 @@ const GxpNavbar = () => {
               )}
             </div>
 
-            {/* Other Nav Links (excluding Home, Audit Services, and Contact) */}
-            {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home' && link.label !== 'Contact').map((link) => (
+            {/* Coverage & Delivery Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setIsCoverageOpen(true)}
+                onMouseLeave={() => setIsCoverageOpen(false)}
+                className="flex items-center gap-1 px-3 py-2 text-xs font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
+              >
+                Coverage & Delivery
+                <ChevronDown className={`w-3 h-3 transition-transform ${isCoverageOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isCoverageOpen && (
+                <div
+                  onMouseEnter={() => setIsCoverageOpen(true)}
+                  onMouseLeave={() => setIsCoverageOpen(false)}
+                  className="absolute top-full left-0 mt-1 w-56 bg-card border border-border rounded-lg shadow-lg py-2 animate-fade-in"
+                >
+                  {coverageLink?.children?.map((child) => (
+                    <Link
+                      key={child.href}
+                      to={child.href}
+                      className="block px-4 py-2 text-xs text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Other Nav Links (excluding Home, Audit Services, Coverage & Delivery, and Contact) */}
+            {mainNavLinks.filter(link => 
+              link.label !== 'Audit Services' && 
+              link.label !== 'Home' && 
+              link.label !== 'Contact' && 
+              link.label !== 'Coverage & Delivery'
+            ).map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -141,8 +179,37 @@ const GxpNavbar = () => {
                 )}
               </div>
 
-              {/* Other Links (excluding Home, Audit Services, and Contact) */}
-              {mainNavLinks.filter(link => link.label !== 'Audit Services' && link.label !== 'Home' && link.label !== 'Contact').map((link) => (
+              {/* Coverage & Delivery Section */}
+              <div className="px-4">
+                <button
+                  onClick={() => setIsCoverageOpen(!isCoverageOpen)}
+                  className="flex items-center justify-between w-full py-2 text-base font-medium text-foreground"
+                >
+                  Coverage & Delivery
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isCoverageOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isCoverageOpen && (
+                  <div className="pl-4 space-y-1 mt-1">
+                    {coverageLink?.children?.map((child) => (
+                      <Link
+                        key={child.href}
+                        to={child.href}
+                        className="block py-2 text-sm text-muted-foreground hover:text-primary"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Other Links (excluding Home, Audit Services, Coverage & Delivery, and Contact) */}
+              {mainNavLinks.filter(link => 
+                link.label !== 'Audit Services' && 
+                link.label !== 'Home' && 
+                link.label !== 'Contact' && 
+                link.label !== 'Coverage & Delivery'
+              ).map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
